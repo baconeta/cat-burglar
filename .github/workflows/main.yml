@@ -6,6 +6,7 @@ jobs:
   build:
     name: Build my project ✨
     runs-on: ubuntu-latest
+    environment: build
     steps:
       # Checkout (without LFS)
       - name: Checkout repository
