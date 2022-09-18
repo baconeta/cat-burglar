@@ -55,8 +55,8 @@ jobs:
         with:
           targetPlatform: WebGL
 
-      # Output
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Build
-          path: build
+      # # Output
+      # - uses: actions/upload-artifact@v2
+      #   with:
+      #     name: Build
+      #     path: build
