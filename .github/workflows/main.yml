@@ -1,10 +1,10 @@
-name: Actions 😎
+name: Test and Build 😎
 
 on: [push, pull_request]
 
 jobs:
   build:
-    name: Test and build ✨
+    name: Test and build WebGL ✨
     runs-on: ubuntu-latest
     environment: build
     steps:
