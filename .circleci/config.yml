@@ -1,0 +1,177 @@
+version: '2.1'
+orbs:
+  unity: game-ci/unity@1.1.0
+workflows:
+  test-build-with-executors:
+    jobs:
+      - checkout
+      - unity/test:
+          context: unity-orb
+          executor:
+            editor_version: 2021.3.10f1
+            name: unity/ubuntu
+            resource_class: medium
+            target_platform: linux-il2cpp
+          name: test-linux
+          step-name: Run tests on Linux
+          test-platform: playmode
+          unity-password-var-name: UNITY_PASSWORD
+          unity-serial-var-name: UNITY_SERIAL
+          unity-username-var-name: UNITY_USERNAME
+      - unity/test:
+          context: unity-orb
+          executor:
+            editor_version: 2021.3.10f1
+            name: unity/windows-2019
+            size: large
+            target_platform: windows-il2cpp
+          name: test-windows
+          step-name: Run tests on Windows
+          test-platform: playmode
+          unity-password-var-name: UNITY_PASSWORD
+          unity-serial-var-name: UNITY_SERIAL
+          unity-username-var-name: UNITY_USERNAME
+      - unity/build:
+          build-target: StandaloneLinux64
+          compress: true
+          context: unity-orb
+          executor:
+            editor_version: 2021.3.10f1
+            name: unity/ubuntu
+            resource_class: large
+            target_platform: linux-il2cpp
+          name: build-linux64-il2cpp
+          requires:
+            - test-linux
+          step-name: Build StandaloneLinux64 using IL2CPP
+          unity-password-var-name: UNITY_PASSWORD
+          unity-serial-var-name: UNITY_SERIAL
+          unity-username-var-name: UNITY_USERNAME
+      - unity/build:
+          build-target: StandaloneWindows64
+          compress: true
+          context: unity-orb
+          executor:
+            editor_version: 2021.3.10f1
+            name: unity/windows-2019
+            size: large
+            target_platform: windows-il2cpp
+          name: build-windows64-il2cpp
+          requires:
+            - test-windows
+          step-name: Build StandaloneWindows64 using IL2CPP
+          unity-password-var-name: UNITY_PASSWORD
+          unity-serial-var-name: UNITY_SERIAL
+          unity-username-var-name: UNITY_USERNAME
+      - unity/build:
+          build-target: StandaloneWindows64
+          compress: true
+          context: unity-orb
+          executor:
+            editor_version: 2021.3.10f1
+            name: unity/windows-2019-cuda
+            size: medium
+            target_platform: windows-il2cpp
+          name: build-windows64-il2cpp-cuda
+          requires:
+            - test-windows
+          step-name: Build StandaloneWindows64 using IL2CPP and CUDA executor
+          unity-password-var-name: UNITY_PASSWORD
+          unity-serial-var-name: UNITY_SERIAL
+          unity-username-var-name: UNITY_USERNAME
+      - unity/build:
+          build-target: StandaloneLinux64
+          compress: true
+          context: unity-orb
+          executor:
+            editor_version: 2021.3.10f1
+            name: unity/ubuntu
+            resource_class: large
+            target_platform: base
+          name: build-linux64-mono
+          requires:
+            - test-linux
+          step-name: Build StandaloneLinux64 using Mono
+          unity-password-var-name: UNITY_PASSWORD
+          unity-serial-var-name: UNITY_SERIAL
+          unity-username-var-name: UNITY_USERNAME
+      - unity/build:
+          build-target: StandaloneWindows64
+          context: unity-orb
+          executor:
+            editor_version: 2021.3.10f1
+            name: unity/ubuntu
+            resource_class: large
+            target_platform: windows-mono
+          name: build-windows64-mono
+          requires:
+            - test-linux
+          step-name: Build StandaloneWindows64 using Mono
+          unity-password-var-name: UNITY_PASSWORD
+          unity-serial-var-name: UNITY_SERIAL
+          unity-username-var-name: UNITY_USERNAME
+      - unity/build:
+          build-target: StandaloneOSX
+          context: unity-orb
+          executor:
+            editor_version: 2021.3.10f1
+            name: unity/ubuntu
+            resource_class: large
+            target_platform: mac-mono
+          name: build-osx-mono
+          requires:
+            - test-linux
+          step-name: Build StandaloneOSX using Mono
+          unity-password-var-name: UNITY_PASSWORD
+          unity-serial-var-name: UNITY_SERIAL
+          unity-username-var-name: UNITY_USERNAME
+      - unity/build:
+          build-target: WebGL
+          compress: false
+          context: unity-orb
+          executor:
+            editor_version: 2021.3.10f1
+            name: unity/ubuntu
+            resource_class: large
+            target_platform: webgl
+          name: build-webgl
+          requires:
+            - test-linux
+          step-name: Build WebGL
+          unity-password-var-name: UNITY_PASSWORD
+          unity-serial-var-name: UNITY_SERIAL
+          unity-username-var-name: UNITY_USERNAME
+  test-build-with-windows-runner:
+    jobs:
+      - checkout
+      - unity/test:
+          context: unity-orb
+          executor:
+            editor_version: 2021.3.10f1
+            name: unity/windows-runner
+            resource_class: namespace/resource-class-label
+            target_platform: windows-il2cpp
+            working_directory: 'C:\Users\circleci\AppData\Local\Temp\Workdir'
+          name: test-windows
+          step-name: Run tests on Windows
+          test-platform: playmode
+          unity-password-var-name: UNITY_PASSWORD
+          unity-serial-var-name: UNITY_SERIAL
+          unity-username-var-name: UNITY_USERNAME
+      - unity/build:
+          build-target: StandaloneWindows64
+          compress: true
+          context: unity-orb
+          executor:
+            editor_version: 2021.3.10f1
+            name: unity/windows-runner
+            resource_class: namespace/resource-class-label
+            target_platform: windows-il2cpp
+            working_directory: 'C:\Users\circleci\AppData\Local\Temp\Workdir'
+          name: build-windows64-il2cpp
+          requires:
+            - test-windows
+          step-name: Build StandaloneWindows64 using IL2CPP
+          unity-password-var-name: UNITY_PASSWORD
+          unity-serial-var-name: UNITY_SERIAL
+          unity-username-var-name: UNITY_USERNAME
