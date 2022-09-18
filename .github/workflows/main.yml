@@ -11,6 +11,8 @@ jobs:
       # Checkout (without LFS)
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          lfs: true
 
       # Git LFS
       - name: Create LFS file list
