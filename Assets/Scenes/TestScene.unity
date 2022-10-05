@@ -342,7 +342,7 @@ MonoBehaviour:
   playerHeight: 0.1
   groundObjects:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 648
   catOrientation: {fileID: 196816421}
   rb: {fileID: 451697705}
 --- !u!1 &573949762

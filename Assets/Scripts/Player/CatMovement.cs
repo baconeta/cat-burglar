@@ -12,9 +12,6 @@ namespace Player
         public float airMultiplier;
         private bool _readyToJump;
 
-        [HideInInspector] public float walkSpeed;
-        [HideInInspector] public float sprintSpeed;
-
         [Header("Keybindings")]
         public KeyCode jumpKey = KeyCode.Space;
 

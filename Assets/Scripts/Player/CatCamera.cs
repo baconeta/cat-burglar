@@ -4,8 +4,6 @@ namespace Player
 {
     public class CatCamera : MonoBehaviour
     {
-        [SerializeField] private Rigidbody rb;
-        [SerializeField] private ControllerManager cm;
         public Transform playerOrientation;
 
         public float xSensitivity = 10f;
@@ -13,13 +11,6 @@ namespace Player
 
         private float _rotationX;
         private float _rotationY;
-
-        private void Start()
-        {
-            // if (!rb) rb = GetComponent<Rigidbody>();
-            if (!cm) cm = FindObjectOfType<ControllerManager>();
-        }
-
 
         private void Update()
         {
