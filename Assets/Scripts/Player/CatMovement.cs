@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Player
@@ -18,18 +20,19 @@ namespace Player
         [Header("Keybindings")]
         public KeyCode jumpKey = KeyCode.Space;
 
-        [Header("Ground Check")]
+        [Header("Ground Check")] 
         public float playerHeight;
         public LayerMask groundObjects;
         private bool _grounded;
 
         [SerializeField] private Transform catOrientation;
         [SerializeField] private Rigidbody rb;
-
+        
         private float _horizontalInput;
         private float _verticalInput;
         private Vector3 _moveDirection;
 
+        
 
         private void Start()
         {
@@ -81,8 +84,8 @@ namespace Player
             // Limit velocity 
             if (flatVelocity.magnitude > moveSpeed)
             {
-                Vector3 limitedVelocity = flatVelocity.normalized * moveSpeed;
-                rb.velocity = new Vector3(limitedVelocity.x, rb.velocity.y, limitedVelocity.z);
+                Vector3 limitedVel = flatVelocity.normalized * moveSpeed;
+                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
             }
         }
 
@@ -96,7 +99,9 @@ namespace Player
             if (Input.GetKey(jumpKey) && _readyToJump && _grounded)
             {
                 _readyToJump = false;
+
                 Jump();
+
                 Invoke(nameof(ResetJump), jumpCooldown);
             }
         }
