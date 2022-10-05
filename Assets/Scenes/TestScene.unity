@@ -336,8 +336,6 @@ MonoBehaviour:
   jumpForce: 8
   jumpCooldown: 0.6
   airMultiplier: 0.3
-  walkSpeed: 0
-  sprintSpeed: 0
   jumpKey: 32
   playerHeight: 0.1
   groundObjects:
@@ -442,8 +440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07012438431c0649a41dec79d321942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  cm: {fileID: 0}
   playerOrientation: {fileID: 196816421}
   xSensitivity: 450
   ySensitivity: 450
@@ -830,6 +826,6 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: bef96b6e1cd37444fa6937ae99361014, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a3cd22eceea5e8548b10cdb5d9b49a25, type: 2}
+      objectReference: {fileID: 2100000, guid: 4072c9cfb16c5744a96e86c34857ec3c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bef96b6e1cd37444fa6937ae99361014, type: 3}
