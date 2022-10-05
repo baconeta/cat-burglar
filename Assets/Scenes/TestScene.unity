@@ -331,11 +331,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9830f536f68abd448a27716df6c379c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  groundDrag: 7
-  jumpForce: 7
-  jumpCooldown: 1
-  airMultiplier: 0.8
+  moveSpeed: 3
+  groundDrag: 8
+  jumpForce: 8
+  jumpCooldown: 0.6
+  airMultiplier: 0.3
   walkSpeed: 0
   sprintSpeed: 0
   jumpKey: 32
