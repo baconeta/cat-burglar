@@ -18426,8 +18426,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOrientation: {fileID: 899708524}
-  xSensitivity: 450
-  ySensitivity: 450
+  xSensitivity: 4
+  ySensitivity: 4
 --- !u!81 &569951378
 AudioListener:
   m_ObjectHideFlags: 0
@@ -23266,7 +23266,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &709949560
 GameObject:
@@ -37545,7 +37545,7 @@ Transform:
   - {fileID: 1151221725}
   - {fileID: 644969548}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1136649631
 GameObject:
@@ -57786,7 +57786,7 @@ Transform:
   m_Children:
   - {fileID: 1480958691}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1793556683
 GameObject:
