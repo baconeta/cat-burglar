@@ -6,7 +6,7 @@ namespace Player
     {
         public Transform playerOrientation;
 
-        public float xSensitivity = 10f;
+        public float xSensitivity = 5f;
         public float ySensitivity = 5f;
 
         private float _rotationX;
@@ -19,9 +19,8 @@ namespace Player
 
         private void TurnCamera()
         {
-            // Get the mouse inputs
-            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * xSensitivity;
-            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * ySensitivity;
+            float mouseX = Input.GetAxisRaw("Mouse X") * xSensitivity;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * ySensitivity;
 
             // Handle vertical look
             _rotationX -= mouseY;
