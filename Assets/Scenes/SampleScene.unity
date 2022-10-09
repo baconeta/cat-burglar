@@ -21774,7 +21774,7 @@ Transform:
   m_GameObject: {fileID: 521173048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 5.3, z: -166}
-  m_LocalScale: {x: 2, y: 5, z: 4}
+  m_LocalScale: {x: 2, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2010404627}
@@ -21794,13 +21794,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9830f536f68abd448a27716df6c379c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  groundDrag: 8
-  jumpForce: 8
+  moveSpeed: 12
+  groundDrag: 9
+  jumpForce: 12
   jumpCooldown: 0.6
-  airMultiplier: 0.3
+  airMultiplier: 0.2
   jumpKey: 32
-  playerHeight: 0.2
+  playerHeight: 1
   groundObjects:
     serializedVersion: 2
     m_Bits: 648
@@ -21817,7 +21817,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2, z: 0.6}
+  m_Size: {x: 0.2, y: 1, z: 0.6}
   m_Center: {x: -0.1109972, y: 0, z: 0.05999583}
 --- !u!54 &521173052
 Rigidbody:
