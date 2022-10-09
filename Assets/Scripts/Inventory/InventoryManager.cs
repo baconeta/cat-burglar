@@ -16,6 +16,8 @@ namespace Inventory
         public void AddToInventory(CollectibleBase item)
         {
             _inInventory.Add(item);
+
+            Debug.Log("Added " + item.itemName + " to the inventory.");
         }
 
         public List<CollectibleBase> GetInventory()
