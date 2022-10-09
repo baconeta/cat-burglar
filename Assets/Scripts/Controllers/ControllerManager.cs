@@ -1,5 +1,8 @@
+using System;
 using UnityEngine;
 
+
+// TODO make all controllers singletons?
 namespace Controllers
 {
     /// <summary>
@@ -12,11 +15,26 @@ namespace Controllers
         [Tooltip("A controller for managing base setup and current state of the game.")] [SerializeField]
         private GameController gameController;
 
+        [Tooltip("A controller that handles the administration of tasks for the player to complete")] [SerializeField]
+        private TaskController taskController;
+
+        [Tooltip("A controller that handles the dynamic HUD elements")] [SerializeField]
+        private HUDController hudController;
+
+        [Tooltip("A controller that handles the inventory for the player")] [SerializeField]
+        private InventoryManager inventoryManager;
+
         public GameController GameController => gameController;
+        public TaskController TaskController => taskController;
+        public HUDController HUDController => hudController;
+        public InventoryManager InventoryManager => inventoryManager;
 
         private void Start()
         {
             if (!gameController) gameController = FindObjectOfType<GameController>();
+            if (!taskController) taskController = FindObjectOfType<TaskController>();
+            if (!hudController) hudController = FindObjectOfType<HUDController>();
+            if (!inventoryManager) inventoryManager = FindObjectOfType<InventoryManager>();
         }
     }
 }
