@@ -4119,7 +4119,7 @@ GameObject:
   - component: {fileID: 103064411}
   m_Layer: 0
   m_Name: InventoryController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14059,7 +14059,7 @@ GameObject:
   - component: {fileID: 283067683}
   m_Layer: 0
   m_Name: HUDController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16410,7 +16410,7 @@ GameObject:
   - component: {fileID: 336664984}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16818,50 +16818,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342839657}
   m_Mesh: {fileID: 0}
---- !u!1 &346561399
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 346561400}
-  - component: {fileID: 346561401}
-  m_Layer: 0
-  m_Name: InventoryManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &346561400
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 346561399}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1176443181}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &346561401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 346561399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54e203f20c38f4e4cb3c3090746c8cad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &353572538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18447,7 +18403,7 @@ Transform:
   m_Children:
   - {fileID: 569951376}
   m_Father: {fileID: 1176443181}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &400420343
 MonoBehaviour:
@@ -22040,7 +21996,7 @@ Transform:
   - {fileID: 2010404627}
   - {fileID: 899708524}
   m_Father: {fileID: 1176443181}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &521173050
 MonoBehaviour:
@@ -36587,7 +36543,7 @@ GameObject:
   - component: {fileID: 860866151}
   m_Layer: 0
   m_Name: TaskController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50978,7 +50934,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 346561400}
   - {fileID: 400420342}
   - {fileID: 521173049}
   m_Father: {fileID: 0}
@@ -60588,7 +60543,7 @@ GameObject:
   - component: {fileID: 1480958692}
   m_Layer: 0
   m_Name: ControllerManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74546,7 +74501,7 @@ GameObject:
   - component: {fileID: 1791790697}
   m_Layer: 0
   m_Name: == Controllers ==
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
