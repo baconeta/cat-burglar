@@ -1,6 +1,6 @@
 using System;
 
-namespace Inventory.Items
+namespace Inventory
 {
     public struct InventoryItem
     {

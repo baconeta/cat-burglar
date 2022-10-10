@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Inventory;
 using Tasks;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace Controllers
         {
             CollectItem,
             ReturnItem
+
             // TODO add other task types here?
         }
 
@@ -32,7 +34,7 @@ namespace Controllers
         {
             _allTasks.Add(task);
             _cm.HUDController.UpdateHUD();
-            
+
             if (_cm.GameController.debugMode) Debug.Log("New task - " + task.TaskText + " - added.");
         }
 
@@ -48,6 +50,30 @@ namespace Controllers
         public bool AllTasksCompleted()
         {
             return _allTasks.All(taskBase => taskBase.Completed);
+        }
+
+        /// <summary>
+        /// Called publicly when something happens in game that might mark a task as complete - now we check
+        /// all incomplete tasks and mark any newly completed tasks as completed
+        /// </summary>
+        /// <param name="type"> The task types to check for completion. </param>
+        /// <param name="item"> The item type relevant to this call </param>
+        public void CheckTasks(TaskType type, InventoryItem item)
+        {
+            foreach (TaskBase task in _allTasks)
+            {
+                // If we have an incomplete task of this type
+                if (type == task.TaskType && !task.Completed)
+                {
+                    // Mark it as complete if the item type is correct
+                    if (item.ObjectType == task.ItemType)
+                    {
+                        // TODO
+                        if (_cm.GameController.debugMode) Debug.Log("Task completed - " + task.TaskText);
+                    }
+                }
+            }
+            // TODO tell the HUD system to update if a task was updated
         }
     }
 }

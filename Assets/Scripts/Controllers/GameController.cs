@@ -1,8 +1,12 @@
+using Inventory.Items;
 using Tasks;
 using UnityEngine;
 
 namespace Controllers
 {
+    /// <summary>
+    /// This class should handle and deal with game loop logic - pause, game progression, etc
+    /// </summary>
     public class GameController : MonoBehaviour
     {
         private ControllerManager _cm;
@@ -34,7 +38,7 @@ namespace Controllers
 
         private void TestGameMode()
         {
-            TaskBase newTask = new("Collect an apple", TaskController.TaskType.CollectItem);
+            TaskBase newTask = new("Collect an apple", TaskController.TaskType.CollectItem, typeof(Apple));
             _cm.TaskController.AddTask(newTask);
         }
     }

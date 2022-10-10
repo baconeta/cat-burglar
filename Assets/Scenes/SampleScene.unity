@@ -18721,8 +18721,8 @@ GameObject:
   - component: {fileID: 416485884}
   - component: {fileID: 416485883}
   - component: {fileID: 416485882}
-  - component: {fileID: 416485881}
   - component: {fileID: 416485886}
+  - component: {fileID: 416485887}
   m_Layer: 12
   m_Name: AppleTest
   m_TagString: Collectible
@@ -18730,20 +18730,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &416485881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416485880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14bff5406ead0824486d147bcf1eb4b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Red Apple
-  canBePickedUp: 1
 --- !u!135 &416485882
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18835,6 +18821,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &416485887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416485880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423aeea7427bdb343b983c94be23d4ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Red Apple
+  canBePickedUp: 1
 --- !u!1001 &430591232
 PrefabInstance:
   m_ObjectHideFlags: 0
