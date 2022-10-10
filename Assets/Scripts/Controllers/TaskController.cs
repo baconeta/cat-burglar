@@ -33,7 +33,7 @@ namespace Controllers
             _allTasks.Add(task);
             _cm.HUDController.UpdateHUD();
             
-            if (_cm.GameController.debugMode) Debug.Log("New task - " + task.taskText + " - added.");
+            if (_cm.GameController.debugMode) Debug.Log("New task - " + task.TaskText + " - added.");
         }
 
         public IEnumerable<TaskBase> GetTasks()
@@ -47,7 +47,7 @@ namespace Controllers
         /// <returns> true if all tasks are completed, false if not </returns>
         public bool AllTasksCompleted()
         {
-            return _allTasks.All(taskBase => taskBase.completed);
+            return _allTasks.All(taskBase => taskBase.Completed);
         }
     }
 }

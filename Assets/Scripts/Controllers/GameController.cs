@@ -1,4 +1,3 @@
-using System;
 using Tasks;
 using UnityEngine;
 
@@ -35,9 +34,7 @@ namespace Controllers
 
         private void TestGameMode()
         {
-            TaskBase newTask = ScriptableObject.CreateInstance<TaskBase>();
-            newTask.taskText = "Collect an apple";
-            newTask.taskType = TaskController.TaskType.CollectItem;
+            TaskBase newTask = new("Collect an apple", TaskController.TaskType.CollectItem);
             _cm.TaskController.AddTask(newTask);
         }
     }

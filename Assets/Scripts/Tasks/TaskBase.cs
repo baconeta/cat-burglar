@@ -1,19 +1,18 @@
 using Controllers;
-using UnityEngine;
 
 namespace Tasks
 {
-    public class TaskBase : ScriptableObject
+    public struct TaskBase
     {
-        public string taskText;
-        public TaskController.TaskType taskType;
-        public bool completed;
+        public string TaskText;
+        public TaskController.TaskType TaskType;
+        public bool Completed;
 
         public TaskBase(string taskText, TaskController.TaskType taskType)
         {
-            this.taskText = taskText;
-            this.taskType = taskType;
-            completed = false;
+            TaskText = taskText;
+            TaskType = taskType;
+            Completed = false;
         }
     }
 }
