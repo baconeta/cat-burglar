@@ -18739,7 +18739,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 416485880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 423aeea7427bdb343b983c94be23d4ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 14bff5406ead0824486d147bcf1eb4b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Red Apple
@@ -18815,7 +18815,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416485880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.461278, y: 3.34, z: -77.23016}
+  m_LocalPosition: {x: 22.36, y: 1.85, z: -122.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

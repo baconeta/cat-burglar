@@ -22,9 +22,17 @@ namespace Inventory
             // When collected add it to the inventory then remove it from the game world
             _im.AddToInventory(this);
 
-            // TODO remove item from game world
-            // Could have a cool pop up here, play a sound, hide the object from the game world, etc
-            // We should not destroy it here as IM will hold a reference to null in that case
+            Destroy(gameObject);
+            // TODO Could have a cool pop up here, play a sound, hide the object from the game world, etc
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            // We want to pick up the item from the game world if the player collides with it
+            if (other.gameObject.CompareTag("Player") && canBePickedUp)
+            {
+                PickupItem();
+            }
         }
     }
 }
