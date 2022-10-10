@@ -40,6 +40,10 @@ namespace Controllers
         {
             TaskBase newTask = new("Collect an apple", TaskController.TaskType.CollectItem, typeof(Apple));
             _cm.TaskController.AddTask(newTask);
+
+            TaskBase newTask2 = new("Retrieve a halloween pumpkin.", TaskController.TaskType.ReturnItem,
+                typeof(Pumpkin));
+            _cm.TaskController.AddTask(newTask2);
         }
     }
 }

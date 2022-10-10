@@ -28,7 +28,7 @@ namespace Controllers
             InventoryItem newItem = new(item.itemName, item, 1);
             _inInventory.Add(newItem);
             _cm.HUDController.UpdateHUD();
-            
+
             // Inform the task controller to check the list of tasks for this particular task
             _cm.TaskController.CheckTasks(TaskController.TaskType.CollectItem, newItem);
 
@@ -38,6 +38,20 @@ namespace Controllers
         public IEnumerable<InventoryItem> GetInventory()
         {
             return _inInventory;
+        }
+
+        public void DropOffItems()
+        {
+            if (_cm.GameController.debugMode) Debug.Log("Dropping all items to the return spot.");
+            // TODO make X number of items a requirement/check condition?
+            foreach (InventoryItem item in _inInventory)
+            {
+                _cm.TaskController.CheckTasks(TaskController.TaskType.ReturnItem, item);
+                if (_cm.GameController.debugMode) Debug.Log("Item " + item.ItemName + " returned.");
+            }
+
+            // For now we assume everything is dropped off but maybe we can extend this to X items later
+            _inInventory.Clear();
         }
     }
 }

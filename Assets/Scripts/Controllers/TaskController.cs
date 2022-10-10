@@ -68,12 +68,11 @@ namespace Controllers
                     // Mark it as complete if the item type is correct
                     if (item.ObjectType == task.ItemType)
                     {
-                        // TODO
+                        // TODO mark task as completed internally, display to HUD, check if game loop completed
                         if (_cm.GameController.debugMode) Debug.Log("Task completed - " + task.TaskText);
                     }
                 }
             }
-            // TODO tell the HUD system to update if a task was updated
         }
     }
 }

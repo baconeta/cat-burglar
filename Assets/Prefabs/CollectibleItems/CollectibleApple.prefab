@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 626377891032342990}
   - component: {fileID: 626377891032342988}
   - component: {fileID: 626377891032342989}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 626377892082658028}
   - component: {fileID: 626377892082658026}
   - component: {fileID: 626377892082658027}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 2124167051073050869}
   - component: {fileID: 1599162701626212942}
   - component: {fileID: 1599162701626212941}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: CollectibleApple
   m_TagString: Collectible
   m_Icon: {fileID: 0}
