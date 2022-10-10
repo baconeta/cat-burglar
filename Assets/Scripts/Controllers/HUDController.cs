@@ -11,7 +11,7 @@ namespace Controllers
     {
         private ControllerManager _cm;
 
-        private void Start()
+        private void Awake()
         {
             _cm = FindObjectOfType<ControllerManager>();
         }

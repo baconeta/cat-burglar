@@ -1,3 +1,4 @@
+using System;
 using Tasks;
 using UnityEngine;
 
@@ -10,10 +11,13 @@ namespace Controllers
         public bool debugMode;
         public bool testGameMode;
 
-        private void Start()
+        private void Awake()
         {
             _cm = FindObjectOfType<ControllerManager>();
+        }
 
+        private void Start()
+        {
             GameWindowManagement();
 
             // Handy to use when building manual game logic 

@@ -10,7 +10,7 @@ namespace Controllers
         private List<CollectibleBase> _inInventory;
         private ControllerManager _cm;
 
-        private void Start()
+        private void Awake()
         {
             _inInventory = new List<CollectibleBase>();
 

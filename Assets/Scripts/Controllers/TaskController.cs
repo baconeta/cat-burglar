@@ -22,7 +22,7 @@ namespace Controllers
         private int _numTasksCompleted;
         private List<TaskBase> _allTasks;
 
-        private void Start()
+        private void Awake()
         {
             _cm = FindObjectOfType<ControllerManager>();
             _allTasks = new List<TaskBase>();
