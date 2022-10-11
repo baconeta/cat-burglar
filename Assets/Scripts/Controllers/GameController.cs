@@ -11,6 +11,13 @@ namespace Controllers
     {
         private ControllerManager _cm;
 
+        [Header("Game Loop Logic")]
+        private int _tasksCompleted;
+        private int _roundsCompleted;
+        public int tasksPerRound;
+        public int roundsToComplete;
+        
+        [Header("Debugging")]
         public bool debugMode;
         public bool testGameMode;
 
@@ -28,6 +35,10 @@ namespace Controllers
             {
                 TestGameMode();
             }
+            else
+            {
+                StartRound();
+            }
         }
 
         private static void GameWindowManagement()
@@ -44,6 +55,25 @@ namespace Controllers
             TaskBase newTask2 = new("Retrieve a halloween pumpkin.", TaskController.TaskType.ReturnItem,
                 typeof(Pumpkin));
             _cm.TaskController.AddTask(newTask2);
+        }
+
+        private void StartRound()
+        {
+            // Set up a round with a series of tasks - possibly we could design all possible task types in the editor or separately
+        }
+
+        public void EndRound()
+        {
+            // This should handle some scoring and add it to the total score, increase the rounds completed
+            // Once we have done all the rounds we should call EndGame()
+        }
+
+        public void EndGame()
+        {
+            // We may have to flesh out a bunch of logic to use a var like bool gameRunning so we can prevent input,
+            // and ai actions once the game stops
+            // Here we would show the end game screen and let the user select play again/go to menu/ etc
+            // We could also very easily have local high scores here (simple to implement)
         }
     }
 }
