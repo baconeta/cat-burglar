@@ -52,6 +52,8 @@ namespace Controllers
 
             // For now we assume everything is dropped off but maybe we can extend this to X items later
             _inInventory.Clear();
+
+            _cm.HUDController.UpdateHUD();
         }
     }
 }
