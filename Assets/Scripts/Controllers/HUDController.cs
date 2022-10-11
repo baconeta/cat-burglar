@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using Tasks;
+using TMPro;
 using UnityEngine;
 
 namespace Controllers
@@ -10,6 +10,8 @@ namespace Controllers
     public class HUDController : MonoBehaviour
     {
         private ControllerManager _cm;
+        [SerializeField] private GameObject taskListHUD;
+        [SerializeField] private GameObject newBlankTask;
 
         private void Awake()
         {
@@ -27,17 +29,42 @@ namespace Controllers
             UpdateInventory();
         }
 
-        private void UpdateTasks()
+        private void UpdateInventory()
         {
             var items = _cm.InventoryManager.GetInventory();
             // update each inventory slot sprite on screen
         }
 
-        private void UpdateInventory()
+        private void UpdateTasks()
         {
-            var items = _cm.TaskController.GetTasks();
-            // draw each task name on the screen
-            // add strikethrough to the text component if task is completed
+            // Clear all HUD tasks first
+            foreach (Transform child in taskListHUD.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            // Refresh tasks back to HUD
+            var tasks = _cm.TaskController.GetTasks();
+            foreach (TaskBase task in tasks)
+            {
+                AddTaskToHUD(task);
+            }
+        }
+
+        private void AddTaskToHUD(TaskBase task)
+        {
+            // Creates a text game object for displaying the text on screen
+            GameObject taskTextObject = Instantiate(newBlankTask, taskListHUD.transform, true);
+            TMP_Text taskText = taskTextObject.GetComponent<TMP_Text>();
+            taskText.SetText(task.TaskText);
+            if (task.Completed) MarkTaskDone(taskText);
+        }
+
+        // Add any change to text/font styles for completed tasks here
+        private static void MarkTaskDone(TMP_Text taskText)
+        {
+            taskText.fontStyle = FontStyles.Strikethrough;
+            taskText.color = new Color(0.1726f, 0.7178f, 0.2706f);
         }
     }
 }

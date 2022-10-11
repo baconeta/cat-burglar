@@ -4,7 +4,7 @@ using Inventory;
 
 namespace Tasks
 {
-    public struct TaskBase
+    public class TaskBase
     {
         public string TaskText;
         public TaskController.TaskType TaskType;
@@ -17,6 +17,11 @@ namespace Tasks
             TaskType = taskType;
             Completed = false;
             ItemType = itemType;
+        }
+
+        public void MarkDone()
+        {
+            Completed = true;
         }
     }
 }

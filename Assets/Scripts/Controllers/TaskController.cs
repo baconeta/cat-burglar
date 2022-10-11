@@ -62,17 +62,16 @@ namespace Controllers
         {
             foreach (TaskBase task in _allTasks)
             {
-                // If we have an incomplete task of this type
-                if (type == task.TaskType && !task.Completed)
+                // Check if we have completed any of the incomplete tasks
+                if (type == task.TaskType && !task.Completed && item.ObjectType == task.ItemType)
                 {
-                    // Mark it as complete if the item type is correct
-                    if (item.ObjectType == task.ItemType)
-                    {
-                        // TODO mark task as completed internally, display to HUD, check if game loop completed
-                        if (_cm.GameController.debugMode) Debug.Log("Task completed - " + task.TaskText);
-                    }
+                    task.MarkDone();
+
+                    if (_cm.GameController.debugMode) Debug.Log("Task completed - " + task.TaskText);
                 }
             }
+
+            _cm.HUDController.UpdateHUD();
         }
     }
 }
