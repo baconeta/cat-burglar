@@ -7,10 +7,11 @@ namespace Inventory
     [RequireComponent(typeof(Sprite))] // this is the inventory representation of the item
     public class CollectibleBase : MonoBehaviour
     {
-        public string itemName;
-
         private InventoryManager _im;
+
+        public string itemName;
         public bool canBePickedUp = true;
+        public Sprite inventorySprite;
 
         private void Start()
         {

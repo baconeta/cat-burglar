@@ -1,6 +1,8 @@
+using Inventory;
 using Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Controllers
 {
@@ -10,8 +12,12 @@ namespace Controllers
     public class HUDController : MonoBehaviour
     {
         private ControllerManager _cm;
-        [SerializeField] private GameObject taskListHUD;
+
+        [Header("Tasks")] [SerializeField] private GameObject taskListHUD;
         [SerializeField] private GameObject newBlankTask;
+
+        [Header("Inventory")] [SerializeField] private GameObject inventorySlotBox;
+        [SerializeField] private GameObject newBlankInventoryItem;
 
         private void Awake()
         {
@@ -31,8 +37,24 @@ namespace Controllers
 
         private void UpdateInventory()
         {
+            // Clear all inventory images first
+            foreach (Transform child in inventorySlotBox.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
             var items = _cm.InventoryManager.GetInventory();
-            // update each inventory slot sprite on screen
+            foreach (InventoryItem inventoryItem in items)
+            {
+                AddItemSpriteToHUD(inventoryItem);
+            }
+        }
+
+        private void AddItemSpriteToHUD(InventoryItem inventoryItem)
+        {
+            // Creates a sprite icon in the HUD inventory
+            GameObject itemPanelBox = Instantiate(newBlankInventoryItem, inventorySlotBox.transform, true);
+            itemPanelBox.GetComponent<InventoryPanel>().inventoryImageSpot.sprite = inventoryItem.InventoryImage;
         }
 
         private void UpdateTasks()
