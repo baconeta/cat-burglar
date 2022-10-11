@@ -112,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Halloween Pumpkin
   canBePickedUp: 1
+  inventorySprite: {fileID: 21300000, guid: 53eabf707b01c044597283fd9c0fe202, type: 3}

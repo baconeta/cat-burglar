@@ -87206,10 +87206,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1599162701626212942, guid: a0c881ce23720be48b4c0bfeead03d05, type: 3}
-      propertyPath: inventorySprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d075ad78297877244baa37c8268398ff, type: 3}
     - target: {fileID: 1599162701626212943, guid: a0c881ce23720be48b4c0bfeead03d05, type: 3}
       propertyPath: m_Name
       value: CollectibleApple
@@ -87271,10 +87267,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CollectiblePumpkin
       objectReference: {fileID: 0}
-    - target: {fileID: 5739989436155441642, guid: 70ce5ea8dacddcd4da96e4de5169c956, type: 3}
-      propertyPath: inventorySprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 53eabf707b01c044597283fd9c0fe202, type: 3}
     - target: {fileID: 5739989436155441643, guid: 70ce5ea8dacddcd4da96e4de5169c956, type: 3}
       propertyPath: m_RootOrder
       value: 9
