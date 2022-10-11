@@ -55,5 +55,17 @@ namespace Controllers
 
             _cm.HUDController.UpdateHUD();
         }
+
+        /// <summary>
+        /// Called when you want the player to have to drop all collected items - maybe caught by a patrol or something?
+        /// </summary>
+        public void ItemsDropped()
+        {
+            // This will need to spawn the items back to their starting positions? Might need game controller to do that
+            if (_cm.GameController.debugMode) Debug.Log("Dropping all items! Oops!");
+
+            _inInventory.Clear();
+            _cm.HUDController.UpdateHUD();
+        }
     }
 }
