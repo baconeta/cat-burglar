@@ -1,5 +1,4 @@
 using Controllers;
-using Inventory;
 using UnityEngine;
 
 namespace Tasks

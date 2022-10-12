@@ -2,7 +2,6 @@ using Inventory;
 using Tasks;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Controllers
 {
