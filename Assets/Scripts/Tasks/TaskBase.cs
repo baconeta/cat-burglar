@@ -3,6 +3,7 @@ using Controllers;
 
 namespace Tasks
 {
+    [Serializable]
     public class TaskBase
     {
         public string TaskText;

@@ -23,6 +23,8 @@ namespace Controllers
         private int _numTasksCompleted;
         private List<TaskBase> _allTasks;
 
+        public List<TaskBase> possibleTasks;
+
         private void Awake()
         {
             _cm = FindObjectOfType<ControllerManager>();
