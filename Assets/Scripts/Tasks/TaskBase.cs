@@ -1,6 +1,5 @@
 using System;
 using Controllers;
-using Inventory;
 
 namespace Tasks
 {

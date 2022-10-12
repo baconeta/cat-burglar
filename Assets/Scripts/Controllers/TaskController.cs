@@ -20,7 +20,6 @@ namespace Controllers
         }
 
         private ControllerManager _cm;
-
         private int _numTasksCompleted;
         private List<TaskBase> _allTasks;
 
@@ -66,7 +65,7 @@ namespace Controllers
                 if (type == task.TaskType && !task.Completed && item.ObjectType == task.ItemType)
                 {
                     task.MarkDone();
-
+                    _numTasksCompleted += 1;
                     if (_cm.GameController.debugMode) Debug.Log("Task completed - " + task.TaskText);
                 }
             }
