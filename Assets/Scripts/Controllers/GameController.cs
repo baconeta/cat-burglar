@@ -11,14 +11,12 @@ namespace Controllers
     {
         private ControllerManager _cm;
 
-        [Header("Game Loop Logic")]
-        private int _tasksCompleted;
+        [Header("Game Loop Logic")] private int _tasksCompleted;
         private int _roundsCompleted;
         public int tasksPerRound;
         public int roundsToComplete;
-        
-        [Header("Debugging")]
-        public bool debugMode;
+
+        [Header("Debugging")] public bool debugMode;
         public bool testGameMode;
 
         private void Awake()
@@ -60,6 +58,12 @@ namespace Controllers
         private void StartRound()
         {
             // Set up a round with a series of tasks - possibly we could design all possible task types in the editor or separately
+            for (int i = 0; i < tasksPerRound; i++)
+            {
+                // Create and add a task to the list
+                int task = Random.Range(0, _cm.TaskController.possibleTasks.Count);
+                _cm.TaskController.AddTask(_cm.TaskController.possibleTasks[task]);
+            }
         }
 
         public void EndRound()

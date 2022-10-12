@@ -16446,10 +16446,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8861b0f03efee9a4c9cc77f1b5d3acd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasksPerRound: 0
-  roundsToComplete: 0
+  tasksPerRound: 2
+  roundsToComplete: 1
   debugMode: 1
-  testGameMode: 1
+  testGameMode: 0
 --- !u!1 &337615378
 GameObject:
   m_ObjectHideFlags: 0
@@ -36718,7 +36718,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf9e00a0580b704faa5fa46e043c09c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleTasks: []
+  possibleTasks:
+  - taskText: Collect a red apple
+    taskType: 0
+    itemName: Apple
+    completed: 0
+  - taskText: Retrieve a red apple
+    taskType: 1
+    itemName: Apple
+    completed: 0
+  - taskText: Retrieve a pumpkin
+    taskType: 1
+    itemName: Pumpkin
+    completed: 0
+  - taskText: Collect a pumpkin
+    taskType: 0
+    itemName: Pumpkin
+    completed: 0
 --- !u!1 &864934590
 GameObject:
   m_ObjectHideFlags: 0

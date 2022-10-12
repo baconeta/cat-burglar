@@ -29,6 +29,11 @@ namespace Controllers
         {
             _cm = FindObjectOfType<ControllerManager>();
             _allTasks = new List<TaskBase>();
+
+            foreach (TaskBase t in possibleTasks)
+            {
+                t.PrepareTaskObjects();
+            }
         }
 
         public void AddTask(TaskBase task)
@@ -36,7 +41,7 @@ namespace Controllers
             _allTasks.Add(task);
             _cm.HUDController.UpdateHUD();
 
-            if (_cm.GameController.debugMode) Debug.Log("New task - " + task.TaskText + " - added.");
+            if (_cm.GameController.debugMode) Debug.Log("New task - " + task.taskText + " - added.");
         }
 
         public IEnumerable<TaskBase> GetTasks()
@@ -50,7 +55,7 @@ namespace Controllers
         /// <returns> true if all tasks are completed, false if not </returns>
         public bool AllTasksCompleted()
         {
-            return _allTasks.All(taskBase => taskBase.Completed);
+            return _allTasks.All(taskBase => taskBase.completed);
         }
 
         /// <summary>
@@ -63,12 +68,13 @@ namespace Controllers
         {
             foreach (TaskBase task in _allTasks)
             {
+                if (_cm.GameController.debugMode) Debug.Log("Task object - " + task.ItemType);
                 // Check if we have completed any of the incomplete tasks
-                if (type == task.TaskType && !task.Completed && item.ObjectType == task.ItemType)
+                if (type == task.taskType && !task.completed && item.ObjectType == task.ItemType)
                 {
                     task.MarkDone();
                     _numTasksCompleted += 1;
-                    if (_cm.GameController.debugMode) Debug.Log("Task completed - " + task.TaskText);
+                    if (_cm.GameController.debugMode) Debug.Log("Task completed - " + task.taskText);
                 }
             }
 

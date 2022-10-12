@@ -1,27 +1,45 @@
 using System;
 using Controllers;
+using UnityEngine;
 
 namespace Tasks
 {
-    [Serializable]
+    [Serializable, ExecuteInEditMode]
     public class TaskBase
     {
-        public string TaskText;
-        public TaskController.TaskType TaskType;
+        public string taskText;
+        public TaskController.TaskType taskType;
+        public string itemName;
         public Type ItemType;
-        public bool Completed;
+        public bool completed;
 
+        /// <summary>
+        /// Editor when built from script data manually
+        /// </summary>
         public TaskBase(string taskText, TaskController.TaskType taskType, Type itemType)
         {
-            TaskText = taskText;
-            TaskType = taskType;
-            Completed = false;
+            this.taskText = taskText;
+            this.taskType = taskType;
+            completed = false;
             ItemType = itemType;
+        }
+
+        public void PrepareTaskObjects()
+        {
+            if (ItemType == null && itemName != default)
+            {
+                ItemType = Type.GetType("Inventory.Items." + itemName);
+                Debug.Log(ItemType);
+            }
+            else
+            {
+                Debug.Log("Error - tried to create an object without an explicit type");
+            }
         }
 
         public void MarkDone()
         {
-            Completed = true;
+            completed = true;
         }
     }
 }
