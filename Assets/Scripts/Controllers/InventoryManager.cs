@@ -24,15 +24,16 @@ namespace Controllers
 
         public void AddToInventory(CollectibleBase item)
         {
+            if (_cm.GameController.debugMode) Debug.Log("Added " + item.itemName + " to the inventory.");
+
             // We will build and add an inventory representation of this object to the inventory
             InventoryItem newItem = new(item.itemName, item, 1);
             _inInventory.Add(newItem);
             _cm.HUDController.UpdateHUD();
 
             // Inform the task controller to check the list of tasks for this particular task
-            _cm.TaskController.CheckTasks(TaskController.TaskType.CollectItem, newItem);
-
-            if (_cm.GameController.debugMode) Debug.Log("Added " + item.itemName + " to the inventory.");
+            _cm.TaskController.CheckTasksOfType(TaskController.TaskType.CollectItem, newItem);
+            _cm.TaskController.CheckCompletion();
         }
 
         public IEnumerable<InventoryItem> GetInventory()
@@ -46,13 +47,13 @@ namespace Controllers
             // TODO make X number of items a requirement/check condition?
             foreach (InventoryItem item in _inInventory)
             {
-                _cm.TaskController.CheckTasks(TaskController.TaskType.ReturnItem, item);
                 if (_cm.GameController.debugMode) Debug.Log("Item " + item.ItemName + " returned.");
+                _cm.TaskController.CheckTasksOfType(TaskController.TaskType.ReturnItem, item);
             }
 
             // For now we assume everything is dropped off but maybe we can extend this to X items later
             _inInventory.Clear();
-
+            _cm.TaskController.CheckCompletion();
             _cm.HUDController.UpdateHUD();
         }
 

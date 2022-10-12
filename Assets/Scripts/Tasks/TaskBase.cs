@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Tasks
 {
-    [Serializable, ExecuteInEditMode]
+    [Serializable]
     public class TaskBase
     {
         public string taskText;
@@ -24,6 +24,9 @@ namespace Tasks
             ItemType = itemType;
         }
 
+        /// <summary>
+        /// Called during awake step to make sure any editor defined tasks have proper item objects attached
+        /// </summary>
         public void PrepareTaskObjects()
         {
             if (ItemType == null && itemName != default)

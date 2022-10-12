@@ -13,10 +13,13 @@ namespace Controllers
 
         [Header("Game Loop Logic")] private int _tasksCompleted;
         private int _roundsCompleted;
-        public int tasksPerRound;
-        public int roundsToComplete;
+        [Range(1, 8)] public int tasksPerRound;
+        [Range(1, 20)] public int roundsToComplete = 1;
 
-        [Header("Debugging")] public bool debugMode;
+        [Header("Debugging")] [Tooltip("Enable console logging for game loop logic.")]
+        public bool debugMode;
+
+        [Tooltip("Enables simple preconfigured game loop logic.")]
         public bool testGameMode;
 
         private void Awake()
@@ -57,11 +60,13 @@ namespace Controllers
 
         private void StartRound()
         {
+            if (_cm.GameController.debugMode) Debug.Log("Start round " + _roundsCompleted + 1);
+            
             // Set up a round with a series of tasks - possibly we could design all possible task types in the editor or separately
-            for (int i = 0; i < tasksPerRound; i++)
+            for (var i = 0; i < tasksPerRound; i++)
             {
                 // Create and add a task to the list
-                int task = Random.Range(0, _cm.TaskController.possibleTasks.Count);
+                var task = Random.Range(0, _cm.TaskController.possibleTasks.Count);
                 _cm.TaskController.AddTask(_cm.TaskController.possibleTasks[task]);
             }
         }
@@ -70,10 +75,23 @@ namespace Controllers
         {
             // This should handle some scoring and add it to the total score, increase the rounds completed
             // Once we have done all the rounds we should call EndGame()
+            _roundsCompleted += 1;
+            if (_cm.GameController.debugMode) Debug.Log("Completed round " + _roundsCompleted);
+
+            if (roundsToComplete > _roundsCompleted)
+            {
+                StartRound();
+            }
+            else
+            {
+                EndGame(true);
+            }
         }
 
-        public void EndGame()
+        private void EndGame(bool win)
         {
+            if (_cm.GameController.debugMode) Debug.Log("Game " + (win ? "won!" : "over!"));
+
             // We may have to flesh out a bunch of logic to use a var like bool gameRunning so we can prevent input,
             // and ai actions once the game stops
             // Here we would show the end game screen and let the user select play again/go to menu/ etc

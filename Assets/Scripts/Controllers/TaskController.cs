@@ -21,14 +21,14 @@ namespace Controllers
 
         private ControllerManager _cm;
         private int _numTasksCompleted;
-        private List<TaskBase> _allTasks;
+        private List<TaskBase> _currentTasks;
 
         public List<TaskBase> possibleTasks;
 
         private void Awake()
         {
             _cm = FindObjectOfType<ControllerManager>();
-            _allTasks = new List<TaskBase>();
+            _currentTasks = new List<TaskBase>();
 
             foreach (TaskBase t in possibleTasks)
             {
@@ -38,24 +38,23 @@ namespace Controllers
 
         public void AddTask(TaskBase task)
         {
-            _allTasks.Add(task);
-            _cm.HUDController.UpdateHUD();
-
             if (_cm.GameController.debugMode) Debug.Log("New task - " + task.taskText + " - added.");
+            _currentTasks.Add(task);
+            _cm.HUDController.UpdateHUD();
         }
 
         public IEnumerable<TaskBase> GetTasks()
         {
-            return _allTasks;
+            return _currentTasks;
         }
 
         /// <summary>
         /// Efficient check to see if all tasks are completed or not
         /// </summary>
         /// <returns> true if all tasks are completed, false if not </returns>
-        public bool AllTasksCompleted()
+        private bool AllTasksCompleted()
         {
-            return _allTasks.All(taskBase => taskBase.completed);
+            return _currentTasks.All(taskBase => taskBase.completed);
         }
 
         /// <summary>
@@ -64,21 +63,29 @@ namespace Controllers
         /// </summary>
         /// <param name="type"> The task types to check for completion. </param>
         /// <param name="item"> The item type relevant to this call </param>
-        public void CheckTasks(TaskType type, InventoryItem item)
+        public void CheckTasksOfType(TaskType type, InventoryItem item)
         {
-            foreach (TaskBase task in _allTasks)
+            foreach (TaskBase task in _currentTasks)
             {
-                if (_cm.GameController.debugMode) Debug.Log("Task object - " + task.ItemType);
                 // Check if we have completed any of the incomplete tasks
                 if (type == task.taskType && !task.completed && item.ObjectType == task.ItemType)
                 {
+                    if (_cm.GameController.debugMode) Debug.Log("Task completed - " + task.taskText);
                     task.MarkDone();
                     _numTasksCompleted += 1;
-                    if (_cm.GameController.debugMode) Debug.Log("Task completed - " + task.taskText);
                 }
             }
 
             _cm.HUDController.UpdateHUD();
+        }
+
+        public void CheckCompletion()
+        {
+            if (AllTasksCompleted() && _currentTasks.Count > 0)
+            {
+                _currentTasks.Clear();
+                _cm.GameController.EndRound();
+            }
         }
     }
 }
