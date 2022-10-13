@@ -1,22 +1,22 @@
+using Controllers;
 using UnityEngine;
 
 namespace Player
 {
     public class CatMovement : MonoBehaviour
     {
-        [Header("Movement")]
-        public float moveSpeed;
+        private ControllerManager _cm;
+
+        [Header("Movement")] public float moveSpeed;
         public float groundDrag;
         public float jumpForce;
         public float jumpCooldown;
         public float airMultiplier;
         private bool _readyToJump;
 
-        [Header("Keybindings")]
-        public KeyCode jumpKey = KeyCode.Space;
+        [Header("Keybindings")] public KeyCode jumpKey = KeyCode.Space;
 
-        [Header("Ground Check")]
-        public float playerHeight;
+        [Header("Ground Check")] public float playerHeight;
         public LayerMask groundObjects;
         private bool _grounded;
 
@@ -30,6 +30,7 @@ namespace Player
 
         private void Start()
         {
+            _cm = FindObjectOfType<ControllerManager>();
             rb = GetComponent<Rigidbody>();
             rb.freezeRotation = true;
 
@@ -38,6 +39,8 @@ namespace Player
 
         private void Update()
         {
+            if (!_cm.GameController.GameRunning()) return;
+
             // Check if on the ground or not
             _grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, groundObjects);
 
@@ -53,6 +56,7 @@ namespace Player
 
         private void FixedUpdate()
         {
+            if (!_cm.GameController.GameRunning()) return;
             MovePlayer();
         }
 

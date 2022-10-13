@@ -18,6 +18,9 @@ namespace Controllers
         [Header("Inventory")] [SerializeField] private GameObject inventorySlotBox;
         [SerializeField] private GameObject newBlankInventoryItem;
 
+        [Header("End Game Screen")] [SerializeField]
+        private GameObject endGamePanel;
+
         private void Awake()
         {
             _cm = FindObjectOfType<ControllerManager>();
@@ -86,6 +89,11 @@ namespace Controllers
         {
             taskText.fontStyle = FontStyles.Strikethrough;
             taskText.color = new Color(0.1726f, 0.7178f, 0.2706f);
+        }
+
+        public void ShowEndGameScreen()
+        {
+            endGamePanel.SetActive(true);
         }
     }
 }

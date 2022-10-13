@@ -13,6 +13,7 @@ namespace Controllers
 
         [Header("Game Loop Logic")] private int _tasksCompleted;
         private int _roundsCompleted;
+        private bool _gameRunning;
         [Range(1, 8)] public int tasksPerRound;
         [Range(1, 20)] public int roundsToComplete = 1;
 
@@ -29,7 +30,9 @@ namespace Controllers
 
         private void Start()
         {
-            GameWindowManagement();
+            CursorManagement(false);
+
+            _gameRunning = true;
 
             // Handy to use when building manual game logic 
             if (testGameMode)
@@ -42,10 +45,15 @@ namespace Controllers
             }
         }
 
-        private static void GameWindowManagement()
+        private static void CursorManagement(bool showCursor)
         {
-            Cursor.lockState = CursorLockMode.Locked; // has an issue with mouse delta spikes in frame 1
-            Cursor.visible = false;
+            Cursor.lockState = showCursor ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = showCursor;
+        }
+
+        public bool GameRunning()
+        {
+            return _gameRunning;
         }
 
         private void TestGameMode()
@@ -61,7 +69,7 @@ namespace Controllers
         private void StartRound()
         {
             if (_cm.GameController.debugMode) Debug.Log("Start round " + _roundsCompleted + 1);
-            
+
             // Set up a round with a series of tasks - possibly we could design all possible task types in the editor or separately
             for (var i = 0; i < tasksPerRound; i++)
             {
@@ -94,7 +102,12 @@ namespace Controllers
 
             // We may have to flesh out a bunch of logic to use a var like bool gameRunning so we can prevent input,
             // and ai actions once the game stops
+            _gameRunning = false;
+
             // Here we would show the end game screen and let the user select play again/go to menu/ etc
+            _cm.HUDController.ShowEndGameScreen();
+            CursorManagement(true);
+
             // We could also very easily have local high scores here (simple to implement)
         }
     }

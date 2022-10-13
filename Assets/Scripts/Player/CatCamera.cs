@@ -1,9 +1,12 @@
+using System;
+using Controllers;
 using UnityEngine;
 
 namespace Player
 {
     public class CatCamera : MonoBehaviour
     {
+        private ControllerManager _cm;
         public Transform playerOrientation;
 
         public float xSensitivity = 5f;
@@ -11,9 +14,17 @@ namespace Player
 
         private float _rotationX;
         private float _rotationY;
+        
+
+        private void Start()
+        {
+            _cm = FindObjectOfType<ControllerManager>();
+        }
 
         private void Update()
         {
+            if (!_cm.GameController.GameRunning()) return;
+            
             TurnCamera();
         }
 
