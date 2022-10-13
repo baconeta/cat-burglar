@@ -98,14 +98,16 @@ namespace Controllers
 
         private void EndGame(bool win)
         {
-            if (_cm.GameController.debugMode) Debug.Log("Game " + (win ? "won!" : "over!"));
+            var gameEndMessage = "Game " + (win ? "won!" : "over!");
+
+            if (_cm.GameController.debugMode) Debug.Log(gameEndMessage);
 
             // We may have to flesh out a bunch of logic to use a var like bool gameRunning so we can prevent input,
             // and ai actions once the game stops
             _gameRunning = false;
 
             // Here we would show the end game screen and let the user select play again/go to menu/ etc
-            _cm.HUDController.ShowEndGameScreen();
+            _cm.HUDController.ShowEndGameScreen(gameEndMessage);
             CursorManagement(true);
 
             // We could also very easily have local high scores here (simple to implement)

@@ -12,14 +12,17 @@ namespace Controllers
     {
         private ControllerManager _cm;
 
-        [Header("Tasks")] [SerializeField] private GameObject taskListHUD;
+        [Header("Tasks")] 
+        [SerializeField] private GameObject taskListHUD;
         [SerializeField] private GameObject newBlankTask;
 
-        [Header("Inventory")] [SerializeField] private GameObject inventorySlotBox;
+        [Header("Inventory")] 
+        [SerializeField] private GameObject inventorySlotBox;
         [SerializeField] private GameObject newBlankInventoryItem;
 
-        [Header("End Game Screen")] [SerializeField]
-        private GameObject endGamePanel;
+        [Header("End Game Screen")]
+        [SerializeField] private GameObject endGamePanel;
+        [SerializeField] private TMP_Text gameEndText;
 
         private void Awake()
         {
@@ -91,9 +94,10 @@ namespace Controllers
             taskText.color = new Color(0.1726f, 0.7178f, 0.2706f);
         }
 
-        public void ShowEndGameScreen()
+        public void ShowEndGameScreen(string gameEndMessage)
         {
             endGamePanel.SetActive(true);
+            gameEndText.SetText(gameEndMessage);
         }
     }
 }
