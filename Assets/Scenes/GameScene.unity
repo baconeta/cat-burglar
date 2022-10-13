@@ -45844,7 +45844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ff36847ea18934884a3411a3c06423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc: {fileID: 0}
+  npc: {fileID: 1026458799}
   patrolRoute:
   - {x: 44.2, y: 7, z: -74.8}
   - {x: 12.8, y: 7, z: -103.1}
