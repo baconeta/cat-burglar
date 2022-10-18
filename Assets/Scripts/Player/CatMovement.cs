@@ -7,26 +7,40 @@ namespace Player
     {
         private ControllerManager _cm;
 
-        [Header("Movement")] public float moveSpeed;
+        [Header("Movement")] 
+        public float moveSpeed;
         public float groundDrag;
         public float jumpForce;
         public float jumpCooldown;
         public float airMultiplier;
         private bool _readyToJump;
 
-        [Header("Keybindings")] public KeyCode jumpKey = KeyCode.Space;
+        [Header("Keybindings")] 
+        public KeyCode jumpKey = KeyCode.Space;
 
-        [Header("Ground Check")] public float playerHeight;
+        [Header("Ground Check")] 
+        public float playerHeight;
         public LayerMask groundObjects;
         private bool _grounded;
+        
+        [Header("Wall Climbing")]
+        public LayerMask wallObjects;
+        public float climbSpeed;
+        private bool _isClimbing;
+        public float wallDetectionLength;
+        public float wallSphereCastRad;
+        public float maxWallLookAngle;
+        private float _currWallLookAngle;
+        private RaycastHit _wallHit;
+        private bool _wallInFront;
 
+        [Header("General")]
         [SerializeField] private Transform catOrientation;
         [SerializeField] private Rigidbody rb;
 
         private float _horizontalInput;
         private float _verticalInput;
         private Vector3 _moveDirection;
-
 
         private void Start()
         {
@@ -57,7 +71,33 @@ namespace Player
         private void FixedUpdate()
         {
             if (!_cm.GameController.GameRunning()) return;
-            MovePlayer();
+            
+            StateMachine();
+            if (_isClimbing)
+            {
+                if (_cm.GameController.debugMode) Debug.Log("Start climbing");
+                ClimbingMovement();
+            }
+            else
+            {
+                if (_cm.GameController.debugMode) Debug.Log("Move only");
+                MovePlayer();
+            }
+        }
+
+        private void StateMachine()
+        {
+            if (_wallInFront && Input.GetKey(KeyCode.W) && _currWallLookAngle <= maxWallLookAngle)
+            {
+                if (!_isClimbing)
+                {
+                    StartClimbing();
+                }
+            }
+            else
+            {
+                StopClimbing();
+            }
         }
 
         private void MovePlayer()
@@ -72,6 +112,19 @@ namespace Player
             // Move in the air
             else if (!_grounded)
                 rb.AddForce(_moveDirection.normalized * (moveSpeed * 10f * airMultiplier), ForceMode.Force);
+                
+                // Check if we are about to hit a wall (as we must jump onto it)
+                CheckForWall();
+        }
+
+        private void CheckForWall()
+        {
+            Vector3 forwardVec = catOrientation.forward;
+            _wallInFront = Physics.SphereCast(transform.position, wallSphereCastRad, forwardVec,
+                out _wallHit, wallDetectionLength, layerMask:wallObjects);
+            _currWallLookAngle = Vector3.Angle(forwardVec, -_wallHit.normal);
+            
+            if (_cm.GameController.debugMode) Debug.Log("Wall in front: " + _wallInFront);
         }
 
         private void SpeedControl()
@@ -115,6 +168,23 @@ namespace Player
         private void ResetJump()
         {
             _readyToJump = true;
+        }
+
+        private void StartClimbing()
+        {
+            _isClimbing = true;
+        }
+
+        private void ClimbingMovement()
+        {
+            Vector3 velocity = rb.velocity;
+            velocity = new Vector3(velocity.x, climbSpeed, velocity.z);
+            rb.velocity = velocity;
+        }
+
+        private void StopClimbing()
+        {
+            _isClimbing = false;
         }
     }
 }
