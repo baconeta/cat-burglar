@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,9 +9,11 @@ public class MovementScript : MonoBehaviour
     public float WalkSpeed = 3.0f;
     public float RunSpeed = 5.0f;
     public float SprintSpeed = 8.0f;
+
     float speedy;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         mAnimator = GetComponent<Animator>();
         NPC = GetComponent<NavMeshAgent>();
@@ -22,9 +22,8 @@ public class MovementScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-  
         // //horizontal movement
         // Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
 
@@ -38,11 +37,9 @@ public class MovementScript : MonoBehaviour
         // mAnimator.SetFloat("VelocityZ", move.z);
         // mAnimator.SetFloat("MoveSpeed", speedy / 5.0f);
 
-        if(NPC.velocity.magnitude > 0f){
+        if (NPC.velocity.magnitude > 0f)
+        {
             mAnimator.SetBool("IsMoving", true);
         }
-
-
     }
-
 }
