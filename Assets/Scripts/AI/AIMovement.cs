@@ -20,6 +20,12 @@ public class AIMovement : MonoBehaviour
             return transform.position;
         }
     }
+    // get player's position
+    public Vector3 PlayerPosition {
+        get {
+            return player.position;
+        }
+    }
 
     // get next patrol point
     public Vector3 PatrolPoint {
@@ -51,11 +57,12 @@ public class AIMovement : MonoBehaviour
         npc.destination = pos;
     }
 
-    public bool InView(){
+    // check if player is in view
+    public bool InView(float viewAngle){
         Vector3 npcToPlayer = Vector3.Normalize(player.position - transform.position);
 
         // check if angle is less than 30
-        if(Vector3.Angle(transform.forward, npcToPlayer) < 30.0f){
+        if(Vector3.Angle(transform.forward, npcToPlayer) < viewAngle){
             Ray ray = new Ray(transform.position, npcToPlayer);
             RaycastHit hit;
 

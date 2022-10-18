@@ -21,7 +21,7 @@ public class SearchState  : BaseState<AIMovement> {
     // called once per frame
     public override void Execute(AIMovement NPC) {
         // if player in view
-        if(NPC.InView()) {
+        if(NPC.InView(30.0f)) {
             // chase
             NPC.ChangeState(new ChaseState());
         } else if(mTimer <= 0) {

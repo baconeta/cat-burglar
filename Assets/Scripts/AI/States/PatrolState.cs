@@ -11,14 +11,18 @@ public class PatrolState : BaseState<AIMovement> {
 
     // called once per frame
     public override void Execute(AIMovement NPC) {
+
+        //Vector3 d = Vector3.Distance(NPC.Position, NPC.PatrolPoint);
+        Vector3 d = NPC.Position - NPC.PatrolPoint;
+        d.y = 0;
         // if npc at point
-        if(Vector3.Distance(NPC.Position, NPC.PatrolPoint) < 0.1f) {
+        if(d.magnitude < 0.1f) {
             // move to next
             NPC.MoveTo(NPC.MoveNext());
         }
 
         // if player in view
-        if(NPC.InView()) {
+        if(NPC.InView(30.0f)) {
             // change to chase state
             NPC.ChangeState(new ChaseState());
         }
