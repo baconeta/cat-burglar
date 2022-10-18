@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using AI.States;
+using Controllers;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -129,6 +130,11 @@ namespace AI
             // if(npc.velocity.sqrMagnitude > Mathf.Epsilon){
             //     transform.rotation = Quaternion.LookRotation(npc.velocity.normalized);
             // }
+        }
+
+        public static void EndGame()
+        {
+            FindObjectOfType<ControllerManager>().GameController.Caught();
         }
     }
 }

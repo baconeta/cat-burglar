@@ -26,6 +26,7 @@ namespace AI.States
                 {
                     Debug.Log("CAUGHT YA");
                     // end game
+                    AIMovement.EndGame();
                 }
             }
             else
