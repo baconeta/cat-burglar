@@ -72,7 +72,9 @@ namespace Player
         {
             if (!_cm.GameController.GameRunning()) return;
             
+            CheckForWall();
             ClimbingStateMachine();
+            
             if (_isClimbing)
             {
                 ClimbingMovement();
@@ -110,9 +112,6 @@ namespace Player
             // Move in the air
             else if (!_grounded)
                 rb.AddForce(_moveDirection.normalized * (moveSpeed * 10f * airMultiplier), ForceMode.Force);
-                
-                // Check if we are about to hit a wall (as we must jump onto it)
-                CheckForWall();
         }
 
         private void CheckForWall()
@@ -182,6 +181,10 @@ namespace Player
 
         private void StopClimbing()
         {
+            if (_isClimbing)
+            {
+                Debug.Log("Stop climbing");
+            }
             _isClimbing = false;
         }
     }
