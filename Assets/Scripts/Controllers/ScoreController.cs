@@ -6,17 +6,17 @@ namespace Controllers
 {
     public class ScoreController : MonoBehaviour
     {
-        private List<float> HighScores { get; set; }
+        private List<int> HighScores { get; set; }
         public int LatestScore { get; private set; }
         [SerializeField] private int scoresToKeep = 5;
 
         private void Start()
         {
             // Add five zeros to start with.
-            HighScores = Enumerable.Repeat(0.0f, scoresToKeep).ToList();
+            HighScores = Enumerable.Repeat(0, scoresToKeep).ToList();
             for (var i = 0; i < scoresToKeep; i++)
             {
-                HighScores.Add(PlayerPrefs.GetFloat("Score" + (i + 1)));
+                HighScores.Add(PlayerPrefs.GetInt("Score" + (i + 1)));
             }
 
             HighScores.Sort();
@@ -26,7 +26,7 @@ namespace Controllers
             HighScores = HighScores.GetRange(0, scoresToKeep);
         }
 
-        public List<float> GetScores()
+        public List<int> GetScores()
         {
             return HighScores;
         }
@@ -47,7 +47,7 @@ namespace Controllers
         {
             for (var i = 0; i < 5; i++)
             {
-                PlayerPrefs.SetFloat("Score" + (i + 1), HighScores[i]);
+                PlayerPrefs.SetInt("Score" + (i + 1), HighScores[i]);
             }
         }
     }
