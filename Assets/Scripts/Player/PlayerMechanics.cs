@@ -1,3 +1,4 @@
+using AI;
 using Controllers;
 using UnityEngine;
 
@@ -9,12 +10,17 @@ namespace Player
         private AudioSource _audioSource;
         private bool _canMeow;
 
-        [Header("Mechanics")] public float meowCooldown = 2.0f;
+        [Header("Mechanics")]
+        public float meowCooldown = 2.0f;
         public float meowVolume = 0.5f;
+        public float meowHearingDistance = 100f;
+        public LayerMask enemyLayerMask;
 
-        [Header("Keybindings")] public KeyCode meowKey = KeyCode.C;
+        [Header("Keybindings")]
+        public KeyCode meowKey = KeyCode.C;
 
-        [Header("Audio")] public AudioClip[] meowSounds;
+        [Header("Audio")]
+        public AudioClip[] meowSounds;
 
         private void Start()
         {
@@ -50,7 +56,16 @@ namespace Player
             // Play a random meow sound
             _audioSource.PlayOneShot(meowSounds[Random.Range(0, meowSounds.Length)], meowVolume);
 
-            // Make it affect the AI somehow?
+            // Cast a sphere to inform any nearby AI of the meow
+            var hits = Physics.SphereCastAll(transform.position, meowHearingDistance, Vector3.forward, 500f, layerMask:enemyLayerMask);
+
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.collider.gameObject.CompareTag("Enemy"))
+                {
+                    hit.collider.gameObject.GetComponent<AIMovement>().HearMeow(transform.position);
+                }
+            }
         }
 
         private void ResetMeow()

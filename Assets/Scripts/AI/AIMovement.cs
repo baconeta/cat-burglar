@@ -13,6 +13,7 @@ namespace AI
         public Vector3 LastSeen;
         private int next = 0;
         public Transform player;
+        private ControllerManager _cm;
 
         private BaseStateMachine<AIMovement> mStateMachine;
 
@@ -39,6 +40,7 @@ namespace AI
             // npc = GetComponent<NavMeshAgent>();
             //npc.destination = patrolRoute[0];
             mStateMachine = new BaseStateMachine<AIMovement>(this, new PatrolState());
+            _cm = FindObjectOfType<ControllerManager>();
         }
 
         public void ChangeState(BaseState<AIMovement> state)
@@ -135,6 +137,11 @@ namespace AI
         public static void EndGame()
         {
             FindObjectOfType<ControllerManager>().GameController.Caught();
+        }
+
+        public void HearMeow(Vector3 transformPosition)
+        {
+            if (_cm.GameController.debugMode) Debug.Log("A meow was heard by " + gameObject);
         }
     }
 }
