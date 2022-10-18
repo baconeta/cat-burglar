@@ -72,20 +72,18 @@ namespace Player
         {
             if (!_cm.GameController.GameRunning()) return;
             
-            StateMachine();
+            ClimbingStateMachine();
             if (_isClimbing)
             {
-                if (_cm.GameController.debugMode) Debug.Log("Start climbing");
                 ClimbingMovement();
             }
             else
             {
-                if (_cm.GameController.debugMode) Debug.Log("Move only");
                 MovePlayer();
             }
         }
 
-        private void StateMachine()
+        private void ClimbingStateMachine()
         {
             if (_wallInFront && Input.GetKey(KeyCode.W) && _currWallLookAngle <= maxWallLookAngle)
             {
