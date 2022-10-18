@@ -57,7 +57,8 @@ namespace Player
             _audioSource.PlayOneShot(meowSounds[Random.Range(0, meowSounds.Length)], meowVolume);
 
             // Cast a sphere to inform any nearby AI of the meow
-            var hits = Physics.SphereCastAll(transform.position, meowHearingDistance, Vector3.forward, 500f, layerMask:enemyLayerMask);
+            var hits = Physics.SphereCastAll(transform.position, meowHearingDistance, 
+                Vector3.forward, 500f, layerMask: enemyLayerMask);
 
             foreach (RaycastHit hit in hits)
             {
