@@ -7,11 +7,12 @@ public class ChaseState : BaseState<AIMovement> {
     //private bool isColliding = false;
     // called on enter
     public override void Enter(AIMovement NPC) {
-
+        NPC.SetSpeed(5.0f);
     }
     
     // called once per frame
     public override void Execute(AIMovement NPC) {
+        
         // if player in view
         if(NPC.InView(180.0f)) {
             // move to last known location

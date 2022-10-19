@@ -37,7 +37,7 @@ public class MovementScript : MonoBehaviour
         // mAnimator.SetFloat("VelocityX", move.x);
         // mAnimator.SetFloat("VelocityZ", move.z);
         // mAnimator.SetFloat("MoveSpeed", speedy / 5.0f);
-
+        mAnimator.SetFloat("MoveSpeed", NPC.velocity.magnitude);
         if(NPC.velocity.magnitude > 0f){
             mAnimator.SetBool("IsMoving", true);
         }

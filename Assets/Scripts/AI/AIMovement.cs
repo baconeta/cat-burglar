@@ -14,6 +14,10 @@ public class AIMovement : MonoBehaviour
 
     private BaseStateMachine<AIMovement> mStateMachine;
 
+
+    public void SetSpeed(float speed){
+        npc.speed = speed;
+    }
     // get position
     public Vector3 Position {
         get {
@@ -44,6 +48,7 @@ public class AIMovement : MonoBehaviour
     public void ChangeState(BaseState<AIMovement> state) {
         // change state machine state
         mStateMachine.ChangeState(state);
+        
     }
 
     // go to next patrol point

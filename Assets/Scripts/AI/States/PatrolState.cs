@@ -5,6 +5,7 @@ using UnityEngine;
 public class PatrolState : BaseState<AIMovement> {
     // called on enter
     public override void Enter(AIMovement NPC) {
+        NPC.SetSpeed(2.0f);
         // move to initial point
         NPC.MoveTo(NPC.PatrolPoint);
     }

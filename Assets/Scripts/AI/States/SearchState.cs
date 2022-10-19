@@ -8,6 +8,7 @@ public class SearchState  : BaseState<AIMovement> {
 
     // called on enter
     public override void Enter(AIMovement NPC) {
+        NPC.SetSpeed(2.0f);
         // last known player location
         mTarget = NPC.LastSeen;
 
