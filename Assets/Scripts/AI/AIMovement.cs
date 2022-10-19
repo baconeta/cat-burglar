@@ -102,40 +102,7 @@ namespace AI
             if (npc.velocity.sqrMagnitude > Mathf.Epsilon)
             {
                 transform.rotation = Quaternion.LookRotation(npc.velocity.normalized);
-            }
-
-
-            // let npc patrol through points << HERE IS WHERE THE ANIMATED DUDE IS GETTING STUCK I THINK?
-            // if(Vector3.Distance(transform.position, patrolRoute[next]) < 0.1f){
-            //     MoveNext();
-            // }
-            // // distance from player to npc
-            // Vector3 npcToPlayer = Vector3.Normalize(player.position - transform.position);
-
-            // // check if angle is less than 30
-            // if(Vector3.Angle(transform.forward, npcToPlayer) < 30.0f){
-            //     Ray ray = new Ray(transform.position, npcToPlayer);
-            //     RaycastHit hit;
-
-            //     // if ray hit
-            //     if(Physics.Raycast(ray, out hit, Mathf.Infinity)){
-            //         if(hit.collider.tag == "Player"){
-            //             // set npc to chase
-            //             npc.destination = hit.collider.transform.position;
-            //         } else {
-            //             // otherwise continue on route
-            //             npc.destination = patrolRoute[next];
-            //         }
-            //     }
-            // // otherwise continue on route
-            // } else {
-            //     npc.destination = patrolRoute[next];
-            // }
-
-            // // make npc face direction of travel
-            // if(npc.velocity.sqrMagnitude > Mathf.Epsilon){
-            //     transform.rotation = Quaternion.LookRotation(npc.velocity.normalized);
-            // }
+            }    
         }
 
         public static void EndGame()
@@ -145,7 +112,9 @@ namespace AI
 
         public void HearMeow(Vector3 transformPosition)
         {
-            if (_cm.GameController.debugMode) Debug.Log("A meow was heard by " + gameObject);
+            Debug.Log("i have meowed");
+           // npc.destination = LastSeen;
+            //if (_cm.GameController.debugMode) Debug.Log("A meow was heard by " + gameObject);
         }
     }
 }
