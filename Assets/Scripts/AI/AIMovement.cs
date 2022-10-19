@@ -112,9 +112,8 @@ namespace AI
 
         public void HearMeow(Vector3 transformPosition)
         {
-            Debug.Log("i have meowed");
-           // npc.destination = LastSeen;
-            //if (_cm.GameController.debugMode) Debug.Log("A meow was heard by " + gameObject);
+            // npc.destination = LastSeen;
+            if (_cm.GameController.debugMode) Debug.Log("A meow was heard by " + gameObject);
         }
     }
 }
