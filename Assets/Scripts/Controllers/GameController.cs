@@ -96,6 +96,11 @@ namespace Controllers
             }
         }
 
+        public void Caught()
+        {
+            EndGame(false);
+        }
+
         private void EndGame(bool win)
         {
             var gameEndMessage = "Game " + (win ? "won!" : "over!");

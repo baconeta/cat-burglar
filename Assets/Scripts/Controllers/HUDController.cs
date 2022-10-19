@@ -12,16 +12,15 @@ namespace Controllers
     {
         private ControllerManager _cm;
 
-        [Header("Tasks")] 
-        [SerializeField] private GameObject taskListHUD;
+        [Header("Tasks")] [SerializeField] private GameObject taskListHUD;
         [SerializeField] private GameObject newBlankTask;
 
-        [Header("Inventory")] 
-        [SerializeField] private GameObject inventorySlotBox;
+        [Header("Inventory")] [SerializeField] private GameObject inventorySlotBox;
         [SerializeField] private GameObject newBlankInventoryItem;
 
-        [Header("End Game Screen")]
-        [SerializeField] private GameObject endGamePanel;
+        [Header("End Game Screen")] [SerializeField]
+        private GameObject endGamePanel;
+
         [SerializeField] private TMP_Text gameEndText;
 
         private void Awake()
@@ -98,6 +97,7 @@ namespace Controllers
         {
             endGamePanel.SetActive(true);
             gameEndText.SetText(gameEndMessage);
+            _cm.EndGameScreenController.ShowHighScores();
         }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 
 // TODO make all controllers singletons?
@@ -23,10 +24,18 @@ namespace Controllers
         [Tooltip("A controller that handles the inventory for the player")] [SerializeField]
         private InventoryManager inventoryManager;
 
+        [Tooltip("A controller that handles the scoring and high scores for the player")] [SerializeField]
+        private ScoreController scoreController;
+
+        [Tooltip("A controller that handles the end game screen")] [SerializeField]
+        private EndGameScreenController endGameScreenController;
+
         public GameController GameController => gameController;
         public TaskController TaskController => taskController;
         public HUDController HUDController => hudController;
         public InventoryManager InventoryManager => inventoryManager;
+        public ScoreController ScoreController => scoreController;
+        public EndGameScreenController EndGameScreenController => endGameScreenController;
 
         private void Start()
         {
@@ -34,6 +43,8 @@ namespace Controllers
             if (!taskController) taskController = FindObjectOfType<TaskController>();
             if (!hudController) hudController = FindObjectOfType<HUDController>();
             if (!inventoryManager) inventoryManager = FindObjectOfType<InventoryManager>();
+            if (!scoreController) scoreController = FindObjectOfType<ScoreController>();
+            if (!endGameScreenController) endGameScreenController = FindObjectOfType<EndGameScreenController>();
         }
     }
 }
