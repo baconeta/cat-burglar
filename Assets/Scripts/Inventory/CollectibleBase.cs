@@ -11,10 +11,16 @@ namespace Inventory
         public string itemName;
         public bool canBePickedUp = true;
         public Sprite inventorySprite;
+        public bool useParticles = true;
+        public GameObject particlesPrefab;
 
         private void Start()
         {
             _im = FindObjectOfType<InventoryManager>();
+            if (useParticles && particlesPrefab != default)
+            {
+                Instantiate(particlesPrefab, transform.position, particlesPrefab.transform.rotation, transform);
+            }
         }
 
         protected virtual void PickupItem() // can be overridden if we want special/multi-stacking items for some reason
