@@ -49,7 +49,7 @@ namespace Controllers
             AddInt("RetrieveAny", 1);
         }
 
-        public static void GetCaught()
+        public void GetCaught()
         {
             SetInt("TasksWithoutCaught", 0);
             AddInt("TimesCaught", 1);
