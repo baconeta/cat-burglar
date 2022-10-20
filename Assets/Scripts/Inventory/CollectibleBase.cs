@@ -1,4 +1,5 @@
 using Controllers;
+using OpenCover.Framework.Model;
 using UnityEngine;
 
 namespace Inventory
@@ -24,13 +25,14 @@ namespace Inventory
             }
         }
 
-        protected virtual void PickupItem() // can be overridden if we want special/multi-stacking items for some reason
+        private void PickupItem() // can be overridden if we want special/multi-stacking items for some reason
         {
             // When collected add it to the inventory then remove it from the game world
             _im.AddToInventory(this);
+            _cm.Achievements.CollectItem(GetType().Name);
+            // TODO Play a sound??
 
             Destroy(gameObject);
-            // TODO Could have a cool pop up here, play a sound, hide the object from the game world, etc
         }
 
         public void OnTriggerEnter(Collider other)
