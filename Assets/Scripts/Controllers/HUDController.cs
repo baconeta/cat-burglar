@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Inventory;
 using Tasks;
 using TMPro;
@@ -97,7 +98,9 @@ namespace Controllers
         {
             endGamePanel.SetActive(true);
             gameEndText.SetText(gameEndMessage);
-            _cm.EndGameScreenController.ShowHighScores();
+
+            var achievementsThisRound = _cm.Achievements.CheckCompletedAchievements();
+            _cm.EndGameScreenController.ShowAchievements(achievementsThisRound);
         }
     }
 }

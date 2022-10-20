@@ -98,6 +98,7 @@ namespace Controllers
 
         public void Caught()
         {
+            _cm.Achievements.GetCaught();
             EndGame(false);
         }
 

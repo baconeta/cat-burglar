@@ -63,8 +63,9 @@ namespace Controllers
         /// </summary>
         /// <param name="type"> The task types to check for completion. </param>
         /// <param name="item"> The item type relevant to this call </param>
-        public void CheckTasksOfType(TaskType type, InventoryItem item)
+        public int CheckTasksOfType(TaskType type, InventoryItem item)
         {
+            var tasksMarkedComplete = 0;
             foreach (TaskBase task in _currentTasks)
             {
                 // Check if we have completed any of the incomplete tasks
@@ -72,11 +73,14 @@ namespace Controllers
                 {
                     if (_cm.GameController.debugMode) Debug.Log("Task completed - " + task.taskText);
                     task.MarkDone();
+                    AchievementController.CompleteTask();
                     _numTasksCompleted += 1;
+                    tasksMarkedComplete += 1;
                 }
             }
 
             _cm.HUDController.UpdateHUD();
+            return tasksMarkedComplete;
         }
 
         public void CheckCompletion()

@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &446814633462441197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 446814633462441196}
+  - component: {fileID: 446814633462441195}
+  m_Layer: 0
+  m_Name: AchievementController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &446814633462441196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446814633462441197}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &446814633462441195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446814633462441197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590cd44a7d8ab4543b7c11299090a3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allAchievements:
+  - achievementName: Collect 'em all
+    achievementPrefsCodeName: CollectAllOnce
+    subMessage: Collect every item at least once
+    completed: 0
+  - achievementName: Never stop collecting
+    achievementPrefsCodeName: CollectAny10
+    subMessage: Collect any 10 items
+    completed: 0
+  - achievementName: Cat Burglar Extraordinaire
+    achievementPrefsCodeName: 10InARow
+    subMessage: Finish 10 tasks in a row without being caught
+    completed: 0
+  - achievementName: Take what you want
+    achievementPrefsCodeName: RetrieveAny5
+    subMessage: Take home any 5 items
+    completed: 0
+  - achievementName: Take everything and the kitchen sink
+    achievementPrefsCodeName: RetrieveAllOnce
+    subMessage: Take home every item at least once
+    completed: 0
+  - achievementName: On a roll
+    achievementPrefsCodeName: CompleteAny5
+    subMessage: Complete 5 tasks
+    completed: 0
+  - achievementName: Dedicated to the cause
+    achievementPrefsCodeName: CompleteAny25
+    subMessage: Complete 25 tasks
+    completed: 0
+  - achievementName: Top cat burglar
+    achievementPrefsCodeName: CompleteAny100
+    subMessage: Complete 100 tasks
+    completed: 0
+  - achievementName: What are you doing here?
+    achievementPrefsCodeName: GetCaught
+    subMessage: Get caught by a guard
+    completed: 0
+  - achievementName: Red-Pawwed
+    achievementPrefsCodeName: GetCaught10
+    subMessage: Get caught by a guard 10 times
+    completed: 0
+  - achievementName: Meowwwww
+    achievementPrefsCodeName: Meow1
+    subMessage: Meow once
+    completed: 0
+  - achievementName: Meow meow meow meow meow meow meow meow meow meow
+    achievementPrefsCodeName: Meow10
+    subMessage: Meow 10 times
+    completed: 0
+  - achievementName: Hear me roar
+    achievementPrefsCodeName: HearMeMeow1
+    subMessage: Meow in front of a guard
+    completed: 0
+  - achievementName: What's that racket?
+    achievementPrefsCodeName: HearMeMeow10
+    subMessage: Meow in front of guards 10 times
+    completed: 0
+  - achievementName: Just for fun
+    achievementPrefsCodeName: RetrieveNotNeeded20
+    subMessage: Take home 20 items you weren't asked for
+    completed: 0
