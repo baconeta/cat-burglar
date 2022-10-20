@@ -49,7 +49,7 @@ namespace Controllers
             AddInt("RetrieveAny", 1);
         }
 
-        public void GetCaught()
+        public static void GetCaught()
         {
             SetInt("TasksWithoutCaught", 0);
             AddInt("TimesCaught", 1);
@@ -101,12 +101,10 @@ namespace Controllers
         }
 
         // This will perform a check to look for any incomplete tasks and see if they have been completed or not.
-        // TODO either make this occur during game over one time -or live update as a player plays to inform them
         public List<Achievement> CheckCompletedAchievements()
         {
             // Search through each of the achievements and see if it is done or not. 
-            var toCheck = allAchievements.Where(achievement => !achievement.completed).ToList();
-            var nowComplete = new List<Achievement>();
+            var newlyCompleted = new List<Achievement>();
 
             for (var i = 0; i < allAchievements.Count; i++)
             {
@@ -136,7 +134,7 @@ namespace Controllers
                             GetInt("CollectRedCan") >= 1
                            )
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -161,7 +159,7 @@ namespace Controllers
                             GetInt("RetrieveRedCan") >= 1
                            )
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -169,7 +167,7 @@ namespace Controllers
                     case "CollectAny10":
                         if (GetInt("CollectAny") >= 10)
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -177,7 +175,7 @@ namespace Controllers
                     case "RetrieveAny5":
                         if (GetInt("RetrieveAny") >= 5)
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -185,7 +183,7 @@ namespace Controllers
                     case "TasksWithoutCaught":
                         if (GetBool("10InARow"))
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -193,7 +191,7 @@ namespace Controllers
                     case "CompleteAny5":
                         if (GetInt("TotalCompletedTasks") >= 5)
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -201,7 +199,7 @@ namespace Controllers
                     case "CompleteAny25":
                         if (GetInt("TotalCompletedTasks") >= 25)
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -209,7 +207,7 @@ namespace Controllers
                     case "CompleteAny100":
                         if (GetInt("TotalCompletedTasks") >= 100)
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -217,7 +215,7 @@ namespace Controllers
                     case "GetCaught":
                         if (GetInt("TimesCaught") >= 1)
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -225,7 +223,7 @@ namespace Controllers
                     case "GetCaught10":
                         if (GetInt("TimesCaught") >= 10)
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -233,7 +231,7 @@ namespace Controllers
                     case "Meow1":
                         if (GetInt("Meow") >= 1)
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -241,7 +239,7 @@ namespace Controllers
                     case "Meow10":
                         if (GetInt("Meow") >= 10)
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -249,7 +247,7 @@ namespace Controllers
                     case "HearMeMeow1":
                         if (GetInt("HearMeMeow") >= 1)
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -257,7 +255,7 @@ namespace Controllers
                     case "HearMeMeow10":
                         if (GetInt("HearMeMeow") >= 10)
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -265,7 +263,7 @@ namespace Controllers
                     case "RetrieveNotNeeded20":
                         if (GetInt("RetrieveNotNeeded") >= 20)
                         {
-                            nowComplete.Add(ach);
+                            newlyCompleted.Add(ach);
                             ach.completed = true;
                         }
 
@@ -275,7 +273,7 @@ namespace Controllers
                 allAchievements[i] = ach;
             }
 
-            return nowComplete;
+            return newlyCompleted;
         }
     }
 }
