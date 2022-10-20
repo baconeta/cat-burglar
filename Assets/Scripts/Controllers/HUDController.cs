@@ -99,7 +99,7 @@ namespace Controllers
             endGamePanel.SetActive(true);
             gameEndText.SetText(gameEndMessage);
 
-            var achievementsThisRound = _cm.Achievements.CheckCompletedTasks();
+            var achievementsThisRound = _cm.Achievements.CheckCompletedAchievements();
             _cm.EndGameScreenController.ShowAchievements(achievementsThisRound);
         }
     }

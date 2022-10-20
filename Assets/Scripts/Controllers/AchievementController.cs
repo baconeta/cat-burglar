@@ -24,7 +24,7 @@ namespace Controllers
         public void Start()
         {
             // This will mark off any tasks that should be marked off as being completed prior to this session.
-            CheckCompletedTasks();
+            CheckCompletedAchievements();
         }
 
         public static void CompleteTask()
@@ -95,14 +95,14 @@ namespace Controllers
             return PlayerPrefs.GetInt(boolName) == 1;
         }
 
-        public List<Achievement> GetCompletedTasks()
+        public List<Achievement> GetCompletedAchievements()
         {
             return allAchievements.Where(achievement => achievement.completed).ToList();
         }
 
         // This will perform a check to look for any incomplete tasks and see if they have been completed or not.
         // TODO either make this occur during game over one time -or live update as a player plays to inform them
-        public List<Achievement> CheckCompletedTasks()
+        public List<Achievement> CheckCompletedAchievements()
         {
             // Search through each of the achievements and see if it is done or not. 
             var toCheck = allAchievements.Where(achievement => !achievement.completed).ToList();
