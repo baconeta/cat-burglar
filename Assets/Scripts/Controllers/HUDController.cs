@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Inventory;
 using Tasks;
 using TMPro;
@@ -22,6 +23,8 @@ namespace Controllers
         private GameObject endGamePanel;
 
         [SerializeField] private TMP_Text gameEndText;
+
+        private List<string> _achievementsThisRound;
 
         private void Awake()
         {
@@ -97,7 +100,12 @@ namespace Controllers
         {
             endGamePanel.SetActive(true);
             gameEndText.SetText(gameEndMessage);
-            // _cm.EndGameScreenController.ShowHighScores();
+            _cm.EndGameScreenController.ShowAchievements(_achievementsThisRound);
+        }
+
+        public void AchievementCompleted(string achievementText)
+        {
+            _achievementsThisRound.Add(achievementText);
         }
     }
 }

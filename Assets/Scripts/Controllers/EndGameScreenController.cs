@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,12 +7,9 @@ namespace Controllers
 {
     public class EndGameScreenController : MonoBehaviour
     {
-        [Header("High Scores")] 
-        [SerializeField] private TMP_Text highscore1;
-        [SerializeField] private TMP_Text highscore2;
-        [SerializeField] private TMP_Text highscore3;
-        [SerializeField] private TMP_Text highscore4;
-        [SerializeField] private TMP_Text highscore5;
+        [Header("Achievements")] [SerializeField]
+        private TMP_Text achievementsUnlockedText;
+
         [SerializeField] private Color normalTextColour;
         [SerializeField] private Color highlightedTextColour;
 
@@ -31,6 +29,14 @@ namespace Controllers
         {
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
+        }
+
+        public void ShowAchievements(List<string> achievementsAchieved)
+        {
+            foreach (var achievement in achievementsAchieved)
+            {
+                achievementsUnlockedText.text = achievementsUnlockedText.text + achievement + "\n";
+            }
         }
 
         // public void ShowHighScores()
