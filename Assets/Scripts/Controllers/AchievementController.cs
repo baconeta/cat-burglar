@@ -6,12 +6,14 @@ using UnityEngine;
 namespace Controllers
 {
     [Serializable]
-    public struct Achievement
+    public class Achievement
     {
         public string achievementName;
 
         [Tooltip("Name used to reference the prefs values")]
         public string achievementPrefsCodeName;
+
+        public string subMessage = "???";
 
         [HideInInspector] public bool completed;
     }

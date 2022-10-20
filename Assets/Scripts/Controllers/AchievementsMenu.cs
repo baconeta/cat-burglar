@@ -1,4 +1,5 @@
 using TMPro;
+using UI;
 using UnityEngine;
 
 namespace Controllers
@@ -6,7 +7,8 @@ namespace Controllers
     public class AchievementsMenu : MonoBehaviour
     {
         private AchievementController _ac;
-        public TMP_Text achievementTest;
+        public GameObject achievementSlotBox;
+        public GameObject achievementPanelPrefab;
 
         private void Awake()
         {
@@ -15,9 +17,20 @@ namespace Controllers
 
         public void ShowAchievements()
         {
-            foreach (Achievement ach in _ac.GetCompletedAchievements())
+            foreach (Achievement achievement in _ac.allAchievements)
             {
-                achievementTest.text = achievementTest.text + ach.achievementName + "\n";
+                GameObject itemPanelBox = Instantiate(achievementPanelPrefab, achievementSlotBox.transform, true);
+                itemPanelBox.GetComponent<AchievementPanel>().achievementPrefCode =
+                    achievement.achievementPrefsCodeName;
+            }
+        }
+
+        public void RemoveAchievementPanels()
+        {
+            // Clear all inventory images first
+            foreach (Transform child in achievementSlotBox.transform)
+            {
+                Destroy(child.gameObject);
             }
         }
     }

@@ -45,48 +45,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allAchievements:
-  - achievementName: Collect one of every item
+  - achievementName: Collect 'em all
     achievementPrefsCodeName: CollectAllOnce
+    subMessage: Collect every item at least once
     completed: 0
-  - achievementName: Collect 10 items
+  - achievementName: Never stop collecting
     achievementPrefsCodeName: CollectAny10
+    subMessage: Collect any 10 items
     completed: 0
-  - achievementName: Complete 10 tasks without being caught
+  - achievementName: Cat Burglar Extraordinaire
     achievementPrefsCodeName: 10InARow
+    subMessage: Finish 10 tasks in a row without being caught
     completed: 0
-  - achievementName: Retrieve 5 items
+  - achievementName: Take what you want
     achievementPrefsCodeName: RetrieveAny5
+    subMessage: Take home any 5 items
     completed: 0
-  - achievementName: Retrieve one of every item
+  - achievementName: Take everything and the kitchen sink
     achievementPrefsCodeName: RetrieveAllOnce
+    subMessage: Take home every item at least once
     completed: 0
-  - achievementName: Complete 5 tasks
+  - achievementName: On a roll
     achievementPrefsCodeName: CompleteAny5
+    subMessage: Complete 5 tasks
     completed: 0
-  - achievementName: Complete 25 tasks
+  - achievementName: Dedicated to the cause
     achievementPrefsCodeName: CompleteAny25
+    subMessage: Complete 25 tasks
     completed: 0
-  - achievementName: Complete 100 tasks
+  - achievementName: Top cat burglar
     achievementPrefsCodeName: CompleteAny100
+    subMessage: Complete 100 tasks
     completed: 0
-  - achievementName: Get caught stealing
+  - achievementName: What are you doing here?
     achievementPrefsCodeName: GetCaught
+    subMessage: Get caught by a guard
     completed: 0
-  - achievementName: Red pawwed
+  - achievementName: Red-Pawwed
     achievementPrefsCodeName: GetCaught10
+    subMessage: Get caught by a guard 10 times
     completed: 0
   - achievementName: Meowwwww
     achievementPrefsCodeName: Meow1
+    subMessage: Meow once
     completed: 0
   - achievementName: Meow meow meow meow meow meow meow meow meow meow
     achievementPrefsCodeName: Meow10
-    completed: 0
-  - achievementName: Hear me meow
-    achievementPrefsCodeName: HearMeMeow1
+    subMessage: Meow 10 times
     completed: 0
   - achievementName: Hear me roar
+    achievementPrefsCodeName: HearMeMeow1
+    subMessage: Meow in front of a guard
+    completed: 0
+  - achievementName: What's that racket?
     achievementPrefsCodeName: HearMeMeow10
+    subMessage: Meow in front of guards 10 times
     completed: 0
   - achievementName: Just for fun
     achievementPrefsCodeName: RetrieveNotNeeded20
+    subMessage: Take home 20 items you weren't asked for
     completed: 0

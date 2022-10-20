@@ -38,7 +38,8 @@ namespace Controllers
             achievementsUnlockedText.text = "";
             foreach (Achievement achievement in achievementsAchieved)
             {
-                achievementsUnlockedText.text = achievementsUnlockedText.text + achievement.achievementName + "\n";
+                achievementsUnlockedText.text = achievementsUnlockedText.text + achievement.achievementName + "\n" +
+                                                achievement.subMessage + "\n";
             }
         }
 
