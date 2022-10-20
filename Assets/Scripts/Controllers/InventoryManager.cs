@@ -44,11 +44,12 @@ namespace Controllers
         public void DropOffItems()
         {
             if (_cm.GameController.debugMode) Debug.Log("Dropping all items to the return spot.");
-            // TODO make X number of items a requirement/check condition?
             foreach (InventoryItem item in _inInventory)
             {
                 if (_cm.GameController.debugMode) Debug.Log("Item " + item.ItemName + " returned.");
-                _cm.TaskController.CheckTasksOfType(TaskController.TaskType.ReturnItem, item);
+                var tasksDone = _cm.TaskController.CheckTasksOfType(TaskController.TaskType.ReturnItem, item);
+                AchievementController.RetrieveItem(item.ItemName);
+                AchievementController.RetrieveNotNeededItem(tasksDone);
             }
 
             // For now we assume everything is dropped off but maybe we can extend this to X items later

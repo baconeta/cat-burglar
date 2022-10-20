@@ -87,3 +87,6 @@ MonoBehaviour:
   - achievementName: Hear me roar
     achievementPrefsCodeName: HearMeMeow10
     completed: 0
+  - achievementName: Just for fun
+    achievementPrefsCodeName: RetrieveNotNeeded20
+    completed: 0

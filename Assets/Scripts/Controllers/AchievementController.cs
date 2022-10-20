@@ -21,16 +21,13 @@ namespace Controllers
         [Tooltip("For each achievement, code will need to be written to match it (for simplicity)")]
         public List<Achievement> allAchievements;
 
-        private ControllerManager _cm;
-
         public void Start()
         {
-            _cm = FindObjectOfType<ControllerManager>();
             // This will mark off any tasks that should be marked off as being completed prior to this session.
             CheckCompletedTasks();
         }
 
-        public void CompleteTask()
+        public static void CompleteTask()
         {
             AddInt("TotalCompletedTasks", 1);
             AddInt("TasksWithoutCaught", 1);
@@ -40,13 +37,13 @@ namespace Controllers
             }
         }
 
-        public void CollectItem(string itemName)
+        public static void CollectItem(string itemName)
         {
             AddInt("Collect" + itemName, 1);
             AddInt("CollectAny", 1);
         }
 
-        public void RetrieveItem(string itemName)
+        public static void RetrieveItem(string itemName)
         {
             AddInt("Retrieve" + itemName, 1);
             AddInt("RetrieveAny", 1);
@@ -68,6 +65,11 @@ namespace Controllers
             AddInt("HearMeMeow", 1);
         }
 
+        public static void RetrieveNotNeededItem(int tasksDone)
+        {
+            AddInt("RetrieveNotNeeded", tasksDone);
+        }
+
         private static void SetInt(string keyName, int value)
         {
             PlayerPrefs.SetInt(keyName, value);
@@ -78,21 +80,17 @@ namespace Controllers
             return PlayerPrefs.GetInt(keyName, 0);
         }
 
-        private void AddInt(string keyName, int value)
+        private static void AddInt(string keyName, int value)
         {
             PlayerPrefs.SetInt(keyName, GetInt(keyName) + value);
-            if (_cm.GameController.debugMode)
-            {
-                Debug.Log("Task updated: " + keyName + " - New value = " + GetInt(keyName));
-            }
         }
 
-        private void SetBool(string boolName, bool value)
+        private static void SetBool(string boolName, bool value)
         {
             PlayerPrefs.SetInt(boolName, value ? 1 : 0);
         }
 
-        private bool GetBool(string boolName)
+        private static bool GetBool(string boolName)
         {
             return PlayerPrefs.GetInt(boolName) == 1;
         }
@@ -247,14 +245,13 @@ namespace Controllers
                         }
 
                         break;
-                }
-            }
+                    case "RetrieveNotNeeded20":
+                        if (GetInt("RetrieveNotNeeded") >= 20)
+                        {
+                            nowComplete.Add(ach);
+                        }
 
-            if (_cm.GameController.debugMode)
-            {
-                foreach (Achievement ach in nowComplete)
-                {
-                    Debug.Log("Task marked as completed: " + ach.achievementName);
+                        break;
                 }
             }
 

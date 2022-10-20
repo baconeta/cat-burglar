@@ -1,5 +1,4 @@
 using Controllers;
-using OpenCover.Framework.Model;
 using UnityEngine;
 
 namespace Inventory
@@ -29,7 +28,7 @@ namespace Inventory
         {
             // When collected add it to the inventory then remove it from the game world
             _im.AddToInventory(this);
-            _cm.Achievements.CollectItem(GetType().Name);
+            AchievementController.CollectItem(GetType().Name);
             // TODO Play a sound??
 
             Destroy(gameObject);
