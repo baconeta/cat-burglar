@@ -42106,8 +42106,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allAchievements:
-  - achievementName: Collect toilet paper once
-    achievementPrefsCodeName: CollectToiletPaper
+  - achievementName: Collect one roll of toilet paper
+    achievementPrefsCodeName: CollectToiletPaper1
+    completed: 0
 --- !u!1001 &880779273
 PrefabInstance:
   m_ObjectHideFlags: 0

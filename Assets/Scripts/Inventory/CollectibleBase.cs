@@ -6,17 +6,18 @@ namespace Inventory
     [RequireComponent(typeof(Sprite))] // this is the inventory representation of the item
     public class CollectibleBase : MonoBehaviour
     {
-        private InventoryManager _im;
-
+        protected ControllerManager _cm;
         public string itemName;
         public bool canBePickedUp = true;
         public Sprite inventorySprite;
         public bool useParticles = true;
         public GameObject particlesPrefab;
+        private InventoryManager _im;
 
         private void Start()
         {
-            _im = FindObjectOfType<InventoryManager>();
+            _cm = FindObjectOfType<ControllerManager>();
+            _im = _cm.InventoryManager;
             if (useParticles && particlesPrefab != default)
             {
                 Instantiate(particlesPrefab, transform.position, particlesPrefab.transform.rotation, transform);

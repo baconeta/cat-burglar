@@ -25,6 +25,7 @@ namespace Controllers
 
         public void Start()
         {
+            _cm = FindObjectOfType<ControllerManager>();
             // This will mark off any tasks that should be marked off as being completed prior to this session.
             CheckCompletedTasks();
         }
@@ -60,9 +61,13 @@ namespace Controllers
             return PlayerPrefs.GetInt(keyName, 0);
         }
 
-        private static void AddInt(string keyName, int value)
+        private void AddInt(string keyName, int value)
         {
             PlayerPrefs.SetInt(keyName, GetInt(keyName) + value);
+            if (_cm.GameController.debugMode)
+            {
+                Debug.Log("Task updated: " + keyName + " - New value = " + GetInt(keyName));
+            }
         }
 
         private void SetBool(string boolName, bool value)
@@ -81,6 +86,7 @@ namespace Controllers
         }
 
         // This will perform a check to look for any incomplete tasks and see if they have been completed or not.
+        // TODO either make this occur during game over one time -or live update as a player plays to inform them
         private List<Achievement> CheckCompletedTasks()
         {
             // Search through each of the achievements and see if it is done or not. 
