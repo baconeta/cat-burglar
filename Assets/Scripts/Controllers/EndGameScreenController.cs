@@ -33,32 +33,32 @@ namespace Controllers
             SceneManager.LoadScene(scene.name);
         }
 
-        public void ShowHighScores()
-        {
-            var scores = _cm.ScoreController.GetScores();
-            highscore1.text = scores[0].ToString();
-            highscore2.text = scores[1].ToString();
-            highscore3.text = scores[2].ToString();
-            highscore4.text = scores[3].ToString();
-            highscore5.text = scores[4].ToString();
-            
-            // Highlight the latest score for clarity
-            var latest = _cm.ScoreController.LatestScore.ToString();
-            highscore1.color = highscore1.text == latest
-                ? highlightedTextColour
-                : normalTextColour;
-            highscore2.color = highscore2.text == latest
-                ? highlightedTextColour
-                : normalTextColour;
-            highscore3.color = highscore3.text == latest
-                ? highlightedTextColour
-                : normalTextColour;
-            highscore4.color = highscore4.text == latest
-                ? highlightedTextColour
-                : normalTextColour;
-            highscore5.color = highscore5.text == latest
-                ? highlightedTextColour
-                : normalTextColour;
-        }
+        // public void ShowHighScores()
+        // {
+        //     var scores = _cm.ScoreController.GetScores();
+        //     highscore1.text = scores[0].ToString();
+        //     highscore2.text = scores[1].ToString();
+        //     highscore3.text = scores[2].ToString();
+        //     highscore4.text = scores[3].ToString();
+        //     highscore5.text = scores[4].ToString();
+        //     
+        //     // Highlight the latest score for clarity
+        //     var latest = _cm.ScoreController.LatestScore.ToString();
+        //     highscore1.color = highscore1.text == latest
+        //         ? highlightedTextColour
+        //         : normalTextColour;
+        //     highscore2.color = highscore2.text == latest
+        //         ? highlightedTextColour
+        //         : normalTextColour;
+        //     highscore3.color = highscore3.text == latest
+        //         ? highlightedTextColour
+        //         : normalTextColour;
+        //     highscore4.color = highscore4.text == latest
+        //         ? highlightedTextColour
+        //         : normalTextColour;
+        //     highscore5.color = highscore5.text == latest
+        //         ? highlightedTextColour
+        //         : normalTextColour;
+        // }
     }
 }

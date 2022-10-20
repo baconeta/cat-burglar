@@ -97,7 +97,7 @@ namespace Controllers
         {
             endGamePanel.SetActive(true);
             gameEndText.SetText(gameEndMessage);
-            _cm.EndGameScreenController.ShowHighScores();
+            // _cm.EndGameScreenController.ShowHighScores();
         }
     }
 }

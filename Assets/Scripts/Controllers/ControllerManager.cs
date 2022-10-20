@@ -24,8 +24,8 @@ namespace Controllers
         [Tooltip("A controller that handles the inventory for the player")] [SerializeField]
         private InventoryManager inventoryManager;
 
-        [Tooltip("A controller that handles the scoring and high scores for the player")] [SerializeField]
-        private ScoreController scoreController;
+        [Tooltip("A controller that handles the player achievement system")] [SerializeField]
+        private AchievementController achievementController;
 
         [Tooltip("A controller that handles the end game screen")] [SerializeField]
         private EndGameScreenController endGameScreenController;
@@ -34,7 +34,7 @@ namespace Controllers
         public TaskController TaskController => taskController;
         public HUDController HUDController => hudController;
         public InventoryManager InventoryManager => inventoryManager;
-        public ScoreController ScoreController => scoreController;
+        public AchievementController Achievements => achievementController;
         public EndGameScreenController EndGameScreenController => endGameScreenController;
 
         private void Start()
@@ -43,7 +43,7 @@ namespace Controllers
             if (!taskController) taskController = FindObjectOfType<TaskController>();
             if (!hudController) hudController = FindObjectOfType<HUDController>();
             if (!inventoryManager) inventoryManager = FindObjectOfType<InventoryManager>();
-            if (!scoreController) scoreController = FindObjectOfType<ScoreController>();
+            if (!achievementController) achievementController = FindObjectOfType<AchievementController>();
             if (!endGameScreenController) endGameScreenController = FindObjectOfType<EndGameScreenController>();
         }
     }
