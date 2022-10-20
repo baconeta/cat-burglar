@@ -24,8 +24,6 @@ namespace Controllers
 
         [SerializeField] private TMP_Text gameEndText;
 
-        private List<string> _achievementsThisRound;
-
         private void Awake()
         {
             _cm = FindObjectOfType<ControllerManager>();
@@ -100,12 +98,9 @@ namespace Controllers
         {
             endGamePanel.SetActive(true);
             gameEndText.SetText(gameEndMessage);
-            _cm.EndGameScreenController.ShowAchievements(_achievementsThisRound);
-        }
 
-        public void AchievementCompleted(string achievementText)
-        {
-            _achievementsThisRound.Add(achievementText);
+            var achievementsThisRound = _cm.Achievements.CheckCompletedTasks();
+            _cm.EndGameScreenController.ShowAchievements(achievementsThisRound);
         }
     }
 }

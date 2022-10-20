@@ -31,11 +31,14 @@ namespace Controllers
             SceneManager.LoadScene(scene.name);
         }
 
-        public void ShowAchievements(List<string> achievementsAchieved)
+        public void ShowAchievements(List<Achievement> achievementsAchieved)
         {
-            foreach (var achievement in achievementsAchieved)
+            if (achievementsAchieved.Count <= 0) return;
+
+            achievementsUnlockedText.text = "";
+            foreach (Achievement achievement in achievementsAchieved)
             {
-                achievementsUnlockedText.text = achievementsUnlockedText.text + achievement + "\n";
+                achievementsUnlockedText.text = achievementsUnlockedText.text + achievement.achievementName + "\n";
             }
         }
 

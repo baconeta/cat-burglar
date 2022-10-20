@@ -102,14 +102,17 @@ namespace Controllers
 
         // This will perform a check to look for any incomplete tasks and see if they have been completed or not.
         // TODO either make this occur during game over one time -or live update as a player plays to inform them
-        private List<Achievement> CheckCompletedTasks()
+        public List<Achievement> CheckCompletedTasks()
         {
             // Search through each of the achievements and see if it is done or not. 
             var toCheck = allAchievements.Where(achievement => !achievement.completed).ToList();
             var nowComplete = new List<Achievement>();
 
-            foreach (Achievement ach in toCheck)
+            for (var i = 0; i < allAchievements.Count; i++)
             {
+                Achievement ach = allAchievements[i];
+                if (ach.completed) continue;
+
                 // Add all possible achievements here and check conditions
                 switch (ach.achievementPrefsCodeName)
                 {
@@ -134,6 +137,7 @@ namespace Controllers
                            )
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -158,6 +162,7 @@ namespace Controllers
                            )
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -165,6 +170,7 @@ namespace Controllers
                         if (GetInt("CollectAny") >= 10)
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -172,6 +178,7 @@ namespace Controllers
                         if (GetInt("RetrieveAny") >= 5)
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -179,6 +186,7 @@ namespace Controllers
                         if (GetBool("10InARow"))
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -186,6 +194,7 @@ namespace Controllers
                         if (GetInt("TotalCompletedTasks") >= 5)
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -193,6 +202,7 @@ namespace Controllers
                         if (GetInt("TotalCompletedTasks") >= 25)
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -200,6 +210,7 @@ namespace Controllers
                         if (GetInt("TotalCompletedTasks") >= 100)
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -207,6 +218,7 @@ namespace Controllers
                         if (GetInt("TimesCaught") >= 1)
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -214,6 +226,7 @@ namespace Controllers
                         if (GetInt("TimesCaught") >= 10)
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -221,6 +234,7 @@ namespace Controllers
                         if (GetInt("Meow") >= 1)
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -228,6 +242,7 @@ namespace Controllers
                         if (GetInt("Meow") >= 10)
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -235,6 +250,7 @@ namespace Controllers
                         if (GetInt("HearMeMeow") >= 1)
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -242,6 +258,7 @@ namespace Controllers
                         if (GetInt("HearMeMeow") >= 10)
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
@@ -249,10 +266,13 @@ namespace Controllers
                         if (GetInt("RetrieveNotNeeded") >= 20)
                         {
                             nowComplete.Add(ach);
+                            ach.completed = true;
                         }
 
                         break;
                 }
+
+                allAchievements[i] = ach;
             }
 
             return nowComplete;
