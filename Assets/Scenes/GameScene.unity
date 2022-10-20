@@ -42061,54 +42061,11 @@ Transform:
   m_Father: {fileID: 1717103393}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &878317930
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 878317931}
-  - component: {fileID: 878317932}
-  m_Layer: 0
-  m_Name: AchievementController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &878317931
+--- !u!4 &878317931 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 446814633462441196, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
+  m_PrefabInstance: {fileID: 446814632718611847}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878317930}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1480958691}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &878317932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878317930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 590cd44a7d8ab4543b7c11299090a3b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allAchievements:
-  - achievementName: Collect one roll of toilet paper
-    achievementPrefsCodeName: CollectToiletPaper1
-    completed: 0
 --- !u!1001 &880779273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103945,6 +103902,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1436107293988198743, guid: 0be2d0693e025cc4e9de713cadbfc72b, type: 3}
   m_PrefabInstance: {fileID: 725141104408929025}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &446814632718611847
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1480958691}
+    m_Modifications:
+    - target: {fileID: 446814633462441196, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 446814633462441196, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 446814633462441196, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 446814633462441196, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 446814633462441196, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 446814633462441196, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 446814633462441196, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 446814633462441196, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 446814633462441196, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 446814633462441196, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 446814633462441196, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 446814633462441197, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
+      propertyPath: m_Name
+      value: AchievementController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
 --- !u!1001 &626377892811678647
 PrefabInstance:
   m_ObjectHideFlags: 0

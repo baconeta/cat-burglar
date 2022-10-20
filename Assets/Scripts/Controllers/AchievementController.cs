@@ -33,22 +33,39 @@ namespace Controllers
         public void CompleteTask()
         {
             AddInt("TotalCompletedTasks", 1);
+            AddInt("TasksWithoutCaught", 1);
+            if (GetInt("TasksWithoutCaught") >= 10)
+            {
+                SetBool("10InARow", true);
+            }
         }
 
         public void CollectItem(string itemName)
         {
             AddInt("Collect" + itemName, 1);
+            AddInt("CollectAny", 1);
         }
 
         public void RetrieveItem(string itemName)
         {
             AddInt("Retrieve" + itemName, 1);
+            AddInt("RetrieveAny", 1);
         }
 
-        private void GetCaught()
+        public void GetCaught()
         {
             SetInt("TasksWithoutCaught", 0);
             AddInt("TimesCaught", 1);
+        }
+
+        public void Meow()
+        {
+            AddInt("Meow", 1);
+        }
+
+        public void HearMeMeow()
+        {
+            AddInt("HearMeMeow", 1);
         }
 
         private static void SetInt(string keyName, int value)
@@ -98,18 +115,133 @@ namespace Controllers
                 // Add all possible achievements here and check conditions
                 switch (ach.achievementPrefsCodeName)
                 {
-                    default:
-                        nowComplete.Add(ach);
-                        break;
-                    case "CollectToiletPaper1":
-                        if (GetInt("CollectToiletPaper") >= 1)
+                    case "CollectAllOnce":
+                        if (GetInt("CollectToothpaste") >= 1 &&
+                            GetInt("CollectApple") >= 1 &&
+                            GetInt("CollectPumpkin") >= 1 &&
+                            GetInt("CollectMouthwash") >= 1 &&
+                            GetInt("CollectToiletPaper") >= 1 &&
+                            GetInt("CollectPaperTowel") >= 1 &&
+                            GetInt("CollectGreenApple") >= 1 &&
+                            GetInt("CollectNails") >= 1 &&
+                            GetInt("CollectSoap") >= 1 &&
+                            GetInt("CollectTomato") >= 1 &&
+                            GetInt("CollectAlcohol") >= 1 &&
+                            GetInt("CollectBlueCan") >= 1 &&
+                            GetInt("CollectBread") >= 1 &&
+                            GetInt("CollectCorn") >= 1 &&
+                            GetInt("CollectMeat") >= 1 &&
+                            GetInt("CollectGreenDrink") >= 1 &&
+                            GetInt("CollectRedCan") >= 1
+                           )
                         {
                             nowComplete.Add(ach);
                         }
 
                         break;
-                    case "CollectToothpaste1":
-                        if (GetInt("CollectToothpaste") >= 1)
+                    case "RetrieveAllOnce":
+                        if (GetInt("RetrieveToothpaste") >= 1 &&
+                            GetInt("RetrieveApple") >= 1 &&
+                            GetInt("RetrievePumpkin") >= 1 &&
+                            GetInt("RetrieveMouthwash") >= 1 &&
+                            GetInt("RetrieveToiletPaper") >= 1 &&
+                            GetInt("RetrievePaperTowel") >= 1 &&
+                            GetInt("RetrieveGreenApple") >= 1 &&
+                            GetInt("RetrieveNails") >= 1 &&
+                            GetInt("RetrieveSoap") >= 1 &&
+                            GetInt("RetrieveTomato") >= 1 &&
+                            GetInt("RetrieveAlcohol") >= 1 &&
+                            GetInt("RetrieveBlueCan") >= 1 &&
+                            GetInt("RetrieveBread") >= 1 &&
+                            GetInt("RetrieveCorn") >= 1 &&
+                            GetInt("RetrieveMeat") >= 1 &&
+                            GetInt("RetrieveGreenDrink") >= 1 &&
+                            GetInt("RetrieveRedCan") >= 1
+                           )
+                        {
+                            nowComplete.Add(ach);
+                        }
+
+                        break;
+                    case "CollectAny10":
+                        if (GetInt("CollectAny") >= 10)
+                        {
+                            nowComplete.Add(ach);
+                        }
+
+                        break;
+                    case "RetrieveAny5":
+                        if (GetInt("RetrieveAny") >= 5)
+                        {
+                            nowComplete.Add(ach);
+                        }
+
+                        break;
+                    case "TasksWithoutCaught":
+                        if (GetBool("10InARow"))
+                        {
+                            nowComplete.Add(ach);
+                        }
+
+                        break;
+                    case "CompleteAny5":
+                        if (GetInt("TotalCompletedTasks") >= 5)
+                        {
+                            nowComplete.Add(ach);
+                        }
+
+                        break;
+                    case "CompleteAny25":
+                        if (GetInt("TotalCompletedTasks") >= 25)
+                        {
+                            nowComplete.Add(ach);
+                        }
+
+                        break;
+                    case "CompleteAny100":
+                        if (GetInt("TotalCompletedTasks") >= 100)
+                        {
+                            nowComplete.Add(ach);
+                        }
+
+                        break;
+                    case "GetCaught":
+                        if (GetInt("TimesCaught") >= 1)
+                        {
+                            nowComplete.Add(ach);
+                        }
+
+                        break;
+                    case "GetCaught10":
+                        if (GetInt("TimesCaught") >= 10)
+                        {
+                            nowComplete.Add(ach);
+                        }
+
+                        break;
+                    case "Meow1":
+                        if (GetInt("Meow") >= 1)
+                        {
+                            nowComplete.Add(ach);
+                        }
+
+                        break;
+                    case "Meow10":
+                        if (GetInt("Meow") >= 10)
+                        {
+                            nowComplete.Add(ach);
+                        }
+
+                        break;
+                    case "HearMeMeow1":
+                        if (GetInt("HearMeMeow") >= 1)
+                        {
+                            nowComplete.Add(ach);
+                        }
+
+                        break;
+                    case "HearMeMeow10":
+                        if (GetInt("HearMeMeow") >= 10)
                         {
                             nowComplete.Add(ach);
                         }

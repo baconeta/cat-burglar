@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &446814633462441197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 446814633462441196}
+  - component: {fileID: 446814633462441195}
+  m_Layer: 0
+  m_Name: AchievementController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &446814633462441196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446814633462441197}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &446814633462441195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446814633462441197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590cd44a7d8ab4543b7c11299090a3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allAchievements:
+  - achievementName: Collect one of every item
+    achievementPrefsCodeName: CollectAllOnce
+    completed: 0
+  - achievementName: Collect 10 items
+    achievementPrefsCodeName: CollectAny10
+    completed: 0
+  - achievementName: Complete 10 tasks without being caught
+    achievementPrefsCodeName: 10InARow
+    completed: 0
+  - achievementName: Retrieve 5 items
+    achievementPrefsCodeName: RetrieveAny5
+    completed: 0
+  - achievementName: Retrieve one of every item
+    achievementPrefsCodeName: RetrieveAllOnce
+    completed: 0
+  - achievementName: Complete 5 tasks
+    achievementPrefsCodeName: CompleteAny5
+    completed: 0
+  - achievementName: Complete 25 tasks
+    achievementPrefsCodeName: CompleteAny25
+    completed: 0
+  - achievementName: Complete 100 tasks
+    achievementPrefsCodeName: CompleteAny100
+    completed: 0
+  - achievementName: Get caught stealing
+    achievementPrefsCodeName: GetCaught
+    completed: 0
+  - achievementName: Red handed
+    achievementPrefsCodeName: GetCaught10
+    completed: 0
+  - achievementName: Meowwwww
+    achievementPrefsCodeName: Meow1
+    completed: 0
+  - achievementName: Meow meow meow meow meow meow meow meow meow meow
+    achievementPrefsCodeName: Meow10
+    completed: 0
+  - achievementName: Hear me meow
+    achievementPrefsCodeName: HearMeMeow1
+    completed: 0
+  - achievementName: Hear me roar
+    achievementPrefsCodeName: HearMeMeow10
+    completed: 0
