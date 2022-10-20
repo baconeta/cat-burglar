@@ -55,12 +55,12 @@ namespace Controllers
             AddInt("TimesCaught", 1);
         }
 
-        public void Meow()
+        public static void Meow()
         {
             AddInt("Meow", 1);
         }
 
-        public void HearMeMeow()
+        public static void HearMeMeow()
         {
             AddInt("HearMeMeow", 1);
         }
