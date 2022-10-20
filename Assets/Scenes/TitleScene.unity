@@ -5854,6 +5854,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievementSlotBox: {fileID: 2005126610}
   achievementPanelPrefab: {fileID: 2841661392914174321, guid: a1b23b4b539273e4a919f006d6b443b0, type: 3}
+  unknownImage: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  completedImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &1720774193
 GameObject:
   m_ObjectHideFlags: 0

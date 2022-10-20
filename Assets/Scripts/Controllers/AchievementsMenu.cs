@@ -1,6 +1,7 @@
 using TMPro;
 using UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Controllers
 {
@@ -9,6 +10,8 @@ namespace Controllers
         private AchievementController _ac;
         public GameObject achievementSlotBox;
         public GameObject achievementPanelPrefab;
+        public Sprite unknownImage;
+        public Sprite completedImage;
 
         private void Awake()
         {
@@ -19,9 +22,10 @@ namespace Controllers
         {
             foreach (Achievement achievement in _ac.allAchievements)
             {
-                GameObject itemPanelBox = Instantiate(achievementPanelPrefab, achievementSlotBox.transform, true);
-                itemPanelBox.GetComponent<AchievementPanel>().achievementPrefCode =
+                GameObject achievementPanel = Instantiate(achievementPanelPrefab, achievementSlotBox.transform, true);
+                achievementPanel.GetComponent<AchievementPanel>().achievementPrefCode =
                     achievement.achievementPrefsCodeName;
+                achievementPanel.GetComponent<Image>().sprite = achievement.completed ? completedImage : unknownImage;
             }
         }
 
