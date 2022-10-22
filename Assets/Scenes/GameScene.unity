@@ -48292,7 +48292,7 @@ GameObject:
   - component: {fileID: 978641072}
   - component: {fileID: 978641076}
   m_Layer: 0
-  m_Name: ReturnTrolley- Yes I know it's a wheelbarrow
+  m_Name: ReturnWheelbarrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56129,7 +56129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1131018543}
   m_Layer: 0
-  m_Name: Supermarket
+  m_Name: == Supermarket ==
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
