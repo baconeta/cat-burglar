@@ -113,9 +113,9 @@ namespace AI
             }    
         }
 
-        public static void EndGame()
+        public void EndGame()
         {
-            FindObjectOfType<ControllerManager>().GameController.Caught();
+            _cm.GameController.Caught();
             
         }
 

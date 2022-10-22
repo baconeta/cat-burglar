@@ -27,10 +27,10 @@ namespace AI.States
                 distance.y = 0;
 
                 if (distance.magnitude < 0.9f) {
-                    Debug.Log("CAUGHT YA");
+                    Debug.Log("Player caught");
                     // end game
                     NPC.endGame = true;
-                    AIMovement.EndGame();
+                    NPC.EndGame();
                     NPC.ChangeState(new PatrolState());
                 }
 
