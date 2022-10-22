@@ -13,6 +13,7 @@ namespace Inventory
         public bool useParticles = true;
         public GameObject particlesPrefab;
         private InventoryManager _im;
+        private AudioSource pickupSound;
 
         private void Start()
         {
@@ -22,6 +23,12 @@ namespace Inventory
             {
                 Instantiate(particlesPrefab, transform.position, particlesPrefab.transform.rotation, transform);
             }
+
+            pickupSound = GameObject.FindGameObjectWithTag("Pickup").GetComponent<AudioSource>();
+
+            pickupSound.clip = GetComponent<AudioSource>().clip;
+
+            //pickupSound = GameObject.Find("Pickup");
         }
 
         private void PickupItem() // can be overridden if we want special/multi-stacking items for some reason
@@ -30,6 +37,8 @@ namespace Inventory
             _im.AddToInventory(this);
             AchievementController.CollectItem(GetType().Name);
             // TODO Play a sound??
+            pickupSound.Play();
+
 
             Destroy(gameObject);
         }

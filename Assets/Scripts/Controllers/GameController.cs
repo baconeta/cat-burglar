@@ -23,6 +23,8 @@ namespace Controllers
         [Tooltip("Enables simple preconfigured game loop logic.")]
         public bool testGameMode;
 
+        public AudioSource winSound;
+
         private void Awake()
         {
             _cm = FindObjectOfType<ControllerManager>();
@@ -104,6 +106,10 @@ namespace Controllers
 
         private void EndGame(bool win)
         {
+            if(win){
+                winSound.Play();
+            }
+
             var gameEndMessage = "Game " + (win ? "won!" : "over!");
 
             if (_cm.GameController.debugMode) Debug.Log(gameEndMessage);

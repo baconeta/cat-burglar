@@ -3,13 +3,19 @@ using UnityEngine;
 namespace AI.States
 {
     public class PatrolState : BaseState<AIMovement>
+    
     {
+         private float mTimer;
+         Vector3 distance;
         // called on enter
         public override void Enter(AIMovement NPC)
         {
             NPC.SetSpeed(2.0f);
             // move to initial point
             NPC.MoveTo(NPC.PatrolPoint);
+            mTimer = 5;
+            // init distance vector
+            distance = new Vector3(99999,99999,99999);
         }
 
         // called once per frame
@@ -33,13 +39,17 @@ namespace AI.States
             }
 
             if(NPC.meow){
-                Vector3 distance = NPC.MeowPosition - NPC.Position;
+                distance = NPC.MeowPosition - NPC.Position;
                 distance.y = 0;
-                if(distance.magnitude < 2f){
-                    Debug.Log("we have entered the meow");
-                    NPC.ChangeState(new SearchState());
-                }
+
             }
+
+            if(distance.magnitude < 1f){
+                Debug.Log("we have entered the meow");
+                NPC.ChangeState(new SearchState());
+            } 
+            mTimer -= Time.deltaTime;
+
         }
 
         // called on exit

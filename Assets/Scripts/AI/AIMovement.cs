@@ -16,7 +16,10 @@ namespace AI
         private ControllerManager _cm;
 
         public bool meow = false;
+        public bool endGame = false;
         public Vector3 MeowPosition;
+
+        public AudioSource uhoh;
 
         private BaseStateMachine<AIMovement> mStateMachine;
 
@@ -48,6 +51,7 @@ namespace AI
             //npc.destination = patrolRoute[0];
             mStateMachine = new BaseStateMachine<AIMovement>(this, new PatrolState());
             _cm = FindObjectOfType<ControllerManager>();
+            endGame = false;
         }
 
         public void ChangeState(BaseState<AIMovement> state)
@@ -98,6 +102,7 @@ namespace AI
 
         private void Update()
         {
+            if(endGame) return;
             // update state machine
             mStateMachine.Update();
 
@@ -111,6 +116,7 @@ namespace AI
         public static void EndGame()
         {
             FindObjectOfType<ControllerManager>().GameController.Caught();
+            
         }
 
         public void HearMeow(Vector3 transformPosition)

@@ -102,6 +102,7 @@ namespace Player
 
         private void MovePlayer()
         {
+
             // Calculate direction
             _moveDirection = catOrientation.forward * _verticalInput + catOrientation.right * _horizontalInput;
 
@@ -150,6 +151,7 @@ namespace Player
                 Jump();
                 Invoke(nameof(ResetJump), jumpCooldown);
             }
+
         }
 
         private void Jump()
