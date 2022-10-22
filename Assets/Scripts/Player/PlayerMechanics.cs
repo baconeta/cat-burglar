@@ -71,6 +71,7 @@ namespace Player
             }
 
             _cm.Achievements.CheckGuardsAtOnce(numGuardsHit);
+            _cm.TaskController.CheckCompletion();
         }
 
         private void ResetMeow()

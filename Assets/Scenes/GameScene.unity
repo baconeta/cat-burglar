@@ -18541,7 +18541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8861b0f03efee9a4c9cc77f1b5d3acd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasksPerRound: 2
+  tasksPerRound: 5
   roundsToComplete: 1
   debugMode: 1
   testGameMode: 0
