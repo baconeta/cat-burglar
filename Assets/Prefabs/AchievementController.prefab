@@ -105,3 +105,11 @@ MonoBehaviour:
     achievementPrefsCodeName: RetrieveNotNeeded20
     subMessage: Take home 20 items you weren't asked for
     completed: 0
+  - achievementName: All together now
+    achievementPrefsCodeName: 3GuardsAtOnce
+    subMessage: Have 3 guards hear you at the same time
+    completed: 0
+  - achievementName: It's over 9000
+    achievementPrefsCodeName: ClimbDistance9001
+    subMessage: Climb a total height of over 9000cm
+    completed: 0

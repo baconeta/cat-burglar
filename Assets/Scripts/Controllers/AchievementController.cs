@@ -80,6 +80,11 @@ namespace Controllers
             }
         }
 
+        public void ClimbDistance(int distance)
+        {
+            AddInt("DistanceClimbed", distance);
+        }
+
         private static void SetInt(string keyName, int value)
         {
             PlayerPrefs.SetInt(keyName, value);
@@ -280,6 +285,14 @@ namespace Controllers
                         break;
                     case "3GuardsAtOnce":
                         if (GetBool("AllGuardsHear"))
+                        {
+                            newlyCompleted.Add(ach);
+                            ach.completed = true;
+                        }
+
+                        break;
+                    case "ClimbDistance9001":
+                        if (GetInt("DistanceClimbed") >= 9000)
                         {
                             newlyCompleted.Add(ach);
                             ach.completed = true;

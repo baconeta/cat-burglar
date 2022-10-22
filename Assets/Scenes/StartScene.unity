@@ -814,22 +814,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1697416469}
     m_Modifications:
-    - target: {fileID: 446814633462441195, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
-      propertyPath: allAchievements.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 446814633462441195, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
-      propertyPath: allAchievements.Array.data[15].subMessage
-      value: Have 3 guards hear you at the same time
-      objectReference: {fileID: 0}
-    - target: {fileID: 446814633462441195, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
-      propertyPath: allAchievements.Array.data[15].achievementName
-      value: All together now
-      objectReference: {fileID: 0}
-    - target: {fileID: 446814633462441195, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
-      propertyPath: allAchievements.Array.data[15].achievementPrefsCodeName
-      value: 3GuardsAtOnce
-      objectReference: {fileID: 0}
     - target: {fileID: 446814633462441196, guid: 150150bd94c320442afd1f254dbf2ff3, type: 3}
       propertyPath: m_RootOrder
       value: 1

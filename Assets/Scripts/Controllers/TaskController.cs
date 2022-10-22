@@ -16,8 +16,6 @@ namespace Controllers
             CollectItem,
             ReturnItem,
             Meow
-
-            // TODO add other task types here?
         }
 
         private ControllerManager _cm;

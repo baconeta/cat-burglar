@@ -1,3 +1,4 @@
+using System;
 using Controllers;
 using UnityEngine;
 
@@ -7,24 +8,21 @@ namespace Player
     {
         private ControllerManager _cm;
 
-        [Header("Movement")] 
-        public float moveSpeed;
+        [Header("Movement")] public float moveSpeed;
         public float groundDrag;
         public float jumpForce;
         public float jumpCooldown;
         public float airMultiplier;
         private bool _readyToJump;
 
-        [Header("Keybindings")] 
-        public KeyCode jumpKey = KeyCode.Space;
+        [Header("Keybindings")] public KeyCode jumpKey = KeyCode.Space;
 
-        [Header("Ground Check")] 
-        public float playerHeight;
+        [Header("Ground Check")] public float playerHeight;
         public LayerMask groundObjects;
         private bool _grounded;
-        
-        [Header("Wall Climbing")]
-        public LayerMask wallObjects;
+        private float _lastY;
+
+        [Header("Wall Climbing")] public LayerMask wallObjects;
         public float climbSpeed;
         private bool _isClimbing;
         public float wallDetectionLength;
@@ -34,8 +32,7 @@ namespace Player
         private RaycastHit _wallHit;
         private bool _wallInFront;
 
-        [Header("General")]
-        [SerializeField] private Transform catOrientation;
+        [Header("General")] [SerializeField] private Transform catOrientation;
         [SerializeField] private Rigidbody rb;
 
         private float _horizontalInput;
@@ -71,10 +68,10 @@ namespace Player
         private void FixedUpdate()
         {
             if (!_cm.GameController.GameRunning()) return;
-            
+
             CheckForWall();
             ClimbingStateMachine();
-            
+
             if (_isClimbing)
             {
                 ClimbingMovement();
@@ -102,7 +99,6 @@ namespace Player
 
         private void MovePlayer()
         {
-
             // Calculate direction
             _moveDirection = catOrientation.forward * _verticalInput + catOrientation.right * _horizontalInput;
 
@@ -119,9 +115,9 @@ namespace Player
         {
             Vector3 forwardVec = catOrientation.forward;
             _wallInFront = Physics.SphereCast(transform.position, wallSphereCastRad, forwardVec,
-                out _wallHit, wallDetectionLength, layerMask:wallObjects);
+                out _wallHit, wallDetectionLength, layerMask: wallObjects);
             _currWallLookAngle = Vector3.Angle(forwardVec, -_wallHit.normal);
-            
+
             if (_cm.GameController.debugMode) Debug.Log("Wall in front: " + _wallInFront);
         }
 
@@ -151,7 +147,6 @@ namespace Player
                 Jump();
                 Invoke(nameof(ResetJump), jumpCooldown);
             }
-
         }
 
         private void Jump()
@@ -172,6 +167,7 @@ namespace Player
         private void StartClimbing()
         {
             _isClimbing = true;
+            _lastY = transform.position.y;
         }
 
         private void ClimbingMovement()
@@ -185,8 +181,15 @@ namespace Player
         {
             if (_isClimbing)
             {
-                Debug.Log("Stop climbing");
+                var climbDistance = (int) Math.Abs(_lastY - transform.position.y) * 10;
+                _cm.Achievements.ClimbDistance(climbDistance);
+                if (_cm.GameController.debugMode)
+                {
+                    Debug.Log("Stop climbing");
+                    Debug.Log("You climbed " + climbDistance + "cm");
+                }
             }
+
             _isClimbing = false;
         }
     }
