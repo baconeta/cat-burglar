@@ -42,8 +42,8 @@ namespace Controllers
             if (_cm.GameController.debugMode) Debug.Log("New task - " + task.taskText + " - added.");
             if (task.taskType == TaskType.Meow)
             {
-                MeowTask meowTask = new(task.taskText, task.num);
-                _currentTasks.Add(meowTask);
+                MechanicsTask mechanicsTask = new(task.taskText, task.num, task.taskType);
+                _currentTasks.Add(mechanicsTask);
             }
             else
             {
@@ -95,8 +95,8 @@ namespace Controllers
                     // Handle Meow task
                     if (type is TaskType.Meow)
                     {
-                        MeowTask meowTask = (MeowTask) task;
-                        if (!meowTask.AddMeow())
+                        MechanicsTask mechanicsTask = (MechanicsTask) task;
+                        if (!mechanicsTask.AddValue(1))
                         {
                             continue;
                         }
