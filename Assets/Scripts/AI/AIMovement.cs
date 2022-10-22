@@ -15,6 +15,9 @@ namespace AI
         public Transform player;
         private ControllerManager _cm;
 
+        public bool meow = false;
+        public Vector3 MeowPosition;
+
         private BaseStateMachine<AIMovement> mStateMachine;
 
 
@@ -112,8 +115,14 @@ namespace AI
 
         public void HearMeow(Vector3 transformPosition)
         {
-            // npc.destination = LastSeen;
-            if (_cm.GameController.debugMode) Debug.Log("A meow was heard by " + gameObject);
+            // 
+            if (_cm.GameController.debugMode) {
+                npc.destination = PlayerPosition;
+                MeowPosition = PlayerPosition;
+                meow = true;
+                Debug.Log("A meow was heard by " + gameObject);
+            }
+            //ChangeState(new ChaseState());
         }
     }
 }

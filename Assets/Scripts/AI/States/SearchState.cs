@@ -14,8 +14,9 @@ namespace AI.States
             // last known player location
             mTarget = NPC.LastSeen;
 
-            // move to target
+             // move to target
             NPC.MoveTo(mTarget);
+           
 
             // search for 5 seconds
             mTimer = 5;
@@ -35,13 +36,20 @@ namespace AI.States
                 // change to patrol state
                 NPC.ChangeState(new PatrolState());
             }
+            else if(NPC.meow){
+                Vector3 distance = NPC.MeowPosition - NPC.Position;
+                distance.y = 0;
+                if(distance.magnitude < 2f){
+                    Debug.Log("we have entered the meow");
+                    NPC.ChangeState(new SearchState());
+                }
+            }
             else
             {
                 // if at last known location
                 if (Vector3.Distance(NPC.Position, mTarget) < 0.5f)
                 {
                     // generate random location nearby
-                    // TODO: make sure valid location & path isnt too long
                     mTarget += new Vector3(Random.Range(-2.0f, 2.0f), 0, Random.Range(-2.0f, 2.0f));
 
                     // move to target
@@ -56,6 +64,7 @@ namespace AI.States
         // called on Exit
         public override void Exit(AIMovement NPC)
         {
+            NPC.meow = false;
         }
     }
 }

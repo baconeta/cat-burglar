@@ -21,7 +21,7 @@ namespace AI.States
                 Vector3 distance = NPC.PlayerPosition - NPC.Position;
                 distance.y = 0;
 
-                if (distance.magnitude < 0.5f) {
+                if (distance.magnitude < 0.9f) {
                     Debug.Log("CAUGHT YA");
                     // end game
                     AIMovement.EndGame();

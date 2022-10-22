@@ -31,11 +31,21 @@ namespace AI.States
                 // change to chase state
                 NPC.ChangeState(new ChaseState());
             }
+
+            if(NPC.meow){
+                Vector3 distance = NPC.MeowPosition - NPC.Position;
+                distance.y = 0;
+                if(distance.magnitude < 2f){
+                    Debug.Log("we have entered the meow");
+                    NPC.ChangeState(new SearchState());
+                }
+            }
         }
 
         // called on exit
         public override void Exit(AIMovement NPC)
         {
+            NPC.meow = false;
         }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0030343635, g: 0.00618715, b: 0.014093148, a: 1}
+  m_IndirectSpecularColor: {r: 0.0031405292, g: 0.0061706104, b: 0.014241753, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1721,7 +1721,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 350, y: 100}
+  m_SizeDelta: {x: 380, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &461157370
 MonoBehaviour:
@@ -1743,12 +1743,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Like a shadow in the night, you must sneak around a  supermarket after
-    dark. Collect items from your shopping list, some may require a little 'creativity'
-    to reach. \n\nBeware! Security guards patrol the halls. If they see you, you'll
-    be sure to be made into cat soup. Not nice.\n\nYour mission is important. You
-    have 3 humans at home that require the essentials. Remember your training, and
-    don't get caught!"
+  m_text: 'Like a shadow in the night, you must sneak around a  supermarket after
+    dark. Collect items from your shopping list and drop them off at the front of
+    the store. Some may require a little ''creativity'' to reach and some surfaces
+    are climbable.
+
+
+    Beware! Security guards patrol the halls. If they see you,
+    you''ll be sure to be made into cat soup. Use your meow to distract them (c).
+
+
+    Your
+    mission is important. You have 3 humans at home that require the essentials.
+    Remember your training, and don''t get caught!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1782,7 +1789,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 3
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3303,13 +3310,13 @@ MonoBehaviour:
   m_text: Back
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 42df1c7856584b6b8db9a509b6b10074, type: 2}
+  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
+    rgba: 4284352773
   m_fontColor: {r: 0.019090425, g: 0.037241455, b: 0.3679245, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
