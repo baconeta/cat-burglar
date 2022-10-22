@@ -120,7 +120,7 @@ namespace AI
             _cm.GameController.Caught();
         }
 
-        public void HearMeow(Vector3 transformPosition)
+        public void HearMeow(Vector3 meowPosition)
         {
             if (_cm.GameController.debugMode)
             {
@@ -128,7 +128,7 @@ namespace AI
             }
 
             npc.destination = PlayerPosition;
-            MeowPosition = PlayerPosition;
+            MeowPosition = meowPosition;
             meow = true;
         }
     }
