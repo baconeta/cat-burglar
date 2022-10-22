@@ -29,7 +29,7 @@ namespace Controllers
             CheckCompletedAchievements();
         }
 
-        public static void CompleteTask()
+        public void CompleteTask()
         {
             AddInt("TotalCompletedTasks", 1);
             AddInt("TasksWithoutCaught", 1);
@@ -39,13 +39,13 @@ namespace Controllers
             }
         }
 
-        public static void CollectItem(string itemName)
+        public void CollectItem(string itemName)
         {
             AddInt("Collect" + itemName, 1);
             AddInt("CollectAny", 1);
         }
 
-        public static void RetrieveItem(string itemName)
+        public void RetrieveItem(string itemName)
         {
             AddInt("Retrieve" + itemName, 1);
             AddInt("RetrieveAny", 1);
@@ -57,17 +57,17 @@ namespace Controllers
             AddInt("TimesCaught", 1);
         }
 
-        public static void Meow()
+        public void Meow()
         {
             AddInt("Meow", 1);
         }
 
-        public static void HearMeMeow()
+        public void HearMeMeow()
         {
             AddInt("HearMeMeow", 1);
         }
 
-        public static void RetrieveNotNeededItem(int tasksDone)
+        public void RetrieveNotNeededItem(int tasksDone)
         {
             AddInt("RetrieveNotNeeded", tasksDone);
         }

@@ -52,7 +52,7 @@ namespace Player
         {
             // Play a random meow sound
             _audioSource.PlayOneShot(meowSounds[Random.Range(0, meowSounds.Length)], meowVolume);
-            AchievementController.Meow();
+            _cm.Achievements.Meow();
 
             // Cast a sphere to inform any nearby AI of the meow
             var hits = Physics.SphereCastAll(transform.position, meowHearingDistance,
@@ -63,7 +63,7 @@ namespace Player
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
                     hit.collider.gameObject.GetComponent<AIMovement>().HearMeow(transform.position);
-                    AchievementController.HearMeMeow();
+                    _cm.Achievements.HearMeMeow();
                 }
             }
         }

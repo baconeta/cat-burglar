@@ -73,7 +73,7 @@ namespace Controllers
                 {
                     if (_cm.GameController.debugMode) Debug.Log("Task completed - " + task.taskText);
                     task.MarkDone();
-                    AchievementController.CompleteTask();
+                    _cm.Achievements.CompleteTask();
                     _numTasksCompleted += 1;
                     tasksMarkedComplete += 1;
                 }

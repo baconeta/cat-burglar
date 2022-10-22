@@ -48,8 +48,8 @@ namespace Controllers
             {
                 if (_cm.GameController.debugMode) Debug.Log("Item " + item.ItemName + " returned.");
                 var tasksDone = _cm.TaskController.CheckTasksOfType(TaskController.TaskType.ReturnItem, item);
-                AchievementController.RetrieveItem(item.ItemName);
-                AchievementController.RetrieveNotNeededItem(tasksDone);
+                _cm.Achievements.RetrieveItem(item.ItemName);
+                _cm.Achievements.RetrieveNotNeededItem(tasksDone);
             }
 
             // For now we assume everything is dropped off but maybe we can extend this to X items later
