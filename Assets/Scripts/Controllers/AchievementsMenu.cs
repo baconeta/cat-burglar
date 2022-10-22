@@ -31,11 +31,17 @@ namespace Controllers
 
         public void RemoveAchievementPanels()
         {
-            // Clear all inventory images first
             foreach (Transform child in achievementSlotBox.transform)
             {
                 Destroy(child.gameObject);
             }
+        }
+
+        public void ResetAchievements()
+        {
+            FindObjectOfType<AchievementController>().ResetAllAchievements();
+            RemoveAchievementPanels();
+            ShowAchievements();
         }
     }
 }

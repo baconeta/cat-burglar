@@ -277,5 +277,18 @@ namespace Controllers
 
             return newlyCompleted;
         }
+
+        public void ResetAllAchievements()
+        {
+            PlayerPrefs.DeleteAll();
+            for (var i = 0; i < allAchievements.Count; i++)
+            {
+                Achievement ach = allAchievements[i];
+                ach.completed = false;
+                allAchievements[i] = ach;
+            }
+
+            CheckCompletedAchievements();
+        }
     }
 }
