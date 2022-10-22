@@ -903,7 +903,7 @@ RectTransform:
   - {fileID: 1420358907}
   - {fileID: 1295019584}
   m_Father: {fileID: 1978078324}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1126,7 +1126,7 @@ GameObject:
   - component: {fileID: 1727734643}
   - component: {fileID: 1727734644}
   m_Layer: 5
-  m_Name: BackgroundMusic
+  m_Name: AmbientRain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1139,13 +1139,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727734642}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 612.5, y: 312, z: 0}
+  m_LocalScale: {x: 1.225, y: 1.225, z: 1.225}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1978078324}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1727734644
 AudioSource:
@@ -1159,7 +1159,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 35781b116c7cc08418ad6971ea50ae6a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.026
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1274,7 +1274,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1727734643}
   - {fileID: 1549156439}
   m_Father: {fileID: 1697416469}
   m_RootOrder: 0
