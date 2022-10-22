@@ -24,9 +24,11 @@ namespace AI
         private BaseStateMachine<AIMovement> mStateMachine;
 
 
-        public void SetSpeed(float speed){
+        public void SetSpeed(float speed)
+        {
             npc.speed = speed;
         }
+
         // get position
         public Vector3 Position
         {
@@ -102,7 +104,7 @@ namespace AI
 
         private void Update()
         {
-            if(endGame) return;
+            if (endGame) return;
             // update state machine
             mStateMachine.Update();
 
@@ -110,25 +112,24 @@ namespace AI
             if (npc.velocity.sqrMagnitude > Mathf.Epsilon)
             {
                 transform.rotation = Quaternion.LookRotation(npc.velocity.normalized);
-            }    
+            }
         }
 
         public void EndGame()
         {
             _cm.GameController.Caught();
-            
         }
 
         public void HearMeow(Vector3 transformPosition)
         {
-            // 
-            if (_cm.GameController.debugMode) {
-                npc.destination = PlayerPosition;
-                MeowPosition = PlayerPosition;
-                meow = true;
+            if (_cm.GameController.debugMode)
+            {
                 Debug.Log("A meow was heard by " + gameObject);
             }
-            //ChangeState(new ChaseState());
+
+            npc.destination = PlayerPosition;
+            MeowPosition = PlayerPosition;
+            meow = true;
         }
     }
 }
