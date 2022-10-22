@@ -72,6 +72,14 @@ namespace Controllers
             AddInt("RetrieveNotNeeded", tasksDone);
         }
 
+        public void CheckGuardsAtOnce(int numGuards)
+        {
+            if (numGuards >= 3)
+            {
+                SetBool("AllGuardsHear", true);
+            }
+        }
+
         private static void SetInt(string keyName, int value)
         {
             PlayerPrefs.SetInt(keyName, value);
@@ -264,6 +272,14 @@ namespace Controllers
                         break;
                     case "RetrieveNotNeeded20":
                         if (GetInt("RetrieveNotNeeded") >= 20)
+                        {
+                            newlyCompleted.Add(ach);
+                            ach.completed = true;
+                        }
+
+                        break;
+                    case "3GuardsAtOnce":
+                        if (GetBool("AllGuardsHear"))
                         {
                             newlyCompleted.Add(ach);
                             ach.completed = true;

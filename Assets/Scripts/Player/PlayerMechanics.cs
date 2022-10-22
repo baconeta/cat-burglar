@@ -58,14 +58,18 @@ namespace Player
             var hits = Physics.SphereCastAll(transform.position, meowHearingDistance,
                 Vector3.forward, 500f, layerMask: enemyLayerMask);
 
+            var numGuardsHit = 0;
             foreach (RaycastHit hit in hits)
             {
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
+                    numGuardsHit++;
                     hit.collider.gameObject.GetComponent<AIMovement>().HearMeow(transform.position);
                     _cm.Achievements.HearMeMeow();
                 }
             }
+
+            _cm.Achievements.CheckGuardsAtOnce(numGuardsHit);
         }
 
         private void ResetMeow()
