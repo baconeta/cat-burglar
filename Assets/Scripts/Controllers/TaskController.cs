@@ -14,7 +14,8 @@ namespace Controllers
         public enum TaskType
         {
             CollectItem,
-            ReturnItem
+            ReturnItem,
+            Meow
 
             // TODO add other task types here?
         }
@@ -39,7 +40,16 @@ namespace Controllers
         public void AddTask(TaskBase task)
         {
             if (_cm.GameController.debugMode) Debug.Log("New task - " + task.taskText + " - added.");
-            _currentTasks.Add(task);
+            if (task.taskType == TaskType.Meow)
+            {
+                MeowTask meowTask = new(task.taskText, task.num);
+                _currentTasks.Add(meowTask);
+            }
+            else
+            {
+                _currentTasks.Add(task);
+            }
+
             _cm.HUDController.UpdateHUD();
         }
 
@@ -63,16 +73,36 @@ namespace Controllers
         /// </summary>
         /// <param name="type"> The task types to check for completion. </param>
         /// <param name="item"> The item type relevant to this call </param>
-        public int CheckTasksOfType(TaskType type, InventoryItem item)
+        public int CheckTasksOfType(TaskType type, InventoryItem item = new InventoryItem())
         {
             var tasksMarkedComplete = 0;
             foreach (TaskBase task in _currentTasks)
             {
                 // Check if we have completed any of the incomplete tasks
-                if (type == task.taskType && !task.completed && item.ObjectType == task.ItemType)
+                if (type == task.taskType && !task.completed)
                 {
+                    // Handle item tasks
+                    if (type is TaskType.CollectItem or TaskType.ReturnItem)
+                    {
+                        if (item.ObjectType != task.ItemType)
+                        {
+                            continue;
+                        }
+
+                        task.MarkDone();
+                    }
+
+                    // Handle Meow task
+                    if (type is TaskType.Meow)
+                    {
+                        MeowTask meowTask = (MeowTask) task;
+                        if (!meowTask.AddMeow())
+                        {
+                            continue;
+                        }
+                    }
+
                     if (_cm.GameController.debugMode) Debug.Log("Task completed - " + task.taskText);
-                    task.MarkDone();
                     _cm.Achievements.CompleteTask();
                     _numTasksCompleted += 1;
                     tasksMarkedComplete += 1;

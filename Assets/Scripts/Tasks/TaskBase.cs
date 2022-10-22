@@ -11,7 +11,8 @@ namespace Tasks
         public TaskController.TaskType taskType;
         public string itemName;
         public Type ItemType;
-        public bool completed;
+        [HideInInspector] public bool completed;
+        public int num = 1;
 
         /// <summary>
         /// Editor when built from script data manually
@@ -22,12 +23,18 @@ namespace Tasks
             this.taskType = taskType;
             completed = false;
             ItemType = itemType;
+            num = 1;
+        }
+
+        public TaskBase()
+        {
+            completed = false;
         }
 
         /// <summary>
         /// Called during awake step to make sure any editor defined tasks have proper item objects attached
         /// </summary>
-        public void PrepareTaskObjects()
+        public virtual void PrepareTaskObjects()
         {
             if (ItemType == null && itemName != default)
             {
