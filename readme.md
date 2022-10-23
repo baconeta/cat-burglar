@@ -15,6 +15,8 @@ The edit menu should include a checkable box to enable or disable this feature.
 Note that the game will not work correctly if it is not played from the StartScene as it loads important singletons and static elements.
 You will also not have the ability to adjust the in-game volume.
 
+Editors note: if you play from a build, the mouse sensitivity may be automatically set to quite a bit higher than expected. 
+
 ## General Features
 
 - Full working gameplay with tasks to complete, guards to avoid, a large supermarket to explore and items to steal.
