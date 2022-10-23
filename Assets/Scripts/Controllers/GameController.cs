@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Inventory.Items;
 using Tasks;
 using UnityEngine;
@@ -73,10 +74,17 @@ namespace Controllers
             if (_cm.GameController.debugMode) Debug.Log("Start round " + _roundsCompleted + 1);
 
             // Set up a round with a series of tasks - possibly we could design all possible task types in the editor or separately
+            var intTasks = new List<int> {-1};
+            var task = -1;
             for (var i = 0; i < tasksPerRound; i++)
             {
                 // Create and add a task to the list
-                var task = Random.Range(0, _cm.TaskController.possibleTasks.Count);
+                while (intTasks.Contains(task))
+                {
+                    task = Random.Range(0, _cm.TaskController.possibleTasks.Count);
+                }
+
+                intTasks.Add(task);
                 _cm.TaskController.AddTask(_cm.TaskController.possibleTasks[task]);
             }
         }
@@ -106,7 +114,8 @@ namespace Controllers
 
         private void EndGame(bool win)
         {
-            if(win){
+            if (win)
+            {
                 winSound.Play();
             }
 

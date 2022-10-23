@@ -41585,11 +41585,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleTasks:
-  - taskText: Collect a red apple
-    taskType: 0
-    itemName: Apple
-    completed: 0
-    num: 1
   - taskText: Retrieve a red apple
     taskType: 1
     itemName: Apple
@@ -41600,23 +41595,8 @@ MonoBehaviour:
     itemName: Pumpkin
     completed: 0
     num: 1
-  - taskText: Collect a pumpkin
-    taskType: 0
-    itemName: Pumpkin
-    completed: 0
-    num: 1
-  - taskText: Collect mouthwash
-    taskType: 0
-    itemName: Mouthwash
-    completed: 0
-    num: 1
   - taskText: Retrieve a tomato
     taskType: 1
-    itemName: Tomato
-    completed: 0
-    num: 1
-  - taskText: Collect a tomato
-    taskType: 0
     itemName: Tomato
     completed: 0
     num: 1
@@ -41625,29 +41605,14 @@ MonoBehaviour:
     itemName: Mouthwash
     completed: 0
     num: 1
-  - taskText: Collect paper towels
-    taskType: 0
-    itemName: PaperTowel
-    completed: 0
-    num: 1
   - taskText: Retrieve paper towels
     taskType: 1
     itemName: PaperTowel
     completed: 0
     num: 1
-  - taskText: Collect green drink
-    taskType: 0
-    itemName: GreenDrink
-    completed: 0
-    num: 1
   - taskText: Retrieve green drink
     taskType: 1
     itemName: GreenDrink
-    completed: 0
-    num: 1
-  - taskText: Collect toilet paper
-    taskType: 0
-    itemName: ToiletPaper
     completed: 0
     num: 1
   - taskText: Retrieve toilet paper
@@ -41660,16 +41625,6 @@ MonoBehaviour:
     itemName: Corn
     completed: 0
     num: 1
-  - taskText: Collect corn
-    taskType: 0
-    itemName: Corn
-    completed: 0
-    num: 1
-  - taskText: Collect toothpaste
-    taskType: 0
-    itemName: Toothpaste
-    completed: 0
-    num: 1
   - taskText: Retrieve toothpaste
     taskType: 1
     itemName: Toothpaste
@@ -41678,16 +41633,6 @@ MonoBehaviour:
   - taskText: Retrieve bread
     taskType: 1
     itemName: Bread
-    completed: 0
-    num: 1
-  - taskText: Collect bread
-    taskType: 0
-    itemName: Bread
-    completed: 0
-    num: 1
-  - taskText: Collect red can
-    taskType: 0
-    itemName: RedCan
     completed: 0
     num: 1
   - taskText: Retrieve red can
@@ -41700,24 +41645,9 @@ MonoBehaviour:
     itemName: Soap
     completed: 0
     num: 1
-  - taskText: Collect soap
-    taskType: 0
-    itemName: Soap
-    completed: 0
-    num: 1
   - taskText: Retrieve box of nails
     taskType: 1
     itemName: Nails
-    completed: 0
-    num: 1
-  - taskText: Collect box of nails
-    taskType: 0
-    itemName: Nails
-    completed: 0
-    num: 1
-  - taskText: Collect sausage
-    taskType: 0
-    itemName: Meat
     completed: 0
     num: 1
   - taskText: Retrieve sausage
@@ -41725,19 +41655,9 @@ MonoBehaviour:
     itemName: Meat
     completed: 0
     num: 1
-  - taskText: Collect alcohol
-    taskType: 0
-    itemName: Alcohol
-    completed: 0
-    num: 1
   - taskText: Retrieve alcohol
     taskType: 1
     itemName: Alcohol
-    completed: 0
-    num: 1
-  - taskText: Collect blue can
-    taskType: 0
-    itemName: BlueCan
     completed: 0
     num: 1
   - taskText: Retrieve blue can
@@ -41750,26 +41670,11 @@ MonoBehaviour:
     itemName: GreenApple
     completed: 0
     num: 1
-  - taskText: Collect green apple
-    taskType: 0
-    itemName: GreenApple
-    completed: 0
-    num: 1
   - taskText: Meow 5 times
     taskType: 2
     itemName: 
     completed: 0
     num: 5
-  - taskText: Meow 5 times
-    taskType: 2
-    itemName: 
-    completed: 0
-    num: 5
-  - taskText: Meow 10 times
-    taskType: 2
-    itemName: 
-    completed: 0
-    num: 10
   - taskText: Meow 10 times
     taskType: 2
     itemName: 
