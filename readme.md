@@ -22,11 +22,12 @@
 - Custom built achievements system
 - Abstract task system linking
 - Item collection, inventory and item return systems
+- In-game HUD setup and design
 
 #### Stephanie Shrimpton
 - Fully animated patrol guards and title screen cat
 - Complete AI system with state management, linked with game mechanics
-- Title screen and UI element design including scene management
+- Title screen and general UI design including scene management
 - Mood, ambience, fog, lighting set up
 - World and 3D space building
 
@@ -112,6 +113,21 @@ We included sound effects for picking up items and winning the game. We also imp
 
 #### Lighting:
 Initially, everything was well lit and clear for the player, but to go along with the uncertain, spooky feel, we decided to chuck some fog in and make it darker.
+
+## Things that we wanted to implement and did not
+
+#### Other tasks
+We looked into possibly some other types of tasks, like survival time tasks, catch mice task, but they added extra complexity that made it well beyond the scope of this project. Also a survival time system encouraged the player to get up high or into a cubby hole and sit there and do nothing for a certain amount of time.
+
+#### Adding footsteps to the patrolling guards
+This was looked into and then scrapped. One of the main reasons was that it was going to be a big job. But actually the reason we opted not to do this in the end was due to the fact that it removed some of the "scariness" factor as a player. We wanted it to be that you couldn't hear the guards coming - which might not be super realistic since cats are incredibly good at hearing but it detracted from the gameplay. There was probably a world and way we could have put this into the game carefully without disrupting the player experience but we didn't go much deeper there.
+
+## Known issues
+#### The guards behaviour 
+For some reason, the guards love to chase you into cubby holes and then sometimes continue waiting around for you to pop your head out. Sometimes they give up, if you get into the right position, they sort of forget you are there. This is not idea behaviour but the way the default Nav Mesh Agent works for setting destination meant that this was going to be a huge task to resolve more nicely. We didn't want to reduce difficulty by making it so that a guard will immediately stop chasing whe you entered a cubby so it was a hard mechanic to adjust.
+
+#### Guards can see you on top of shelves
+There were some ways to address this but in the end it was going to be quite difficulty to make this work well without making the game either much too easy or a lot harder. We ended up just making it such that if a guard spots you on top of shelves, they will come to investigate but give up quickly as they lose line of sight as they get close.
 
 ## Tech
 
