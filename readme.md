@@ -59,23 +59,23 @@ We added a meow mechanic which is manually controlled and useful for luring guar
 
 ### Artificial Intelligence 
 
-#### General:
+#### General
 To begin with the AI, we baked our nav mesh so that the guards would be able to walk around the floor of the supermarket. We had a placeholder cylinder AI in each room. Each AI cylinder had their own corresponding patrol points placed strategically in their respective rooms. 
 
-#### Patrolling:
+#### Patrolling
 For these guards, we had three different states.
 In a patrol state, guards are set up to move to and from each respective patrol point, whilst also checking if the player is within their view every frame. Should the AI “spot” the player, it will move into a new chase state.
 
-#### Chasing:
+#### Chasing
 When in a chase state, the guard will move to the last seen position of the player, at a higher speed than when patrolling. In fact, it is much faster than the player, and you need to be quick if you want to escape when spotted. If the guard reaches the last known position, does not catch and cannot see the player, it will move into a new search state.
 
-#### Searching:
+#### Searching
 Inside the search state, guards will check positions near the last seen point, but if more than 5 seconds has passed, they will return to patrolling. One thing we could improve upon here, would be fine-tuning where the guards will check within this state to avoid attempting to go to points that are too far away.
 
-#### Distracted:
+#### Distracted
 We utilised a sphere cast for when the player meows, to determine if the AI is within earshot before setting the AI’s position to the player’s position at the time of the meow. Then, inside the search and patrol state, check when the AI has reached that position, to then enter a new search state.
 
-#### Animation:
+#### Animation
 Once we were done with the code, we imported the player mesh from the lab test as well as some animations and set it up so that the guards would walk whilst patrolling, and run when chasing the player.
 
 ### Game tasks
