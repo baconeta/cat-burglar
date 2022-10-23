@@ -32,7 +32,7 @@
 
 ## Detailed contributions and game design
 
-### Main design and idea:
+### Main design and idea
 We knew we had to have a number of collectible items for the player to find. However, we also knew that it would be a bit tedious without some sort of stakes. So, we decided that we needed AI that would chase and catch the player, if they are spotted.
 
 Because you play as a cat, we also wanted to implement more than one way of movement, to help the player feel more immersed. We also wanted to introduce a less one dimensional way of navigating around the AI, in the form of a ‘meow’ to distract them.
@@ -41,18 +41,21 @@ These were all important aspects of our game, but we had to start with the basic
 
 ### World Building 
 
-#### AI VS Player walkable environment:
+#### AI VS Player walkable environment
 First things first, everything had to be HUGE. To really sell the idea that you are playing as a cat, all objects in the environment had to be scaled up. We also had to decide how big we wanted our map to be. We implemented three rooms, with the option of a fourth, should (once our game is done) we feel it would be more balanced with another room.
 
 Then, we created a maze-like scene of shopping shelves to introduce a challenge to the player when finding items. We wanted some items to be unreachable from the ground level, so we introduced a few ways of getting on top of the shelves. This also gave players a safe space to hide/escape to. Given the goal of the game, we wanted to give the player a bit of an edge in this way. 
 
 ### Player Movement/Mechanics 
 
-#### Walking & Jumping: We kept the walking and jumping simple but still physics based. All movement is done with WASD and the camera and looking around is controlled with the mouse.  
+#### Walking & Jumping
+We kept the walking and jumping simple but still physics based. All movement is done with WASD and the camera and looking around is controlled with the mouse.  
 
-#### Climbing: We made it so there were some places onto which a player could jump or walk up to that allowed climbing up. This could be used to get a vantage point over the guards, or to get to a few tricky to reach items. This was done with customisable layer tags to define the Climbable objects easily.
+#### Climbing
+We made it so there were some places onto which a player could jump or walk up to that allowed climbing up. This could be used to get a vantage point over the guards, or to get to a few tricky to reach items. This was done with customisable layer tags to define the Climbable objects easily.
 
-#### Meow: We added a meow mechanic which is manually controlled and useful for luring guards to a certain place. It also makes up a small percentage of the tasks and achievements discussed later. If a guard hears a meow (determined with a distance based spherecast) then it will be immediately interested in the location where the meow occurred.
+#### Meow
+We added a meow mechanic which is manually controlled and useful for luring guards to a certain place. It also makes up a small percentage of the tasks and achievements discussed later. If a guard hears a meow (determined with a distance based spherecast) then it will be immediately interested in the location where the meow occurred.
 
 ### Artificial Intelligence 
 
@@ -77,21 +80,24 @@ Once we were done with the code, we imported the player mesh from the lab test a
 
 ### Game tasks
 
-#### Inventory: A complete item inventory system was built and then displayed on the HUD with item space limitations. This gave us some functionality to create tasks and achievements based on item retrieval.
+#### Inventory
+A complete item inventory system was built and then displayed on the HUD with item space limitations. This gave us some functionality to create tasks and achievements based on item retrieval.
 
-#### Collectable Items: We took some of the items from the supermarket shelves and started laying some of them around the room, in spots where cats might be able to sneakily grab them without it being noticed they were missing. That’s where you come in!
+#### Collectable Items
+We took some of the items from the supermarket shelves and started laying some of them around the room, in spots where cats might be able to sneakily grab them without it being noticed they were missing. That’s where you come in!
  
-#### Tasks: A completely customisable interface was designed to make different task types and allow easy extension of the gameplay. After playing around with the most logical ones, we settled with item retrieval, and a few fun ones (like meow a number of times… cats love to meow)! There is a simple controller dedicated to managing the possible tasks which allows easy customisation and game design.
+#### Tasks
+A completely customisable interface was designed to make different task types and allow easy extension of the gameplay. After playing around with the most logical ones, we settled with item retrieval, and a few fun ones (like meow a number of times… cats love to meow)! There is a simple controller dedicated to managing the possible tasks which allows easy customisation and game design.
 
-### Title/Loading Screen (~45 sec w achievements)
+### Title/Loading Screen
 
-#### Design:
+#### Design
 We implemented a loading screen, which preloads audio and any global non-singleton systems, like the achievements system. We also have an animated cat in the title screen, to make the scene feel more alive and less static. 
 
-#### How to play:
+#### How to play
 Although we tried to make the gameplay as intuitive as possible, we thought it would be a good idea to have a panel to explain to players what the game is all about, and how they should be playing it.
 
-#### Achievements:
+#### Achievements
 To make sure that the game remained fun to play a few times, and because we both are achievement hunters too, we decided to add a local achievements system. This made it fun to replay while attempting to complete everything on the list.
 
 ### Sound/Lighting Design
