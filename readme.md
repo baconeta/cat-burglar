@@ -3,6 +3,8 @@
 
 ## The game
 
+![image](https://user-images.githubusercontent.com/36744690/197416839-da789887-9240-4b5a-aa55-c447337aa8f1.png)
+
 - Play as a very well-trained cat, whose goal is to steal items from a supermarket for their owners after dark
 
 ## General Features
