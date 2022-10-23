@@ -4,14 +4,12 @@ namespace Tasks
 {
     public class MechanicsTask : TaskBase
     {
-        private int _numCompleted;
-
         public MechanicsTask(string task, int valueToGet, TaskController.TaskType type)
         {
             taskText = task;
             num = valueToGet;
             taskType = type;
-            _numCompleted = 0;
+            numCompleted = 0;
         }
 
         public override void PrepareTaskObjects()
@@ -21,9 +19,9 @@ namespace Tasks
 
         public bool AddValue(int value)
         {
-            _numCompleted += value;
+            numCompleted += value;
 
-            if (_numCompleted >= num)
+            if (numCompleted >= num)
             {
                 completed = true;
                 return true;

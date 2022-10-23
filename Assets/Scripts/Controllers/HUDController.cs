@@ -83,7 +83,7 @@ namespace Controllers
             // Creates a text game object for displaying the text on screen
             GameObject taskTextObject = Instantiate(newBlankTask, taskListHUD.transform, true);
             TMP_Text taskText = taskTextObject.GetComponent<TMP_Text>();
-            taskText.SetText(task.taskText);
+            taskText.SetText(task.taskText + " (" + task.numCompleted + "/" + task.num + ")");
             if (task.completed) MarkTaskDone(taskText);
         }
 

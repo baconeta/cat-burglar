@@ -71,7 +71,7 @@ namespace Controllers
         /// </summary>
         /// <param name="type"> The task types to check for completion. </param>
         /// <param name="item"> The item type relevant to this call </param>
-        public int CheckTasksOfType(TaskType type, InventoryItem item = new InventoryItem())
+        public int CheckTasksOfType(TaskType type, InventoryItem item = new())
         {
             var tasksMarkedComplete = 0;
             foreach (TaskBase task in _currentTasks)

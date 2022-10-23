@@ -13,6 +13,7 @@ namespace Tasks
         public Type ItemType;
         [HideInInspector] public bool completed;
         public int num = 1;
+        [HideInInspector] public int numCompleted;
 
         /// <summary>
         /// Editor when built from script data manually
@@ -50,6 +51,7 @@ namespace Tasks
         public void MarkDone()
         {
             completed = true;
+            numCompleted = num;
         }
     }
 }
