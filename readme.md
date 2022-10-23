@@ -105,10 +105,10 @@ A completely customisable interface was designed to make different task types an
 ### Title/Loading Screen
 
 #### Design
-We implemented a loading screen, which preloads audio and any global non-singleton systems, like the achievements system. We also have an animated cat in the title screen, to make the scene feel more alive and less static. 
+We implemented a loading screen, which preloads audio and any global non-singleton systems, like the achievements system. This screen can be revisited after losing or completing a round, allowing a player to check achievements and the how to play screens again.
 
 #### How to play
-Although we tried to make the gameplay as intuitive as possible, we thought it would be a good idea to have a panel to explain to players what the game is all about, and how they should be playing it.
+Although we tried to make the gameplay as intuitive as possible,we added a panel to explain to players what the game is all about, and how they should be playing it.
 
 ![image](https://user-images.githubusercontent.com/36744690/197417457-ef55df19-b82e-470a-894e-a76b7ca3355e.png)
 
@@ -119,15 +119,18 @@ To make sure that the game remained fun to play a few times, and because we both
 
 ### Sound/Lighting Design
 
-#### Music:
+#### Music
 We have atmospheric rain playing upon start up in the loading screen, and our title music comes in once the game has loaded.
 In the gameplay, we used a much more eery sounding track to add to the ambience.
 
-#### SFX:
-We included sound effects for picking up items and winning the game. We also implemented a sound effect for when the player is spotted by the AI, to not only give the player a heads-up, but hopefully, get their hearts racing a little bit.
+#### SFX
+We included sound effects for picking up items and winning the game. We also implemented a sound effect for when the player is spotted by the AI, to not only give the player a heads-up, but hopefully, get their hearts racing a little bit. There are some other sound effects such as returning items to the wheelbarrow and some indications noises.
 
-#### Lighting:
+#### Lighting
 To go along with the uncertain, spooky feel, we have fog, and subtle global ambient lighting.
+
+#### Particle effects
+We added some simple particle systems to show the player where items were, and also in the more static parts of the game (like the title screen).
 
 ## Things that we wanted to implement and did not
 
