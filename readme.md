@@ -85,7 +85,7 @@ When the player meows, we determine if the AI is within earshot before setting t
 #### Animation
 Once we were done with the code, we imported the player mesh from the lab test as well as some animations and set it up so that the guards would walk whilst patrolling, and run when chasing the player.
 
-### Game tasks
+### General gameplay
 
 #### Inventory
 A complete item inventory system was built and then displayed on the HUD with item space limitations. This gives us the functionality to create tasks and achievements based on item retrieval and collection.
