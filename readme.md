@@ -6,6 +6,14 @@ Play as a very well-trained cat, whose goal is to steal items from a supermarket
 
 ![image](https://user-images.githubusercontent.com/36744690/197416839-da789887-9240-4b5a-aa55-c447337aa8f1.png)
 
+### A note to anyone playing this from the editor rather than building the game first
+There is an editor script which should force any in-editor play to start from the correct first scene which is StartScene.
+The edit menu should include a checkable box to enable or disable this feature. 
+
+![image](https://user-images.githubusercontent.com/36744690/197418653-96da3fe1-a4b4-4fb7-9d84-fd3ce07708cd.png)
+
+Note that the game will not work correctly if it is not played from the StartScene as it loads important singletons and static elements.
+You will also not have the ability to adjust the in-game volume.
 
 ## General Features
 
