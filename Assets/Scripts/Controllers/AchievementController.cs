@@ -259,6 +259,14 @@ namespace Controllers
                         }
 
                         break;
+                    case "Meow100":
+                        if (GetInt("Meow") >= 100)
+                        {
+                            newlyCompleted.Add(ach);
+                            ach.completed = true;
+                        }
+
+                        break;
                     case "HearMeMeow1":
                         if (GetInt("HearMeMeow") >= 1)
                         {
