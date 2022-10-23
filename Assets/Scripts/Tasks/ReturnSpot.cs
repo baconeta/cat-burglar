@@ -10,6 +10,7 @@ namespace Tasks
     public class ReturnSpot : MonoBehaviour
     {
         private ControllerManager _cm;
+        [SerializeField] private AudioSource dropOffSound;
 
         private void Start()
         {
@@ -21,8 +22,8 @@ namespace Tasks
             // When the player runs into this - drop off all held items
             if (other.gameObject.CompareTag("Player"))
             {
+                dropOffSound.Play();
                 _cm.InventoryManager.DropOffItems();
-                // TODO Perhaps we want to do something like play a sound, send a message to HUD, etc
             }
         }
     }
