@@ -80,7 +80,7 @@ When in a chase state, the guard will move to the last seen position of the play
 Inside the search state, guards will check positions near the last seen point, but if more than 5 seconds has passed, they will return to patrolling. One thing we could improve upon here, would be fine-tuning where the guards will check within this state to avoid attempting to go to points that are too far away.
 
 #### Distracted
-We utilised a sphere cast for when the player meows, to determine if the AI is within earshot before setting the AI’s position to the player’s position at the time of the meow. Then, inside the search and patrol state, check when the AI has reached that position, to then enter a new search state.
+When the player meows, we determine if the AI is within earshot before setting the AI’s target position to the player’s position at the time of the meow. Then, inside the search and patrol state, check when the AI has reached that position, and enter a new search state, looking for the source of the sound.
 
 #### Animation
 Once we were done with the code, we imported the player mesh from the lab test as well as some animations and set it up so that the guards would walk whilst patrolling, and run when chasing the player.
