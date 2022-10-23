@@ -16906,11 +16906,11 @@ MonoBehaviour:
   - {x: -11.7, y: 7, z: -142.8}
   - {x: -41.7, y: 7, z: -164.7}
   - {x: -41.7, y: 7, z: -81}
-  LastSeen: {x: 0, y: 0, z: 0}
+  lastSeen: {x: 0, y: 0, z: 0}
   player: {fileID: 521173049}
   meow: 0
   endGame: 0
-  MeowPosition: {x: 0, y: 0, z: 0}
+  meowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 0}
   rotationSpeed: 2
 --- !u!136 &306382076
@@ -34238,9 +34238,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mVelocity: {x: 0, y: 0, z: 0}
-  WalkSpeed: 2
-  RunSpeed: 5
-  SprintSpeed: 8
+  walkSpeed: 3
+  runSpeed: 5
+  sprintSpeed: 8
 --- !u!195 &692175385
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -34283,11 +34283,11 @@ MonoBehaviour:
   - {x: 15.1, y: 11.3, z: -21.3}
   - {x: 14.6, y: 11.3, z: 49.5}
   - {x: -41.7, y: 11.3, z: 20.4}
-  LastSeen: {x: 0, y: 0, z: 0}
+  lastSeen: {x: 0, y: 0, z: 0}
   player: {fileID: 521173049}
   meow: 0
   endGame: 0
-  MeowPosition: {x: 0, y: 0, z: 0}
+  meowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 669044968}
   rotationSpeed: 2
 --- !u!136 &692175387
@@ -43037,11 +43037,11 @@ MonoBehaviour:
   - {x: 67.3, y: 11.3, z: -51.3}
   - {x: 67.2, y: 11.3, z: 49.5}
   - {x: 141.8, y: 11.3, z: -39.5}
-  LastSeen: {x: 0, y: 0, z: 0}
+  lastSeen: {x: 0, y: 0, z: 0}
   player: {fileID: 521173049}
   meow: 0
   endGame: 0
-  MeowPosition: {x: 0, y: 0, z: 0}
+  meowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 0}
   rotationSpeed: 2
 --- !u!136 &895678755
@@ -50995,11 +50995,11 @@ MonoBehaviour:
   - {x: -11.7, y: 7, z: -142.8}
   - {x: -41.7, y: 7, z: -164.7}
   - {x: -41.7, y: 7, z: -81}
-  LastSeen: {x: 0, y: 0, z: 0}
+  lastSeen: {x: 0, y: 0, z: 0}
   player: {fileID: 521173049}
   meow: 0
   endGame: 0
-  MeowPosition: {x: 0, y: 0, z: 0}
+  meowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 669044968}
   rotationSpeed: 2
 --- !u!195 &1026458799
@@ -51042,9 +51042,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mVelocity: {x: 0, y: 0, z: 0}
-  WalkSpeed: 2
-  RunSpeed: 5
-  SprintSpeed: 8
+  walkSpeed: 3
+  runSpeed: 5
+  sprintSpeed: 8
 --- !u!136 &1026458804
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -56814,11 +56814,11 @@ MonoBehaviour:
   - {x: 15.1, y: 11.3, z: -21.3}
   - {x: 14.6, y: 11.3, z: 49.5}
   - {x: -41.7, y: 11.3, z: 20.4}
-  LastSeen: {x: 0, y: 0, z: 0}
+  lastSeen: {x: 0, y: 0, z: 0}
   player: {fileID: 521173049}
   meow: 0
   endGame: 0
-  MeowPosition: {x: 0, y: 0, z: 0}
+  meowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 0}
   rotationSpeed: 2
 --- !u!136 &1142094416
@@ -90523,9 +90523,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mVelocity: {x: 0, y: 0, z: 0}
-  WalkSpeed: 2
-  RunSpeed: 5
-  SprintSpeed: 8
+  walkSpeed: 3
+  runSpeed: 5
+  sprintSpeed: 8
 --- !u!195 &1856207781
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -90568,11 +90568,11 @@ MonoBehaviour:
   - {x: 67.3, y: 11.3, z: -51.3}
   - {x: 67.2, y: 11.3, z: 49.5}
   - {x: 141.8, y: 11.3, z: -39.5}
-  LastSeen: {x: 0, y: 0, z: 0}
+  lastSeen: {x: 0, y: 0, z: 0}
   player: {fileID: 521173049}
   meow: 0
   endGame: 0
-  MeowPosition: {x: 0, y: 0, z: 0}
+  meowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 669044968}
   rotationSpeed: 2
 --- !u!136 &1856207783
@@ -102325,11 +102325,11 @@ MonoBehaviour:
   patrolRoute:
   - {x: 121.22501, y: 14.4, z: -167.29477}
   - {x: 137.9, y: 16, z: -196.5}
-  LastSeen: {x: 0, y: 0, z: 0}
+  lastSeen: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   meow: 0
   endGame: 0
-  MeowPosition: {x: 0, y: 0, z: 0}
+  meowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 0}
   rotationSpeed: 2
 --- !u!136 &2115599187

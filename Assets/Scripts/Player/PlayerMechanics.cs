@@ -10,14 +10,17 @@ namespace Player
         private AudioSource _audioSource;
         private bool _canMeow;
 
-        [Header("Mechanics")] public float meowCooldown = 2.0f;
+        [Header("Mechanics")]
+        public float meowCooldown = 2.0f;
         public float meowVolume = 0.5f;
         public float meowHearingDistance = 100f;
         public LayerMask enemyLayerMask;
 
-        [Header("Keybindings")] public KeyCode meowKey = KeyCode.C;
+        [Header("Keybindings")]
+        public KeyCode meowKey = KeyCode.C;
 
-        [Header("Audio")] public AudioClip[] meowSounds;
+        [Header("Audio")]
+        public AudioClip[] meowSounds;
 
         private void Start()
         {

@@ -14,7 +14,6 @@ namespace Player
 
         private float _rotationX;
         private float _rotationY;
-        
 
         private void Start()
         {
@@ -24,7 +23,7 @@ namespace Player
         private void Update()
         {
             if (!_cm.GameController.GameRunning()) return;
-            
+
             TurnCamera();
         }
 

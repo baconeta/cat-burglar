@@ -8,21 +8,25 @@ namespace Player
     {
         private ControllerManager _cm;
 
-        [Header("Movement")] public float moveSpeed;
+        [Header("Movement")]
+        public float moveSpeed;
         public float groundDrag;
         public float jumpForce;
         public float jumpCooldown;
         public float airMultiplier;
         private bool _readyToJump;
 
-        [Header("Keybindings")] public KeyCode jumpKey = KeyCode.Space;
+        [Header("Keybindings")]
+        public KeyCode jumpKey = KeyCode.Space;
 
-        [Header("Ground Check")] public float playerHeight;
+        [Header("Ground Check")]
+        public float playerHeight;
         public LayerMask groundObjects;
         private bool _grounded;
         private float _lastY;
 
-        [Header("Wall Climbing")] public LayerMask wallObjects;
+        [Header("Wall Climbing")]
+        public LayerMask wallObjects;
         public float climbSpeed;
         private bool _isClimbing;
         public float wallDetectionLength;
@@ -32,7 +36,8 @@ namespace Player
         private RaycastHit _wallHit;
         private bool _wallInFront;
 
-        [Header("General")] [SerializeField] private Transform catOrientation;
+        [Header("General")]
+        [SerializeField] private Transform catOrientation;
         [SerializeField] private Rigidbody rb;
 
         private float _horizontalInput;

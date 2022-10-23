@@ -10,18 +10,18 @@ namespace AI
     {
         public NavMeshAgent npc;
         public List<Vector3> patrolRoute;
-        public Vector3 LastSeen;
-        private int next = 0;
+        public Vector3 lastSeen;
+        private int _next;
         public Transform player;
         private ControllerManager _cm;
 
-        public bool meow = false;
-        public bool endGame = false;
-        public Vector3 MeowPosition;
+        public bool meow;
+        public bool endGame;
+        public Vector3 meowPosition;
 
         public AudioSource uhoh;
 
-        private BaseStateMachine<AIMovement> mStateMachine;
+        private BaseStateMachine<AIMovement> _mStateMachine;
         public float rotationSpeed = 2;
 
 
@@ -45,14 +45,14 @@ namespace AI
         // get next patrol point
         public Vector3 PatrolPoint
         {
-            get { return patrolRoute[next]; }
+            get { return patrolRoute[_next]; }
         }
 
         private void Start()
         {
             // npc = GetComponent<NavMeshAgent>();
             //npc.destination = patrolRoute[0];
-            mStateMachine = new BaseStateMachine<AIMovement>(this, new PatrolState());
+            _mStateMachine = new BaseStateMachine<AIMovement>(this, new PatrolState());
             _cm = FindObjectOfType<ControllerManager>();
             endGame = false;
         }
@@ -60,14 +60,14 @@ namespace AI
         public void ChangeState(BaseState<AIMovement> state)
         {
             // change state machine state
-            mStateMachine.ChangeState(state);
+            _mStateMachine.ChangeState(state);
         }
 
         // go to next patrol point
         public Vector3 MoveNext()
         {
-            next = (next + 1 == patrolRoute.Count) ? 0 : next + 1;
-            return patrolRoute[next];
+            _next = (_next + 1 == patrolRoute.Count) ? 0 : _next + 1;
+            return patrolRoute[_next];
         }
 
         // move to specific position
@@ -84,16 +84,15 @@ namespace AI
             // check if angle is less than 30
             if (Vector3.Angle(transform.forward, npcToPlayer) < viewAngle)
             {
-                Ray ray = new Ray(transform.position, npcToPlayer);
-                RaycastHit hit;
+                Ray ray = new(transform.position, npcToPlayer);
 
                 // if ray hit
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+                if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
                 {
-                    if (hit.collider.tag == "Player")
+                    if (hit.collider.CompareTag("Player"))
                     {
                         // set npc to chase
-                        LastSeen = hit.point;
+                        lastSeen = hit.point;
                         return true;
                     }
                 }
@@ -107,12 +106,13 @@ namespace AI
         {
             if (endGame) return;
             // update state machine
-            mStateMachine.Update();
+            _mStateMachine.Update();
 
             // make npc face direction of travel
             if (npc.velocity.sqrMagnitude > Mathf.Epsilon)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(npc.velocity.normalized), Time.deltaTime * rotationSpeed);
+                transform.rotation = Quaternion.Slerp(transform.rotation,
+                    Quaternion.LookRotation(npc.velocity.normalized), Time.deltaTime * rotationSpeed);
             }
         }
 
@@ -121,7 +121,7 @@ namespace AI
             _cm.GameController.Caught();
         }
 
-        public void HearMeow(Vector3 meowPosition)
+        public void HearMeow(Vector3 pos)
         {
             if (_cm.GameController.debugMode)
             {
@@ -129,7 +129,7 @@ namespace AI
             }
 
             npc.destination = PlayerPosition;
-            MeowPosition = meowPosition;
+            meowPosition = pos;
             meow = true;
         }
     }
