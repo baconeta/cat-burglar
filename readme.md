@@ -15,7 +15,7 @@
 - A full locally stored achievements system adding replayability
 - Spooky music, creepy vibe and lighting and fog to match
 
-## Contributions and detailed elements
+## Contributions overview
 
 #### Joshua Pearson
 - General player mechanics, camera, climbing and movement system
@@ -30,7 +30,9 @@
 - Mood, ambience, fog, lighting set up
 - World and 3D space building
 
-### Game design:
+## Detailed contributions and game design
+
+### Main design and idea:
 We knew we had to have a number of collectible items for the player to find. However, we also knew that it would be a bit tedious without some sort of stakes. So, we decided that we needed AI that would chase and catch the player, if they are spotted.
 
 Because you play as a cat, we also wanted to implement more than one way of movement, to help the player feel more immersed. We also wanted to introduce a less one dimensional way of navigating around the AI, in the form of a ‘meow’ to distract them.
@@ -79,7 +81,7 @@ Once we were done with the code, we imported the player mesh from the lab test a
 
 #### Collectable Items: We took some of the items from the supermarket shelves and started laying some of them around the room, in spots where cats might be able to sneakily grab them without it being noticed they were missing. That’s where you come in!
  
-####Tasks: A completely customisable interface was designed to make different task types and allow easy extension of the gameplay. After playing around with the most logical ones, we settled with item retrieval, and a few fun ones (like meow a number of times… cats love to meow)! There is a simple controller dedicated to managing the possible tasks which allows easy customisation and game design.
+#### Tasks: A completely customisable interface was designed to make different task types and allow easy extension of the gameplay. After playing around with the most logical ones, we settled with item retrieval, and a few fun ones (like meow a number of times… cats love to meow)! There is a simple controller dedicated to managing the possible tasks which allows easy customisation and game design.
 
 ### Title/Loading Screen (~45 sec w achievements)
 
