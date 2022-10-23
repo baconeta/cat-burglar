@@ -16912,6 +16912,7 @@ MonoBehaviour:
   endGame: 0
   MeowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 0}
+  rotationSpeed: 2
 --- !u!136 &306382076
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -34288,6 +34289,7 @@ MonoBehaviour:
   endGame: 0
   MeowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 669044968}
+  rotationSpeed: 2
 --- !u!136 &692175387
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -43041,6 +43043,7 @@ MonoBehaviour:
   endGame: 0
   MeowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 0}
+  rotationSpeed: 2
 --- !u!136 &895678755
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -50998,6 +51001,7 @@ MonoBehaviour:
   endGame: 0
   MeowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 669044968}
+  rotationSpeed: 2
 --- !u!195 &1026458799
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -56816,6 +56820,7 @@ MonoBehaviour:
   endGame: 0
   MeowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 0}
+  rotationSpeed: 2
 --- !u!136 &1142094416
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -90569,6 +90574,7 @@ MonoBehaviour:
   endGame: 0
   MeowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 669044968}
+  rotationSpeed: 2
 --- !u!136 &1856207783
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -102325,6 +102331,7 @@ MonoBehaviour:
   endGame: 0
   MeowPosition: {x: 0, y: 0, z: 0}
   uhoh: {fileID: 0}
+  rotationSpeed: 2
 --- !u!136 &2115599187
 CapsuleCollider:
   m_ObjectHideFlags: 0

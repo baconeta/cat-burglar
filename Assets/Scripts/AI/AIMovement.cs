@@ -22,6 +22,7 @@ namespace AI
         public AudioSource uhoh;
 
         private BaseStateMachine<AIMovement> mStateMachine;
+        public float rotationSpeed = 2;
 
 
         public void SetSpeed(float speed)
@@ -111,7 +112,7 @@ namespace AI
             // make npc face direction of travel
             if (npc.velocity.sqrMagnitude > Mathf.Epsilon)
             {
-                transform.rotation = Quaternion.LookRotation(npc.velocity.normalized);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(npc.velocity.normalized), Time.deltaTime * rotationSpeed);
             }
         }
 
