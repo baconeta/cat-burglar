@@ -13,6 +13,7 @@ namespace Controllers
         // A list of all currently carried items in the inventory
         private List<InventoryItem> _inInventory;
         private ControllerManager _cm;
+        public int maxInventorySize = 6;
 
         private void Awake()
         {
@@ -68,6 +69,11 @@ namespace Controllers
 
             _inInventory.Clear();
             _cm.HUDController.UpdateHUD();
+        }
+
+        public bool PlayerHasSpace()
+        {
+            return _inInventory.Count < maxInventorySize;
         }
     }
 }

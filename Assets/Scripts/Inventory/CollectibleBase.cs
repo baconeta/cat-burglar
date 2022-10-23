@@ -15,6 +15,7 @@ namespace Inventory
         private ControllerManager _cm;
         private InventoryManager _im;
         private AudioSource _pickupSfxSource;
+        private AudioSource _noSpaceSfxSource;
 
         private void Start()
         {
@@ -27,6 +28,7 @@ namespace Inventory
             }
 
             _pickupSfxSource = GameObject.FindGameObjectWithTag("Pickup").GetComponent<AudioSource>();
+            _noSpaceSfxSource = GameObject.FindGameObjectWithTag("NoSpace").GetComponent<AudioSource>();
         }
 
         private void PickupItem() // can be overridden if we want special/multi-stacking items for some reason
@@ -44,7 +46,14 @@ namespace Inventory
             // We want to pick up the item from the game world if the player collides with it
             if (other.gameObject.CompareTag("Player") && canBePickedUp)
             {
-                PickupItem();
+                if (_cm.InventoryManager.PlayerHasSpace())
+                {
+                    PickupItem();
+                }
+                else
+                {
+                    _noSpaceSfxSource.Play();
+                }
             }
         }
     }
