@@ -85,18 +85,22 @@ We utilised a sphere cast for when the player meows, to determine if the AI is w
 #### Animation
 Once we were done with the code, we imported the player mesh from the lab test as well as some animations and set it up so that the guards would walk whilst patrolling, and run when chasing the player.
 
-
-
 ### Game tasks
 
 #### Inventory
-A complete item inventory system was built and then displayed on the HUD with item space limitations. This gave us some functionality to create tasks and achievements based on item retrieval.
+A complete item inventory system was built and then displayed on the HUD with item space limitations. This gives us the functionality to create tasks and achievements based on item retrieval and collection.
+
+![image](https://user-images.githubusercontent.com/36744690/197417373-dcb1fb12-3704-4be2-b9d5-da2f4789aaf0.png)
 
 #### Collectable Items
-We took some of the items from the supermarket shelves and started laying some of them around the room, in spots where cats might be able to sneakily grab them without it being noticed they were missing. That’s where you come in!
+We took some of the items from the supermarket shelves and started laying some of them around the room, in spots where cats might be able to sneakily grab them without it being noticed they were missing. They include a particle effect to make them easier to spot as you are stealing.
+
+![image](https://user-images.githubusercontent.com/36744690/197417420-4cd16f87-2534-424a-8ab5-c9a9161c514b.png)
  
 #### Tasks
-A completely customisable interface was designed to make different task types and allow easy extension of the gameplay. After playing around with the most logical ones, we settled with item retrieval, and a few fun ones (like meow a number of times… cats love to meow)! There is a simple controller dedicated to managing the possible tasks which allows easy customisation and game design.
+A completely customisable interface was designed to make different task types and allow easy extension of the gameplay. After playing around with the most logical ones, we settled with item retrieval, and a few fun ones (like meow a number of times… cats love to meow)!
+
+![image](https://user-images.githubusercontent.com/36744690/197417434-0177003e-27fb-454e-baa2-a8e8c1756721.png)
 
 ### Title/Loading Screen
 
@@ -106,21 +110,24 @@ We implemented a loading screen, which preloads audio and any global non-singlet
 #### How to play
 Although we tried to make the gameplay as intuitive as possible, we thought it would be a good idea to have a panel to explain to players what the game is all about, and how they should be playing it.
 
+![image](https://user-images.githubusercontent.com/36744690/197417457-ef55df19-b82e-470a-894e-a76b7ca3355e.png)
+
 #### Achievements
 To make sure that the game remained fun to play a few times, and because we both are achievement hunters too, we decided to add a local achievements system. This made it fun to replay while attempting to complete everything on the list.
+
+![image](https://user-images.githubusercontent.com/36744690/197417473-59a8df7c-16f3-4aa9-b414-f325c00a95e9.png)
 
 ### Sound/Lighting Design
 
 #### Music:
-We have atmospheric rain playing upon start up in the loading screen, and our title music comes in once the game has loaded. We thought it was a smooth transition and really added to the feel of the game from the get go. 
-
-Inside the game itself, we wanted to switch it up and create a sense of stealth/urgency with the music, so we used a new track.
+We have atmospheric rain playing upon start up in the loading screen, and our title music comes in once the game has loaded.
+In the gameplay, we used a much more eery sounding track to add to the ambience.
 
 #### SFX:
 We included sound effects for picking up items and winning the game. We also implemented a sound effect for when the player is spotted by the AI, to not only give the player a heads-up, but hopefully, get their hearts racing a little bit.
 
 #### Lighting:
-Initially, everything was well lit and clear for the player, but to go along with the uncertain, spooky feel, we decided to chuck some fog in and make it darker.
+To go along with the uncertain, spooky feel, we have fog, and subtle global ambient lighting.
 
 ## Things that we wanted to implement and did not
 
