@@ -1,4 +1,3 @@
-# Cat Burglar - No, Really
 ![image](https://user-images.githubusercontent.com/36744690/197417298-45014283-b237-4662-9df4-05f3f8ba8e94.png)
 ## Assignment 2 - Massey 159.361 by Joshua Pearson and Stephanie Shrimpton
 
