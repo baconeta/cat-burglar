@@ -1,11 +1,12 @@
 # Cat Burglar - No, Really
+![image](https://user-images.githubusercontent.com/36744690/197417298-45014283-b237-4662-9df4-05f3f8ba8e94.png)
 ## Assignment 2 - Massey 159.361 by Joshua Pearson and Stephanie Shrimpton
 
 ## The game
+Play as a very well-trained cat, whose goal is to steal items from a supermarket for their owners after dark.
 
 ![image](https://user-images.githubusercontent.com/36744690/197416839-da789887-9240-4b5a-aa55-c447337aa8f1.png)
 
-- Play as a very well-trained cat, whose goal is to steal items from a supermarket for their owners after dark
 
 ## General Features
 
@@ -36,18 +37,20 @@
 ## Detailed contributions and game design
 
 ### Main design and idea
-We knew we had to have a number of collectible items for the player to find. However, we also knew that it would be a bit tedious without some sort of stakes. So, we decided that we needed AI that would chase and catch the player, if they are spotted.
+The game was built with the cat burglar idea in mind quite early, with some form of task system implemented to encourage you to perform certain actions. This developed into an item collection/retrieval system to pair with the "we are doing things for our stupid humans at home" element.
 
-Because you play as a cat, we also wanted to implement more than one way of movement, to help the player feel more immersed. We also wanted to introduce a less one dimensional way of navigating around the AI, in the form of a ‘meow’ to distract them.
-
-These were all important aspects of our game, but we had to start with the basics.  
+Because you play as a cat, we also wanted to implement more than one way of movement, to help the player feel more immersed - the player can jump and climb around the world. We also wanted to introduce a not so one-dimensional way of navigating around the AI, in the form of a ‘meow’ to distract them.
 
 ### World Building 
 
-#### AI VS Player walkable environment
-First things first, everything had to be HUGE. To really sell the idea that you are playing as a cat, all objects in the environment had to be scaled up. We also had to decide how big we wanted our map to be. We implemented three rooms, with the option of a fourth, should (once our game is done) we feel it would be more balanced with another room.
+#### AI vs Player walkable environment
+To get started we knew everything had to be HUGE. To really sell the idea that you are playing as a cat, all objects in the environment are scaled up. We also had to decide how big we wanted our ground floor map to be. We implemented three large shelf-filled rooms.
 
-Then, we created a maze-like scene of shopping shelves to introduce a challenge to the player when finding items. We wanted some items to be unreachable from the ground level, so we introduced a few ways of getting on top of the shelves. This also gave players a safe space to hide/escape to. Given the goal of the game, we wanted to give the player a bit of an edge in this way. 
+![image](https://user-images.githubusercontent.com/36744690/197417152-1fdee2a1-562c-49e3-9f0c-7722da0287a9.png)
+
+Then, we created a maze-like scene of shopping shelves to introduce a challenge to the player when finding items. We wanted some items to be unreachable from the ground level, so we introduced a few ways of getting on top of the shelves. This also gives players a safe space to hide/escape to.
+
+![image](https://user-images.githubusercontent.com/36744690/197417182-e3c42b70-1b32-4724-8a89-8b6c5915ef36.png)
 
 ### Player Movement/Mechanics 
 
@@ -55,15 +58,17 @@ Then, we created a maze-like scene of shopping shelves to introduce a challenge 
 We kept the walking and jumping simple but still physics based. All movement is done with WASD and the camera and looking around is controlled with the mouse.  
 
 #### Climbing
-We made it so there were some places onto which a player could jump or walk up to that allowed climbing up. This could be used to get a vantage point over the guards, or to get to a few tricky to reach items. This was done with customisable layer tags to define the Climbable objects easily.
+We made it so there were some places onto which a player could jump or walk up to that allowed climbing up. This could be used to get a vantage point over the guards, or to get to a few tricky to reach items.
 
 #### Meow
-We added a meow mechanic which is manually controlled and useful for luring guards to a certain place. It also makes up a small percentage of the tasks and achievements discussed later. If a guard hears a meow (determined with a distance based spherecast) then it will be immediately interested in the location where the meow occurred.
+We added a meow mechanic which is manually controlled and useful for luring guards to a certain place. It also contributes to some tasks and achievements discussed later. If a guard hears a meow, then it will be immediately interested in the location where the meow occurred.
 
 ### Artificial Intelligence 
 
 #### General
-To begin with the AI, we baked our nav mesh so that the guards would be able to walk around the floor of the supermarket. We had a placeholder cylinder AI in each room. Each AI cylinder had their own corresponding patrol points placed strategically in their respective rooms. 
+To begin with the AI, we baked our nav mesh so that the guards would be able to walk around the floor of the supermarket. The design was done with the AI created first as cylinders but defined as humanoids.
+
+![image](https://user-images.githubusercontent.com/36744690/197417267-07ab9672-c204-4324-9188-96f8a7bab3e0.png)
 
 #### Patrolling
 For these guards, we had three different states.
@@ -80,6 +85,8 @@ We utilised a sphere cast for when the player meows, to determine if the AI is w
 
 #### Animation
 Once we were done with the code, we imported the player mesh from the lab test as well as some animations and set it up so that the guards would walk whilst patrolling, and run when chasing the player.
+
+
 
 ### Game tasks
 
