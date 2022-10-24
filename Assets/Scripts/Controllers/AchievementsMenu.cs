@@ -20,6 +20,7 @@ namespace Controllers
 
         public void ShowAchievements()
         {
+            RemoveAchievementPanels();
             foreach (Achievement achievement in _ac.allAchievements)
             {
                 GameObject achievementPanel = Instantiate(achievementPanelPrefab, achievementSlotBox.transform, true);

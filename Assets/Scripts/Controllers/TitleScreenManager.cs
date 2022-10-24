@@ -9,5 +9,10 @@ namespace Controllers
         {
             SceneManager.LoadScene("GameScene");
         }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }
