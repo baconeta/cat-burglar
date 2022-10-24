@@ -170,12 +170,18 @@ Cat Burglar - No, Really was built using the following tools
 
 ##### _Code_:
 1. The editor play from scene script was adapted from code from [this link].
+2. Some code is adapted from lecture and tutorial material from the Massey course 159.361.
 
 ##### _Sounds and Music_
 1. Title screen music was created by Josh.
 
 ##### _Images, models and visual assets_
 1. Many 3D models and related assets of the supermarket, were sourced from the paid asset pack [Polygon Town Pack] (which was paid for by Josh).
+2. Some textures are taken from the [All Sky Free] pack.
+3. Some free wall textures from [A dog's life software].
+4. Some PBR boxes from [CrowArt].
+5. A free lamp model from [ESsplashkid].
+6. Some paid prototyping tools from [Polygon].
 
    [Unity]: <https://unity.com/>
    [Github LFS]: <https://git-lfs.github.com/>
@@ -183,3 +189,8 @@ Cat Burglar - No, Really was built using the following tools
    [Visual Studio]: <https://visualstudio.microsoft.com/vs/>
    [Polygon Town Pack]: <https://syntystore.com/products/polygon-town-pack>
    [this link]: <https://answers.unity.com/questions/441246/editor-script-to-make-play-always-jump-to-a-start.html>
+   [All Sky Free]: <https://assetstore.unity.com/packages/2d/textures-materials/sky/allsky-free-10-sky-skybox-set-146014>
+   [A dog's life software]: <https://assetstore.unity.com/packages/2d/textures-materials/brick/18-high-resolution-wall-textures-12567>
+   [CrowArt]: <https://assetstore.unity.com/packages/3d/props/pbr-cardboard-box-110635>
+   [ESsplashkid]: <https://assetstore.unity.com/packages/3d/props/electronics/old-ussr-lamp-110400>
+   [Polygon]: <https://assetstore.unity.com/packages/3d/props/exterior/polygon-prototype-low-poly-3d-art-by-synty-137126>
