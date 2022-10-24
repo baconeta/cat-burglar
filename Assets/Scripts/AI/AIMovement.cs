@@ -128,7 +128,7 @@ namespace AI
                 Debug.Log("A meow was heard by " + gameObject);
             }
 
-            npc.destination = PlayerPosition;
+            npc.destination = pos;
             meowPosition = pos;
             meow = true;
         }

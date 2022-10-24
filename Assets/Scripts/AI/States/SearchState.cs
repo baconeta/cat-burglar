@@ -40,6 +40,7 @@ namespace AI.States
             {
                 // change to patrol state
                 NPC.ChangeState(new PatrolState());
+                NPC.meow = false;
             }
             else if (NPC.meow)
             {

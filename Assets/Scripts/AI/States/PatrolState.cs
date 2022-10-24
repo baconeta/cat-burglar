@@ -40,19 +40,30 @@ namespace AI.States
                 NPC.ChangeState(new ChaseState());
             }
 
-            if (NPC.meow)
+            if (!NPC.meow)
             {
-                _distance = NPC.meowPosition - NPC.Position;
-                _distance.y = 0;
+                return;
             }
 
+            _distance = NPC.meowPosition - NPC.Position;
+            _distance.y = 0;
+            
             if (_distance.magnitude < 1f)
             {
                 Debug.Log("We have entered the meow");
                 NPC.ChangeState(new SearchState());
             }
 
-            _mTimer -= Time.deltaTime;
+            if (_distance.magnitude < 10f)
+            {
+                _mTimer -= Time.deltaTime;
+            }
+
+            if (_mTimer <= 0.0f)
+            {
+                Debug.Log("We can't reach the meow");
+                NPC.ChangeState(new SearchState());
+            }
         }
 
         // called on exit
