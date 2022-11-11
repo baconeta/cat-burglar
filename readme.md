@@ -1,5 +1,5 @@
 ![image](https://user-images.githubusercontent.com/36744690/197417298-45014283-b237-4662-9df4-05f3f8ba8e94.png)
-## A game designed and developed by Joshua Pearson and Stephanie Shrimpton
+### A game designed and developed by Joshua Pearson and Stephanie Shrimpton
 
 ## The game
 Play as a very well-trained cat, whose goal is to steal items from a supermarket for their owners after dark.
